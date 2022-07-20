@@ -1,6 +1,6 @@
 # SMA OpCon MCP Agent Docs
 
-This repository contains the content behind the SMA OpCon MCP Agent documentation hosted at <https://help.smatechnologies.com/opcon/agents/mcp-agent>.
+This repository contains the content behind the SMA OpCon MCP Agent documentation hosted at <https://help.smatechnologies.com/opcon/agents/mcp>.
 
 ## Disclaimer
 
