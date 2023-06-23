@@ -42,7 +42,7 @@ Please allow up to five minutes for the components to shut themselves down.
 
 3. From the Main Menu, select STOPRM, if the Resource Monitor is active.
 
-To view the previous procedure, refer to [Stop the LSAM and Resource Monitor](/reference-information/legacy#stop-the-lsam-and-resource-monitor) in the Legacy Information topic.
+To view the previous procedure, refer to [Stop the LSAM and Resource Monitor](../reference-information/legacy#stop-the-lsam-and-resource-monitor) in the Legacy Information topic.
 
 ## Remove Checkpoint Files and Perform Upgrade
 
@@ -64,7 +64,7 @@ If upgrading from a version earlier than 18.00.00 to version 18.00.00 or higher,
 
 :::
 
-3. Run the SMA/MANAGER program to populate the configuration file with the values you captured, as well as the additional fields prior to starting the LSAM. You will need to access all four LSAM configuration screens. For new fields, refer to the discussion of the [SMAGEN (GEN option)](/configuration/general-lsam-configuration) in the MCP LSAM Configuration to configure and operate the LSAM.
+3. Run the SMA/MANAGER program to populate the configuration file with the values you captured, as well as the additional fields prior to starting the LSAM. You will need to access all four LSAM configuration screens. For new fields, refer to the discussion of the [SMAGEN (GEN option)](../configuration/general-lsam-configuration) in the MCP LSAM Configuration to configure and operate the LSAM.
 
 :::info Note 
 

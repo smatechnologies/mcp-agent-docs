@@ -6,7 +6,7 @@ Use this screen to initiate debugging for the LSAM. You can also specify the num
 
 ###### SMA Configuration and Operations Manager: SMAINITDEBUG
 
-![SMAINITDEBUG](/img/smainitdebug.png)
+![SMAINITDEBUG](../../../static/img/smainitdebug.png)
 
 ## Stop LSAM Debugging (STOPDEBUG)
 
@@ -20,5 +20,5 @@ Use this screen to stop debugging for the LSAM if
 
 ###### SMA Configuration and Operations Manager: SMASTOPDEBUG
 
-![SMASTOPDEBUG](/img/smastopdebug.png)
+![SMASTOPDEBUG](../../../static/img/smastopdebug.png)
 

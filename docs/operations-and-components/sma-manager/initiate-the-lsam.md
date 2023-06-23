@@ -6,7 +6,7 @@ Use this screen to start the LSAM, and optionally the Resource Monitor if you ha
 
 ###### SMA Configuration and Operations Manager: SMAINITLSAM
 
-![SMAINITLSAM](/img/smainitlsam.png)
+![SMAINITLSAM](../../../static/img/smainitlsam.png)
 
 ## Stop the LSAM (STOPLSAM)
 
@@ -14,4 +14,4 @@ Use this screen to stop the LSAM, and optionally the Resource Monitor as well. Y
 
 ###### SMA Configuration and Operations Manager: SMASTOPLSAM
 
-![SMASTOPLSAM](/img/smastoplsam.png)
+![SMASTOPLSAM](../../../static/img/smastoplsam.png)

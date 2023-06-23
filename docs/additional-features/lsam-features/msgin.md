@@ -1,12 +1,12 @@
 # MSGIN
 
-MSGIN functionality has been replaced by the External Event Interface Library that offers a dramatic increase in event throughput. Customers should use the External Event Interface Library or \*SMA/EVENTGEN/xxx. For information, refer to [External Event Interface Library](/additional-features/lsam-features/external-event-interface-library). For backwards compatibility, MSGIN continues to be supported and is documented here.
+MSGIN functionality has been replaced by the External Event Interface Library that offers a dramatic increase in event throughput. Customers should use the External Event Interface Library or \*SMA/EVENTGEN/xxx. For information, refer to [External Event Interface Library](../../additional-features/lsam-features/external-event-interface-library). For backwards compatibility, MSGIN continues to be supported and is documented here.
 
 ## Update the Configuration File
 
 If MSGIN was not activated during the installation, the configuration file must be updated.
  
-Modify the following fields under [Optional Modules (OPT)](/operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
 
 a. MSGIN: Freq
 

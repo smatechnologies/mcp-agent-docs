@@ -24,7 +24,7 @@ If the ```*SMA/INSTALL/nnnnnn``` program is not correctly named, the install/upg
 
 "Invalid version number. Aborting install/upgrade." To recover from this, name the ```*SMA/INSTALL/nnnnnn``` program correctly and rerun it.
 
-For a list of files which are installed with the MCP LSAM, please refer to [MCP LSAM Components](/operations-and-components/core-programs-and-files).
+For a list of files which are installed with the MCP LSAM, please refer to [MCP LSAM Components](../operations-and-components/core-programs-and-files).
 
 ## Define LSAM to IDC
 
@@ -103,4 +103,4 @@ The DCPREFIX is the leading node name(s) for the DATACOMINFO file for IDC withou
 
 ## Configure the LSAM
 
-The SMA/MANAGER program is used to configure the LSAM. To begin using the LSAM, refer to [MCP LSAM Configuration](/configuration/mcp-lsam-configuration) to configure and operate the LSAM.
+The SMA/MANAGER program is used to configure the LSAM. To begin using the LSAM, refer to [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) to configure and operate the LSAM.

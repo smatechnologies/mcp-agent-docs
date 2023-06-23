@@ -10,5 +10,5 @@ The STATUS screen shows the current status of all LSAM modules relative to this 
 
 ###### SMA Configuration and Operations Manager: SMASTATUS
 
-![SMASTATUS](/img/smastatus.png)
+![SMASTATUS](../../../static/img/smastatus.png)
 

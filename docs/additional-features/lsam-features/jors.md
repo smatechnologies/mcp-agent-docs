@@ -6,7 +6,7 @@ The Job Output Retrieval System (JORS) allows users to view job output from the 
 
 If JORS was not activated during the installation, the configuration file must be updated.
  
-Modify the following fields under [Optional Modules (OPT)](/operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
 
 a. JORS
 

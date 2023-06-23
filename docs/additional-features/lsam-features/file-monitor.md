@@ -25,7 +25,7 @@ Upon initiation, the File Monitor interrogates the status of all files defined w
 
 ## Update the Configuration Files
 
-Modify the following fields under [Optional Modules (OPT)](/operations-and-components/sma-manager/optional-modules) and General [LSAM Configuration (GEN)](/configuration/general-lsam-configuration):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules) and General [LSAM Configuration (GEN)](../../configuration/general-lsam-configuration):
 
 a. **File Monitor**: Set to a value of ```Y```.
 
@@ -33,11 +33,11 @@ b. **OpCon user and OpCon Event Token**: If a default user name and external tok
 
 ## Start the File Monitor
 
-The File Monitor is started by the Resource Monitor. Refer to the discussion of the [Resource Monitor](/additional-features/lsam-features/resource-monitor) (*SMA/RESOURCE/MONITOR) for further details.
+The File Monitor is started by the Resource Monitor. Refer to the discussion of the [Resource Monitor](../../additional-features/lsam-features/resource-monitor) (*SMA/RESOURCE/MONITOR) for further details.
 
 ## File Monitor Data File
 
-The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](/reference-information/file-monitor-messages).
+The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages).
 
 ## Files Rules
 
@@ -53,7 +53,7 @@ The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file nam
     * %: Indicates a comment record.
 7. At least one M or S record must follow each F record.
 
-To view the previous procedure, refer to [File Rules](/reference-information/legacy#file-rules) in the Legacy Information topic.
+To view the previous procedure, refer to [File Rules](../../reference-information/legacy#file-rules) in the Legacy Information topic.
 
 ### F Rules
 

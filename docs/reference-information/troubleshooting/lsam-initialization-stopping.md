@@ -11,7 +11,7 @@ The SMA/CONFIG/FILE/xxx is not present under the same usercode used to start the
 
 ##### Operator Response:
 
-Copy the SMA/CONFIG/FILE/xxx under the appropriate usercode. For more information on this response, refer to \*[SMA/CONFIG](/operations-and-components/core-programs-and-files#smaconfig).
+Copy the SMA/CONFIG/FILE/xxx under the appropriate usercode. For more information on this response, refer to \*[SMA/CONFIG](../../operations-and-components/core-programs-and-files#smaconfig).
  
 ## SEG ARRAY ERR @ 00081445
 
@@ -53,7 +53,7 @@ Depending on current LSAM activity, the ```<mix# *SMA/COMM/xxx >```HI 99 command
 
 ##### Operator Response:
 
-Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the LSAM is also an alternative although is not recommended. For more information on this response, refer to *[SMA/TCPIP](/operations-and-components/core-programs-and-files#smatcpip-associated-files).
+Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the LSAM is also an alternative although is not recommended. For more information on this response, refer to *[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
  
 ## SEG ARRAY ERR @ 2435000
 
@@ -71,7 +71,7 @@ This can occur if the LSAM has just been upgraded and one or more OpCon jobs wer
 
 2. Start the LSAM.
 
-For more information on this response, refer to [MCP LSAM Installation](/installation/introduction).
+For more information on this response, refer to [MCP LSAM Installation](../../installation/introduction).
  
 
 ## SEG ARRAY ERR @ 178600
@@ -94,7 +94,7 @@ After changing the configuration variable "max number concurrent jobs", remove t
 
 3. Be sure to check all families on the system - not just the family on which the LSAM runs.
 
-For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](/configuration/update-max-concurrent-jobs).
+For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
  
 ## ASSERTION FAILURE @ 91700
 
@@ -183,7 +183,7 @@ The \*SMA/CP/LIB/= files were not removed after changing the maximum number of c
 
 ##### Operator Response:
 
-Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](/configuration/update-max-concurrent-jobs#remove-checkpoint-and-tracking-files)./installation/new-installation#define-lsam-to-idc
+Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](../../configuration/update-max-concurrent-jobs#remove-checkpoint-and-tracking-files)./installation/new-installation#define-lsam-to-idc
  
 ## LSAM Stops Soon after Starting
 
@@ -205,7 +205,7 @@ The LSAM expects all of its files to be located in the same directory as the mod
 
 ##### First Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](/installation/new-installation#define-lsam-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-lsam-to-idc).
 
 #### Second Possible Explanation:
  
@@ -213,7 +213,7 @@ During the process of upgrading the MCP operating system, the definition of the 
 
 ##### Second Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](/installation/new-installation#define-lsam-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-lsam-to-idc).
 
 #### Third Possible Explanation:
  

@@ -4,5 +4,5 @@ Use this screen to inquire as to the backlog waiting to be processed by the Disp
 
 ###### SMA Configuration and Operations Manager: SMAMSGCOUNT
 
-![SMAMSGCOUNT](/img/smamsgcount.png)
+![SMAMSGCOUNT](../../../static/img/smamsgcount.png)
 

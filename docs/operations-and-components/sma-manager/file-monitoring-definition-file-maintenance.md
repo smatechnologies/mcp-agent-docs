@@ -10,7 +10,7 @@ Use "C" or "E" to indicate whether you want to Create or Edit the definitions fi
 
 ###### SMA Configuration and Operations Manager: SMAFILEMENU
 
-![SMAFILEMENU](/img/smafilemenu.png)
+![SMAFILEMENU](../../../static/img/smafilemenu.png)
 
 ## File Monitoring Definition File Maintenance (FILELIST)
 
@@ -18,7 +18,7 @@ Use this screen to modify records within the file monitoring definitions file.
 
 ###### SMA Configuration and Operations Manager: SMAFILELIST
 
-![SMAFILELIST](/img/smafilelist.png)
+![SMAFILELIST](../../../static/img/smafilelist.png)
 
 There are various navigation paths you can take from this screen, depending on the value in the Action field:
 
@@ -61,7 +61,7 @@ This is the sequence number associated with this record in the definitions file.
 
 :::info Note
 
-The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [File Monitor Data](/additional-features/lsam-features/file-monitor#file-monitor-data-file) File topic for more information about each record type and how to construct the data in this field.
+The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [File Monitor Data](../../additional-features/lsam-features/file-monitor#file-monitor-data-file) File topic for more information about each record type and how to construct the data in this field.
 
 :::
 
@@ -71,4 +71,4 @@ Use this screen to permanently save the file monitoring definitions changes. The
 
 ###### SMA Configuration and Operations Manager: SMASAVEFILE
 
-![SMASAVEFILE](/img/smasavefile.png)
+![SMASAVEFILE](../../../static/img/smasavefile.png)

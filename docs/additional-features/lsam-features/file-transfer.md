@@ -4,7 +4,7 @@
 
 The SMA File Transfer (SMAFT) system reliably transfers files across multiple platforms via an OpCon job. The SMA/FTAGENT, SMA/FTSERVER, and SMA/FTHANDLER components are installed with the MCP LSAM. The source and destination machines must have these components for a file transfer.
  
-After receiving instructions from the resident LSAM, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in the Enterprise Manager and on the LSAM machine (refer to [MCP LSAM Configuration](/configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
+After receiving instructions from the resident LSAM, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in the Enterprise Manager and on the LSAM machine (refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
  
 The MCP SMA/FTSERVER permits the user to configure up to nine concurrent transfers.
 
@@ -40,7 +40,7 @@ Additional disk space is required to run SMA File Transfer:
 
 ### SMA File Transfer Architecture
 
-![sma file transfer architecture](/img/sma-file-transfer-architecture.png)
+![sma file transfer architecture](../../../static/img/sma-file-transfer-architecture.png)
 
 ## Configuration
 
@@ -49,7 +49,7 @@ Before attempting a transfer, configure the machines in the Enterprise Manager a
 In the source and destination machines' LSAM configuration files, define the parameters for file transfers. For many LSAMs, these settings are commingled with the LSAM's Job Output Retrieval System (JORS) parameters. However, for the MCP LSAM, JORS and the 
 FTSERVER are separate processes and are configured individually.
 
-* For MCP LSAM file transfer parameters, refer to [SMA File Transfer (SMAFT)](/operations-and-components/sma-manager/optional-modules#sma-file-transfer-smaft) in the Optional Modules (OPT) topic.
+* For MCP LSAM file transfer parameters, refer to [SMA File Transfer (SMAFT)](../../operations-and-components/sma-manager/optional-modules#sma-file-transfer-smaft) in the Optional Modules (OPT) topic.
 
 * For Microsoft LSAM file transfer parameters, refer to the [JORS Settings](https://help.smatechnologies.com/opcon/agents/windows/administration/configuration#jors-settings) and [SMAFT Settings](https://help.smatechnologies.com/opcon/agents/windows/administration/configuration#smaft-settings) in the Microsoft LSAM online help.
 
@@ -83,5 +83,5 @@ Some sites require an ACCESSCODE in addition to a USERCODE. To specify the ACCES
 
 ### Logging
 
-For the MCP LSAM, the SMAFTAGENT logs general information messages to the PRT_FTAGENT print file when SW2 is set for the LSAM. The SMAFT Server logs general information messages to the SMAFT_DEBUG_PRT print file when SW1, SW2, SW3, SW4, and SW6 are set for the LSAM. Refer to [Debug Information](/debugging).
+For the MCP LSAM, the SMAFTAGENT logs general information messages to the PRT_FTAGENT print file when SW2 is set for the LSAM. The SMAFT Server logs general information messages to the SMAFT_DEBUG_PRT print file when SW1, SW2, SW3, SW4, and SW6 are set for the LSAM. Refer to [Debug Information](../../debugging).
 

@@ -4,7 +4,7 @@
 
 Start the LSAM to begin processing OpCon jobs.
 
-To view the previous procedure, refer to [Start the LSAM](/reference-information/legacy#start-the-lsam) in the Legacy Information topic.
+To view the previous procedure, refer to [Start the LSAM](../reference-information/legacy#start-the-lsam) in the Legacy Information topic.
 
 ### Initiate the LSAM (INITLSAM)
 
@@ -12,7 +12,7 @@ Use this screen to start the LSAM, and optionally the Resource Monitor if you ha
 
 ###### SMA Configuration and Operations Manager for WKS Instance: SMAINITLSAM
 
-![SMAINITLSAM](/img/smainitlsam.png)
+![SMAINITLSAM](../../static/img/smainitlsam.png)
 
 ## Check LSAM Status
 
@@ -28,7 +28,7 @@ The STATUS screen shows the current status of all LSAM modules relative to this 
 
 ###### SMA Configuration and Operations Manager for WKS Instance: SMASTATUS
 
-![SMASTATUS](/img/smastatus.png)
+![SMASTATUS](../../static/img/smastatus.png)
 
 ### Primary Process
 
@@ -59,6 +59,6 @@ Use this screen to stop the LSAM, and optionally the Resource Monitor as well. Y
 
 ###### SMA Configuration and Operations Manager for WKS Instance: SMASTOPLSAM
 
-![SMASTOPLSAM](/img/smastoplsam.png)
+![SMASTOPLSAM](../../static/img/smastoplsam.png)
 
-To view the previous procedure, refer to [Stop the LSAM](/reference-information/legacy#stop-the-lsam) in the Legacy Information topic.
+To view the previous procedure, refer to [Stop the LSAM](../reference-information/legacy#stop-the-lsam) in the Legacy Information topic.

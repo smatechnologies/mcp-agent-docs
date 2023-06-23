@@ -6,7 +6,7 @@ Use this screen to start the MCP Resource Monitor only if you have not configure
 
 ###### SMA Configuration and Operations Manager: SMAINITRM
 
-![SMAINITRM](/img/smainitrm.png)
+![SMAINITRM](../../../static/img/smainitrm.png)
 
 ## Stop the Resource Monitor (STOPRM)
 
@@ -14,4 +14,4 @@ Use this screen to stop the MCP Resource Monitor. If you have configured the LSA
 
 ###### SMA Configuration and Operations Manager: SMASTOPRM
 
-![SMASTOPRM](/img/smastoprm.png)
+![SMASTOPRM](../../../static/img/smastoprm.png)

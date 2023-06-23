@@ -16,9 +16,9 @@ If a single LSAM is desired, it is not necessary to use an LSAM identifier.
 
 :::
 
-Use the same procedures to install each LSAM in a multiple LSAM environment as you would to install a single LSAM. For more information, refer to [New Installation](/installation/new-installation).
+Use the same procedures to install each LSAM in a multiple LSAM environment as you would to install a single LSAM. For more information, refer to [New Installation](../installation/new-installation).
 
 ## Prerequisites
 
-The Pre-installation Worksheet has fields of required information for a successful MCP LSAM installation as well as fields for optional features which aid in implementing all of the LSAM features. For more information, refer to [Pre-installation Worksheet](/installation/pre-installation-worksheet).
+The Pre-installation Worksheet has fields of required information for a successful MCP LSAM installation as well as fields for optional features which aid in implementing all of the LSAM features. For more information, refer to [Pre-installation Worksheet](../installation/pre-installation-worksheet).
 

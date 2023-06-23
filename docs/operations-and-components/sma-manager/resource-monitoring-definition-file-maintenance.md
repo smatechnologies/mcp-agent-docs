@@ -11,7 +11,7 @@ Use "C" or "E" to indicate whether you want to Create or Edit the definitions fi
 
 ###### SMA Configuration and Operations Manager: SMARESMENU
 
-![SMARESMENU](/img/smaresmenu.png)
+![SMARESMENU](../../../static/img/smaresmenu.png)
 
 ## Resource Monitoring Definition File Maintenance (RELIST)
 
@@ -19,7 +19,7 @@ Use this screen to modify records within the resource monitoring definitions fil
 
 ###### SMA Configuration and Operations Manager: SMARESLIST
 
-![SMARESLIST](/img/smareslist.png)
+![SMARESLIST](../../../static/img/smareslist.png)
 
 There are various navigation paths you can take from this screen, depending on the value in the Action field:
 
@@ -56,7 +56,7 @@ This is the sequence number associated with this record in the definitions file.
 
 :::info Note
 
-The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [Performance Monitor Data File](/additional-features/lsam-features/resource-monitor#performance-monitor-data-file) section for more information about each record type and how to construct the data in this field.
+The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [Performance Monitor Data File](../../additional-features/lsam-features/resource-monitor#performance-monitor-data-file) section for more information about each record type and how to construct the data in this field.
 
 :::
 
@@ -66,4 +66,4 @@ Use this screen to permanently save the Resource Monitor definition changes. The
 
 ###### SMA Configuration and Operations Manager: SMASAVERES
 
-![SMASAVERES](/img/smasaveres.png)
+![SMASAVERES](../../../static/img/smasaveres.png)

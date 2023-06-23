@@ -1,6 +1,6 @@
 # Legacy Information
 
-This section contains information that has been preserved from prior to the MCP LSAM 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides the user with an Operations interface for accomplishing many tasks that previously required the user to interact directly with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP LSAM Administration guide. Please refer to the [MCP LSAM Configuration](/configuration/mcp-lsam-configuration) and [MCP LSAM Operations and Components](/operations-and-components/mcp-lsam-operation) sections for current instructions on using SMA/MANAGER.
+This section contains information that has been preserved from prior to the MCP LSAM 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides the user with an Operations interface for accomplishing many tasks that previously required the user to interact directly with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP LSAM Administration guide. Please refer to the [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) and [MCP LSAM Operations and Components](../operations-and-components/mcp-lsam-operation) sections for current instructions on using SMA/MANAGER.
 
 ## Automated Installation/Upgrade
 
@@ -18,7 +18,7 @@ Please allow up to five minutes for the components to shut themselves down.
 
 3. Repeat Steps 1 and 2 for *SMA/RESOURCE/MONITOR, if active.
 
-To view the new procedure, refer to [Stop the LSAM and Resource Monitor](/installation/upgrade-installation#stop-the-lsam-and-resource-monitor) in the Automated Installation/Upgrade topic.
+To view the new procedure, refer to [Stop the LSAM and Resource Monitor](../installation/upgrade-installation#stop-the-lsam-and-resource-monitor) in the Automated Installation/Upgrade topic.
  
 ## Run the Configuration Program
 
@@ -36,7 +36,7 @@ To view the new procedure, refer to [Stop the LSAM and Resource Monitor](/instal
 
 :::info Note 
 
-Changing the "Max number concurrent jobs" setting requires additional procedures. For information on updating the "Max number concurrent jobs" setting, refer to [Update the "Max Number Concurrent Jobs" Field](/configuration/update-max-concurrent-jobs).
+Changing the "Max number concurrent jobs" setting requires additional procedures. For information on updating the "Max number concurrent jobs" setting, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs).
 
 :::
 
@@ -52,17 +52,17 @@ d. To Quit, type Q.
 
 7. Transmit the screen.
 
-To view the new procedure, refer to the [Run the Manager Program](/configuration/configuration-settings#run-the-manager-program) topic.
+To view the new procedure, refer to the [Run the Manager Program](../configuration/configuration-settings#run-the-manager-program) topic.
 
 ### Configuration Settings
 
 Configuration Settings for SMA LSAM
  
-![Configuration Settings for SMA LSAM](/img/configuration-settings-for-sma-lsam.png)
+![Configuration Settings for SMA LSAM](../../static/img/configuration-settings-for-sma-lsam.png)
 
 The next several topics describe the fields found on the SMA/CONFIG screen.
  
-To view the new settings, refer to [Configuration Settings](/configuration/configuration-settings) in the Run the Manager Program topic.
+To view the new settings, refer to [Configuration Settings](../configuration/configuration-settings) in the Run the Manager Program topic.
 
 The next several topics describe the fields found on the SMA/CONFIG screen.
  
@@ -160,7 +160,7 @@ Stop the LSAM using either of the two methods provided in this section. For eith
 
 2. On the MARC main menu screen, go to the Action line. Type ```<mix number of *SMA/COMM/xxx>``` HI 99. Transmit.
 
-To view the new procedure, refer to [Stop the LSAM](/operations-and-components/mcp-lsam-operation#stop-the-lsam) in the LSAM Operation topic.
+To view the new procedure, refer to [Stop the LSAM](../operations-and-components/mcp-lsam-operation#stop-the-lsam) in the LSAM Operation topic.
  
 ## MCP LSAM Components
 
@@ -183,7 +183,7 @@ The LSAM configuration program, used to maintain the LSAM's configuration file.
 
 Global: If you suspect that you are experiencing a delay due to high display message volume, you may determine the number of display messages waiting to be processed by issuing an AX COUNT command to the *SMA/DISPLAY/HANDLER. The display message backlog will be displayed on the system console.
  
-To view the new information, refer to [Global](/additional-features/lsam-features/automated-response#automated-response-data-file) in the Automated Response Data File topic.
+To view the new information, refer to [Global](../additional-features/lsam-features/automated-response#automated-response-data-file) in the Automated Response Data File topic.
 
 ### Define an Automated Response
 
@@ -197,7 +197,7 @@ To view the new information, refer to [Global](/additional-features/lsam-feature
 
 5. If testing is successful, copy the Definitions File to the MCP production environment.
 
-To view the new procedure, refer to [Define an Automated Response](/additional-features/lsam-features/automated-response#define-an-automated-response) in the Automated Response Data File topic.
+To view the new procedure, refer to [Define an Automated Response](../additional-features/lsam-features/automated-response#define-an-automated-response) in the Automated Response Data File topic.
  
 ## Dynamic LSAM Configuration
 
@@ -205,7 +205,7 @@ For all LSAM configuration variables, except 'Max number concurrent jobs', chang
  
 If the AX CONFIG request is misspelled (e.g., AX CONVAL) the erroneous input will be displayed, followed by "request REJECTED!"
  
-To view the new information, refer to the [Dynamic LSAM Configuration](/additional-features/lsam-features/dynamic-lsam-configuration) topic.
+To view the new information, refer to the [Dynamic LSAM Configuration](../additional-features/lsam-features/dynamic-lsam-configuration) topic.
  
 ## File Monitor Data File
 
@@ -229,7 +229,7 @@ Do not modify the production copy of any definitions file directly. SMA Technolo
 
 6. The File Monitor Data File is dynamic. After updating and validating the \*SMA/FILEMON/DEFS/xxx file, deliver an AX FILEMON to the \*SMA/RESOURCE/MONITOR/xxx program. This causes both programs reload the \*SMA/FILEMON/DEFS/xxx file. The \*SMA/SYNTAX/CHECK/xxx program will report any errors detected. These errors must be corrected before further file monitoring can take place.
 
-To view the new procedure, refer to [File Rules](/additional-features/lsam-features/file-monitor#files-rules) in the File Monitor Data File topic.
+To view the new procedure, refer to [File Rules](../additional-features/lsam-features/file-monitor#files-rules) in the File Monitor Data File topic.
  
 ## Start the Resource Monitor
 
@@ -243,7 +243,7 @@ RUN *SMA/RESOURCE/MONITOR/xxx ON ```<diskpack>```;
  
 ```
 
-To view the new information, refer to the [Start the Resource Monitor](/additional-features/lsam-features/resource-monitor#start-the-resource-monitor) topic.
+To view the new information, refer to the [Start the Resource Monitor](../additional-features/lsam-features/resource-monitor#start-the-resource-monitor) topic.
  
 ## Maintenance of Definitions Files
 
@@ -259,19 +259,19 @@ To view the new information, refer to the [Start the Resource Monitor](/addition
 
 6. If the file monitor definitions file, performance monitor definitions file, or system message definitions file was modified, notify the *SMA/RESOURCE/MONITOR to refresh its internal tables with the new definitions, ```<mix#>``` AX FILEMON, ```<mix#>``` AX PERFMON, and ```<mix#>``` AX SYSMSG, respectively.
 
-To view the new procedure, refer to [Maintain Definitions Files](/additional-features/lsam-features/resource-monitor#maintenance-of-definitions-files) in the Maintenance of Definitions Files topic.
+To view the new procedure, refer to [Maintain Definitions Files](../additional-features/lsam-features/resource-monitor#maintenance-of-definitions-files) in the Maintenance of Definitions Files topic.
  
 ## File Monitoring
 
 Each time a file close notification is received, it will be processed by the Resource Monitor and forwarded to the File Monitor. If you update the \*SMA/FILEMON/DEFS /xxx file and wish for the changes to take effect immediately as opposed to upon the next initiation of the Resource Monitor, you should deliver an AX FILEMON message to the \*SMA/RESOURCE/MONITOR/xxx program. This will cause the Resource Monitor to the list of files to be refreshed without the need to terminate the Resource Monitor. The Resource Monitor will inform \*SMA/FILE/MONITOR/xxx of the changes to \*SMA/FILEMON/DEFS/xxx so that the pointers to the associated actions within the file will be accurate.
  
-To view the new information, refer to the [File Monitoring](/additional-features/lsam-features/file-monitor) topic.
+To view the new information, refer to the [File Monitoring](../additional-features/lsam-features/file-monitor) topic.
 
 ### SMA/FILE/MONITOR Behavior
 
 If the file monitor definitions file has been modified and you desire to implement the changes immediately as opposed to with the next initiation of the Resource Monitor and File Monitor, you should deliver an AX FILEMON to the Resource Monitor, \*SMA/RESOURCE/MONITOR/xxx. This will cause only the File Monitor to close and reopen the definitions file so the pointers received from the Resource Monitor will coincide with the record locations within the file.
  
-To view the new information, refer to [SMA/FILE/MONITOR Behavior](/additional-features/lsam-features/file-monitor) in the File Monitoring topic.
+To view the new information, refer to [SMA/FILE/MONITOR Behavior](../additional-features/lsam-features/file-monitor) in the File Monitoring topic.
  
 ## Problem Resolution and Debugging
 
@@ -279,4 +279,4 @@ To view the new information, refer to [SMA/FILE/MONITOR Behavior](/additional-fe
 
 Deliver to the \*SMA/COMM/xxx module an AX DEBUG ```<optional timer>``` command, where ```<optional timer>``` is the number of minutes for which to capture debug information. If the timer is omitted, debugging will remain active until a) an AX LOGS command is delivered to the \*SMA/COMM/xxx module, or b) the LSAM is brought down. This method sets debug switches for all the LSAM components, excluding the Resource and File Monitors. To enable debugging for the Resource and File Monitors, deliver an AX DEBUG ```<optional timer>``` to the \*SMA/RESOURCE/MONITOR/xxx module.
  
-To view the new information, refer to [Enable Debug](/debugging) in the Problem Resolution and Debugging topic.
+To view the new information, refer to [Enable Debug](../debugging) in the Problem Resolution and Debugging topic.
