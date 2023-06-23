@@ -13,7 +13,7 @@ The following types of messages are forwarded to the display handler for Automat
 
 If Automated Response was not activated during the installation, the configuration file must be updated.
  
-Modify the following fields under [Optional Modules (OPT)](/configuration/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../configuration/optional-modules):
 
 a. **Autoresponse**: Set to a value of **Y**.
 
@@ -31,7 +31,7 @@ The following four kinds of Displays Files are allowed:
  
 More efficient processing can be achieved by using Template or Job-specific Displays Files in lieu of a Global Displays File when possible. Please note that this approach does result in a greater number of individual Displays Files.
  
-If you suspect that you are experiencing a delay due to high display message volume, you may determine the number of display messages waiting to be processed by selecting the MSGCOUNT choice of the SMAMGR Main Menu. The display message backlog will be returned. To view the previous information, refer to [Create the Necessary Displays File(s)](/reference-information/legacy#create-the-necessary-displays-files) in the Legacy Information topic.
+If you suspect that you are experiencing a delay due to high display message volume, you may determine the number of display messages waiting to be processed by selecting the MSGCOUNT choice of the SMAMGR Main Menu. The display message backlog will be returned. To view the previous information, refer to [Create the Necessary Displays File(s)](../../reference-information/legacy#create-the-necessary-displays-files) in the Legacy Information topic.
 
 * The Global Displays File is optional and, if used, must be named \*SMA/DISPLAYS/xxx.
 * The Global Displays File is not dynamic. After updating \*SMA/DISPLAYS/xxx, issue the AX REFRESH command to the \*SMA/DISPLAY/HANDLER/xxx to reload the Displays File.
@@ -72,7 +72,7 @@ b. If a Job-specific Displays File is required, create a SEQDATA file named \*SM
 
 11. If a Job-specific or Template Displays File was modified, no notification is necessary.
 
-To view the previous procedure, refer to [Define an Automated Response](/reference-information/legacy#define-an-automated-response) in the Legacy Information topic.
+To view the previous procedure, refer to [Define an Automated Response](../../reference-information/legacy#define-an-automated-response) in the Legacy Information topic.
 
 ### Displays File Rules that Apply ONLY to System Messages
 

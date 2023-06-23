@@ -10,7 +10,7 @@ The Processing Variables screen allows the user to configure the following:
 
 ###### SMA Configuration and Operations Manager: SMAVAR
 
-![SMAVAR](/img/smavar.png)
+![SMAVAR](../../static/img/smavar.png)
 
 ## MCP LSAM Configuration Settings: Processing Variables
 
@@ -46,7 +46,7 @@ This field determines if and when an LSAM sends a task completion message.
 
 :::info Note 
 
-Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](/additional-features/lsam-features/resource-utilization-statistics).
+Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](../additional-features/lsam-features/resource-utilization-statistics).
 
 :::
 
@@ -65,7 +65,7 @@ This field enables/disables messaging during job processing to indicate Fail Cod
 
 ### Checkpoint frequency
 
-This field determines the units of a Checkpoint Interval. Refer to [User-defined Restart/Recovery Checkpoints](/additional-features/lsam-features/user-defined-restart-checkpoints) for more information on checkpoints.
+This field determines the units of a Checkpoint Interval. Refer to [User-defined Restart/Recovery Checkpoints](../additional-features/lsam-features/user-defined-restart-checkpoints) for more information on checkpoints.
 
 At regular checkpoints, the LSAM saves tracking file and job array information for recovery and restart purposes. The automatic recovery/restart process falls back on the data from the last checkpoint.
 

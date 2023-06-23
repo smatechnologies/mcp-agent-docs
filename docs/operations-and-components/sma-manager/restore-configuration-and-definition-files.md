@@ -6,4 +6,4 @@ To restore a production configuration file from a recent backup, select the REST
 
 ### SMA Configuration and Operations Manager: SMARESTORE
 
-![SMARESTORE](/img/smarestore.png)
+![SMARESTORE](../../../static/img/smarestore.png)

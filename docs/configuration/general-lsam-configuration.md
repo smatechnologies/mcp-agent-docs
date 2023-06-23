@@ -8,7 +8,7 @@ This screen is also used to configure the userid and external token for external
 
 ###### SMA Configuration and Operations Manager: SMAGEN
 
-![SMAGEN](/img/smagen.png)
+![SMAGEN](../../static/img/smagen.png)
 
 ###### MCP General LSAM Configuration
 

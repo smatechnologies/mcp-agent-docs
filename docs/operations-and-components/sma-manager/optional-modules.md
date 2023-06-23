@@ -9,7 +9,7 @@ The Optional Modules screen allows the user to configure the following:
 
 ###### SMA Configuration and Operations Manager: SMAOPT
 
-![SMAOPT](/img/smaopt.png)
+![SMAOPT](../../../static/img/smaopt.png)
 
 ## MCP LSAM Configuration Settings: Optional Modules
 

@@ -4,7 +4,7 @@ The Communication Parameters screen allows the user to configure the information
 
 ### SMA Configuration and Operations Manager: SMACOMM
 
-![SMACOMM](/img/smacomm.png)
+![SMACOMM](../../../static/img/smacomm.png)
 
 ### MCP LSAM Configuration Settings: Communication Parameters
 

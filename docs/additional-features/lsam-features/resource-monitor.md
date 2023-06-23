@@ -8,7 +8,7 @@ The recipient will then traverse the associated user data file to determine whet
 
 ## Update the Configuration File
 
-Modify the following fields under [Optional Modules](/operations-and-components/sma-manager/optional-modules) (OPT) and [General LSAM Configuration (GEN)](/configuration/general-lsam-configuration):
+Modify the following fields under [Optional Modules](../../operations-and-components/sma-manager/optional-modules) (OPT) and [General LSAM Configuration (GEN)](../../configuration/general-lsam-configuration):
 
 1. For file monitoring:
 
@@ -32,7 +32,7 @@ Modify the following fields under [Optional Modules](/operations-and-components/
 
 In order to provide continuous monitoring apart from the MCP LSAM, the Resource Monitor is initiated independently of the LSAM. If you have configured the Resource Monitor to be initiated concurrently with the LSAM, use the STATUS choice of SMA/MANAGER to confirm that the Resource Monitor is running. If you did not have the Resource Monitor set up to be initiated with the LSAM, use the INITRM choice on the SMA/MANAGER Main Menu to start it.
  
-To view the previous information, refer to [Start the Resource Monitor](/reference-information/legacy#start-the-resource-monitor) in the Legacy Information topic.
+To view the previous information, refer to [Start the Resource Monitor](../../reference-information/legacy#start-the-resource-monitor) in the Legacy Information topic.
 
 ## Maintenance of Definitions Files
 
@@ -46,7 +46,7 @@ The instructions provided in this section should be used to maintain these defin
 
 3. If the file monitor definitions file, performance monitor definitions file, or system message definitions file was modified, notify the \*SMA/RESOURCE/MONITOR to refresh its internal tables with the new definitions. From the SMA/MANAGER Main Menu, select LOADDISP, LOADFILE, or LOADPERF.
 
-To view the previous procedure, refer to [Maintain Definitions Files](/reference-information/legacy#maintenance-of-definitions-files) in the Legacy Information topic.
+To view the previous procedure, refer to [Maintain Definitions Files](../../reference-information/legacy#maintenance-of-definitions-files) in the Legacy Information topic.
 
 ## Monitor for Performance and Disk Space Utilization Metrics
 
@@ -56,7 +56,7 @@ At the configured frequency, the defined metrics will be interrogated and the re
  
 Each time a defined performance metric is achieved, the associated actions will be executed. There exists no facility for one-time processing of performance metrics.
  
-If you update the performance definitions file and wish for the changes to take effect immediately as opposed to upon the next initiation of the Resource Monitor, you should utilize the LOADPERF choice on the Main Menu of SMAMGR after completing the steps provided in the [Maintenance of Definitions Files](/reference-information/legacy#maintenance-of-definitions-files) section. This will cause the internal table to be updated without the need to terminate the Resource Monitor. However, all cumulative data gathered prior to the update will be lost; the only values impacted will be those metrics accumulated using SUM or AVG. Should the AVG and SUM accumulation methods prove to be widely used in an environment in which the \*SMA/PERFMON/DEFS file is volatile and the loss of accumulated data is demonstrated to be an issue, an enhancement request to retain the accumulated values should be submitted.
+If you update the performance definitions file and wish for the changes to take effect immediately as opposed to upon the next initiation of the Resource Monitor, you should utilize the LOADPERF choice on the Main Menu of SMAMGR after completing the steps provided in the [Maintenance of Definitions Files](../../reference-information/legacy#maintenance-of-definitions-files) section. This will cause the internal table to be updated without the need to terminate the Resource Monitor. However, all cumulative data gathered prior to the update will be lost; the only values impacted will be those metrics accumulated using SUM or AVG. Should the AVG and SUM accumulation methods prove to be widely used in an environment in which the \*SMA/PERFMON/DEFS file is volatile and the loss of accumulated data is demonstrated to be an issue, an enhancement request to retain the accumulated values should be submitted.
 
 ## Performance Monitor Data File
 
@@ -201,7 +201,7 @@ The Display Handler will make no distinction between messages from the LSAM and 
 
 Each time a file close notification is received, it will be processed by the Resource Monitor and forwarded to the File Monitor. If you update the \*SMA/FILEMON/DEFS /xxx file and wish for the changes to take effect immediately as opposed to upon the next initiation of the Resource Monitor, use the LOADFILE option on the Main Menu of SMA/MANAGER. This will cause the Resource Monitor to the list of files to be refreshed without the need to terminate the Resource Monitor. The Resource Monitor will inform \*SMA/FILE/MONITOR/xxx of the changes to \*SMA/FILEMON/DEFS/xxx so that the pointers to the associated actions within the file will be accurate.
 
-To view the previous information, refer to [File Monitoring](/reference-information/legacy#file-monitoring) in the Legacy Information topic.
+To view the previous information, refer to [File Monitoring](../../reference-information/legacy#file-monitoring) in the Legacy Information topic.
 
 ### SMA/FILEMON/DEFS Definitions File
 
@@ -234,7 +234,7 @@ The ALTERDATE and ALTERTIME of the monitored file will be compared to the date/t
 
 If the file monitor definitions file has been modified and you desire to implement the changes immediately as opposed to with the next initiation of the Resource Monitor and File Monitor, you should use the LOADFILE option on the Main Menu of SMA/MANAGER. This will cause only the File Monitor to close and reopen the definitions file so the pointers received from the Resource Monitor will coincide with the record locations within the file.
 
-To view the previous information, refer to [SMA/FILE/MONITOR Behavior](/reference-information/legacy#smafilemonitor-behavior) in the Legacy Information topic.
+To view the previous information, refer to [SMA/FILE/MONITOR Behavior](../../reference-information/legacy#smafilemonitor-behavior) in the Legacy Information topic.
  
 If, at any time, you wish to force the File Monitor to re-evaluate the conditions of all files defined within \*SMA/FILEMON/DEFS/xxx, you should deliver an AX RESTART to \*SMA/FILE/MONITOR/xxx. The RESTART option will cause the File Monitor to close and reopen the definitions file (\*SMA/FILEMON/DEFS/xxx) as well as check the defined conditions and perform the associated actions if the conditions occur.
  

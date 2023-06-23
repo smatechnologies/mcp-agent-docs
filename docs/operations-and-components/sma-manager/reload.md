@@ -8,7 +8,7 @@ The LSAM configuration variable, "Max number concurrent jobs," is not dynamic. I
 
 ###### SMA Configuration and Operations Manager: SMALOADCFG
 
-![SMALOADCFG](/img/smaloadcfg.png)
+![SMALOADCFG](../../../static/img/smaloadcfg.png)
 
 ## Reload Display Monitor Config (LOADDISP)
 
@@ -16,7 +16,7 @@ Use this screen to notify the Display Handler that the message definitions file 
 
 ###### SMA Configuration and Operations Manager: SMALOADDISP
 
-![SMALOADDISP](/img/smaloaddisp.png)
+![SMALOADDISP](../../../static/img/smaloaddisp.png)
 
 ## Reload File Config (LOADFILE)
 
@@ -24,7 +24,7 @@ Use this screen to notify the Resource Monitor and File Monitor to reload the fi
 
 ###### SMA Configuration and Operations Manager: SMALOADFILE
 
-![SMALOADFILE](/img/smaloadfile.png)
+![SMALOADFILE](../../../static/img/smaloadfile.png)
 
 ## Reload Performance Config (LOADPERF)
 
@@ -32,5 +32,5 @@ Use this screen to notify the Resource Monitor to reload the resource monitor de
 
 ###### SMA Configuration and Operations Manager: SMALOADPERF
 
-![SMALOADPERF](/img/smaloadperf.png)
+![SMALOADPERF](../../../static/img/smaloadperf.png)
 

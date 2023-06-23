@@ -9,7 +9,7 @@ This section identifies the resources and support available to you when an issue
 
 #### Resource One
 
-If an issue occurs, first check [Machine Messages](/reference-information/machine-messages) and [Troubleshooting](/reference-information/troubleshooting/). Most issues that have occurred at other customer sites are documented in these sections. It may be possible to take the prescribed action and be up and running again in a very short time.
+If an issue occurs, first check [Machine Messages](reference-information/machine-messages) and [Troubleshooting](reference-information/troubleshooting/). Most issues that have occurred at other customer sites are documented in these sections. It may be possible to take the prescribed action and be up and running again in a very short time.
 
 #### Resource Two
 
@@ -47,7 +47,7 @@ If the issue affects all jobs (or the LSAM itself), SMA Technologies recommends 
 
 Simply select INITDEBUG form the SMAMAINMENU, and follow the screen prompts. The optional timer is the number of minutes for which to capture debug information. If the timer is omitted, debugging will remain active until a) debugging is disabled via the SMA/MANAGER screen selection, STOPDEBUG, or b) the LSAM is brought down. This method sets debug switches for all the LSAM components, excluding the Resource and File Monitors. To enable debugging for the Resource and File Monitors, deliver an AX DEBUG ```<optional timer>``` to the \*SMA/RESOURCE/MONITOR/xxx module.
  
-To view the previous information, refer to [Enable Debug](/reference-information/legacy#enable-debug) in the Legacy Information topic.
+To view the previous information, refer to [Enable Debug](reference-information/legacy#enable-debug) in the Legacy Information topic.
 
 ### Collect Debug Information
 

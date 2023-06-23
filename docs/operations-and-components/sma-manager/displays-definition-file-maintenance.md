@@ -4,7 +4,7 @@ Use this screen to modify records within the displays definition file.
 
 ###### SMA Configuration and Operations Manager: SMADISPLIST
 
-![SMADISPLIST](/img/smadisplist.png)
+![SMADISPLIST](../../../static/img/smadisplist.png)
 
 There are various navigation paths you can take from this screen, depending on the value in the Action field:
 
@@ -43,7 +43,7 @@ This field is the record type.
 
 This field is the sequence number associated with this record in the definitions file. To modify or delete an existing record, leave the sequence number field as is. To insert a new record in the definitions file, enter an 8-digit sequence number that falls between the previous record and the next record. If you are on the last page and want to add records to the end of the file, simply enter sequence numbers that are successively greater than the last existing record’s sequence number.
 
-The long field below the action, type, and sequence line is used to define the message for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [Automated Response Data File](/additional-features/lsam-features/automated-response#automated-response-data-file) topic for more information about each record type and how to construct the data in this field.
+The long field below the action, type, and sequence line is used to define the message for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [Automated Response Data File](../../additional-features/lsam-features/automated-response#automated-response-data-file) topic for more information about each record type and how to construct the data in this field.
 
 ## Save Display Definition Changes (SAVEDISP)
 
@@ -51,4 +51,4 @@ Use this screen to permanently save the displays definitions changes. The defini
 
 ###### SMA Configuration and Operations Manager: SMASAVEDISP
 
-![SMASAVEDISP](/img/smasavedisp.png)
+![SMASAVEDISP](../../../static/img/smasavedisp.png)

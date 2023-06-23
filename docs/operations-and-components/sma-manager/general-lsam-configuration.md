@@ -4,7 +4,7 @@ The General LSAM Configuration screen allows the user to configure the informati
 
 SMA Configuration and Operations Manager: SMAGEN
 
-![SMAGEN](/img/smagen.png)
+![SMAGEN](../../../static/img/smagen.png)
 
 ###### MCP General LSAM Configuration
 

@@ -12,7 +12,7 @@ The global displays file is missing. Effective with MCP LSAM 04.14.02, this file
 
 ###### First Operator Response:
 
-Create a \*SMA/DISPLAYS/xxx file. For more information on this response, refer to [File Rules](/additional-features/lsam-features/file-monitor#files-rules).
+Create a \*SMA/DISPLAYS/xxx file. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
 
 #### Second Possible Explanation:
  
@@ -20,7 +20,7 @@ The global displays file is under a different usercode than the LSAM.
 
 ###### Second Operator Response:
 
-Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or copy it under the correct usercode. For more information on this response, refer to [File Rules](/additional-features/lsam-features/file-monitor#files-rules).
+Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or copy it under the correct usercode. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
 
 #### Third Possible Explanation:
  
@@ -28,7 +28,7 @@ The display is not correctly defined in the displays file.
 
 ###### Third Operator Response:
 
-Run the \*SMA/DISPLAY/HANDLER/xxx in debug mode to troubleshoot the entry. For more information on this response, refer to \*[SMA/DISPLAY/HANDLER](/operations-and-components/optional-programs-and-files#smadisplayhandler-associated-files).
+Run the \*SMA/DISPLAY/HANDLER/xxx in debug mode to troubleshoot the entry. For more information on this response, refer to \*[SMA/DISPLAY/HANDLER](../../operations-and-components/optional-programs-and-files#smadisplayhandler-associated-files).
 
 #### Fourth Possible Explanation:
  
@@ -57,7 +57,7 @@ Verify the LSAM is up and is communicating with the SAM. For information on veri
 External event is sent to SAM, but an error is reported in the critical log.
 
 ##### Second Operator Response:
-Verify the external token is the correct external events token and is not the Enterprise Manager password. For more information on this response, refer to [Update the Configuration File](/additional-features/lsam-features/user-defined-restart-checkpoints#update-the-configuration-file).
+Verify the external token is the correct external events token and is not the Enterprise Manager password. For more information on this response, refer to [Update the Configuration File](../../additional-features/lsam-features/user-defined-restart-checkpoints#update-the-configuration-file).
 
 ## Changes to Display Monitor Rules not Applied
 
@@ -71,7 +71,7 @@ The \*SMA/DISPLAYS/xxx file was modified, but the *SMA/DISPLAY/HANDLER/xxx progr
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](/additional-features/lsam-features/file-monitor#files-rules).
+After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
  
 ## Title Missing "." @41800
 
@@ -85,7 +85,7 @@ The job's File Title field on the Enterprise Manager's Job Details screen contai
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](/additional-features/lsam-features/file-monitor#files-rules).
+After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
  
 ## Jobs Stuck in "Waiting" State
 
@@ -99,7 +99,7 @@ The Idle Timer is configured for a long interval.
 
 ##### Operator Response:
 
-Reduce the Idle Timer. For more information on this response, refer to [Idle Timer](/additional-features/lsam-features/resource-monitor#smafilemonitor-behavior).
+Reduce the Idle Timer. For more information on this response, refer to [Idle Timer](../../additional-features/lsam-features/resource-monitor#smafilemonitor-behavior).
 
 :::info Note 
 

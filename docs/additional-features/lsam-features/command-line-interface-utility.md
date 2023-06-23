@@ -6,7 +6,7 @@ The Command-line Interface Utility forwards commands to specified processes on t
 
 The SMA/COMMAND program parameters are the name of the target process and the command to be passed to the process.
  
-Because processes initiated via a RUN command are limited to a single parameter when initiated using OpCon or CANDE, it is necessary to initiate the \*SMA/COMMAND program using a WFL. The program may be contained in a user-written WFL or initiated using the SMA/WFL/COMMAND WFL. Refer to [Using *SMA/WFL/COMMAND](/additional-features/utilities/sma-wfl-command).
+Because processes initiated via a RUN command are limited to a single parameter when initiated using OpCon or CANDE, it is necessary to initiate the \*SMA/COMMAND program using a WFL. The program may be contained in a user-written WFL or initiated using the SMA/WFL/COMMAND WFL. Refer to [Using *SMA/WFL/COMMAND](../../additional-features/utilities/sma-wfl-command).
  
 *SMA/COMMAND will fail if any of the following conditions are true:
 

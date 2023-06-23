@@ -4,7 +4,7 @@ The External Event Interface Library allows OpCon events to be passed directly t
 
 ## Using *SMA/EVENTGEN
 
-In a WFL, the \*SMA/EVENTGEN/xxx utility forwards external events to the SAM-SS. The program accepts three parameters: the SAM ID, the SAM external token, and the external event to be forwarded. The SAM ID and SAM external token can default to the values defined in the LSAM's configuration file. For information on these configuration settings, refer to the [General LSAM Configuration (GEN)](/configuration/general-lsam-configuration) topic. In order to use the default(s), substitute a null string (i.e., "") for the SAM ID and SAM external token value when running the \*SMA/EVENTGEN/xxx utility. The \*SMA/EVENTGEN program requires no modification.
+In a WFL, the \*SMA/EVENTGEN/xxx utility forwards external events to the SAM-SS. The program accepts three parameters: the SAM ID, the SAM external token, and the external event to be forwarded. The SAM ID and SAM external token can default to the values defined in the LSAM's configuration file. For information on these configuration settings, refer to the [General LSAM Configuration (GEN)](../../configuration/general-lsam-configuration) topic. In order to use the default(s), substitute a null string (i.e., "") for the SAM ID and SAM external token value when running the \*SMA/EVENTGEN/xxx utility. The \*SMA/EVENTGEN program requires no modification.
  
 The utility is often applied in the event a WFL contains numerous tasks and the failure (or completion) of a given task should trigger an OpCon action. This WFL may or may not have been initiated using OpCon. This application of the utility is valuable when the WFL cannot be scheduled using OpCon (i.e., it is initiated by a user of an online program).
 

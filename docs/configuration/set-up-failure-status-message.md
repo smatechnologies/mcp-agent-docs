@@ -1,6 +1,6 @@
 # Set Up Failure and Status Message Logic
 
-An MCP job's status in Enterprise Manager Operation relies on several configuration settings: Fail Immediately on Fail Code, Send Fail/Reset Message, Task-Failure Checking, and Task-Completion Message. (Refer to the configuration file tables starting in [Processing Variables (VAR)](/configuration/processing-variables).) If a job is not failed immediately, the internal JOB TO BE FAILED flag also plays an important role.
+An MCP job's status in Enterprise Manager Operation relies on several configuration settings: Fail Immediately on Fail Code, Send Fail/Reset Message, Task-Failure Checking, and Task-Completion Message. (Refer to the configuration file tables starting in [Processing Variables (VAR)](../configuration/processing-variables).) If a job is not failed immediately, the internal JOB TO BE FAILED flag also plays an important role.
 
 ## Job to be Failed Flag
 
@@ -28,7 +28,7 @@ The next table shows all the factors involved in using the Fail Code/Fail Reset 
 
 Task-level checking enables the LSAM to report a job as failed to Enterprise Manager Operation when a job's subordinate task fails. Display messages issued by the job do not determine the job completion status; job completion status is determined solely by the completion status of the subordinate task(s). With task-level checking enabled, the failure of any single task in a WFL marks the job as failed or sets the JOB TO BE FAILED flag to Y. 
 
-If defined, Fail Codes and/or Fail Resets are applied to tasks regardless of the task-level checking setting. For more information on configuration settings, refer to [Processing Variables (VAR)](/configuration/processing-variables). When the LSAM is configured to report at the task level (A or F), the Enterprise Manager's job history includes the completion status of each task. 
+If defined, Fail Codes and/or Fail Resets are applied to tasks regardless of the task-level checking setting. For more information on configuration settings, refer to [Processing Variables (VAR)](../configuration/processing-variables). When the LSAM is configured to report at the task level (A or F), the Enterprise Manager's job history includes the completion status of each task. 
 
 The next table shows all the factors involved in task-level checking. Use the table to configure the LSAM's behavior upon a task's failure or success.
 

@@ -1,15 +1,15 @@
 # External Jobs Tracking
 
-The SMA/ANNOUNCE/xxx program allows user-submitted jobs to be tracked by OpCon. When SMA/ANNOUNCE/xxx executes, a message is sent to the LSAM. The LSAM forwards a request to the SAM-SS to track the defined job. If the request is accepted, the SAM-SS returns a job initiation message (TX1) to the LSAM. From this point forward, the job can be viewed in Operations in the Enterprise Manager. The job's completion status will be sent to the SAM-SS when the job completes. For LSAM messages regarding external job tracking, refer to [Machine Messages](/reference-information/machine-messages).
+The SMA/ANNOUNCE/xxx program allows user-submitted jobs to be tracked by OpCon. When SMA/ANNOUNCE/xxx executes, a message is sent to the LSAM. The LSAM forwards a request to the SAM-SS to track the defined job. If the request is accepted, the SAM-SS returns a job initiation message (TX1) to the LSAM. From this point forward, the job can be viewed in Operations in the Enterprise Manager. The job's completion status will be sent to the SAM-SS when the job completes. For LSAM messages regarding external job tracking, refer to [Machine Messages](../../reference-information/machine-messages).
  
 Two items must be configured before the job tracking feature can function:
 
-* The \*SMA/CONFIG/FILE/xxx under the [Optional Modules (OPT)](/operations-and-components/sma-manager/optional-modules) section must be updated. Set MixWatcher to a value of Y.
+* The \*SMA/CONFIG/FILE/xxx under the [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules) section must be updated. Set MixWatcher to a value of Y.
 * The SMA/ANNOUNCE/xxx program defaults must be verified.
 
 ## Update the Configuration File
 
-Modify the following field under [Optional Modules (OPT)](/operations-and-components/sma-manager/optional-modules):
+Modify the following field under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
  
 MixWatcher: Set to a value of ```Y```.
 
@@ -80,7 +80,7 @@ This password is **not** the same password used to log in to the Enterprise Mana
 
 :::
 
-* The UserLoginID and EventPassword can default to the values defined in the LSAM's configuration file. For information on these configuration settings, refer to [MCP LSAM Configuration](/configuration/mcp-lsam-configuration). In order to use the default(s), substitute a null string (i.e., "") for the UserLoginID and EventPassword values.
+* The UserLoginID and EventPassword can default to the values defined in the LSAM's configuration file. For information on these configuration settings, refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration). In order to use the default(s), substitute a null string (i.e., "") for the UserLoginID and EventPassword values.
 
 
 ### Example WFL

@@ -4,7 +4,7 @@ Use this screen to select the displays definitions file you want to modify.
 
 ###### SMA Configuration and Operations Manager: SMADISPMENU
 
-![SMADISPMENU](/img/smadispmenu.png)
+![SMADISPMENU](../../../static/img/smadispmenu.png)
 
 The global displays file is used by the LSAM to capture and analyze messages displayed by all processes/jobs initiated via OpCon. The system message file is used by the Resource Monitor to capture and analyze messages that are displayed by processes that have not been initiated via OpCon.
 

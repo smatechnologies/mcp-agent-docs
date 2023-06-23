@@ -4,13 +4,13 @@ Illustrated below are the entries which are made as part of the LSAM installatio
 
 ### Transaction Server (COMS) Utility Entities: Agenda Activity
 
-![Agenda Activity](/img/agendaactivity.png)
+![Agenda Activity](../../../static/img/agendaactivity.png)
 
 ### Transaction Server (COMS) Utility Entitites: Program Activity
 
-![Program Activity](/img/programactivity.png)
+![Program Activity](../../../static/img/programactivity.png)
 
 ### Transaction Server (COMS) Utility Entities: Window Activity
 
-![Window Activity](/img/windowactivity.png)
+![Window Activity](../../../static/img/windowactivity.png)
 

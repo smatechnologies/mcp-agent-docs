@@ -10,7 +10,7 @@ The Processing Variables screen allows the user to configure the following:
 
 ###### SMA Configuration and Operations Manager: SMAVAR
 
-![SMAVAR](/img/smavar.png)
+![SMAVAR](../../../static/img/smavar.png)
 
 ## MCP LSAM Configuration Settings: Processing Variables
 
@@ -45,7 +45,7 @@ This field determines if and when an LSAM sends a task completion message.
 
 :::info Note 
 
-Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](/additional-features/lsam-features/resource-utilization-statistics).
+Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](../../additional-features/lsam-features/resource-utilization-statistics).
 
 :::
 

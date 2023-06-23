@@ -16,4 +16,4 @@ All modules unconditionally note within their respective log files that an updat
 * Unable to refresh configuration values: ```<name of configuration file>```.
 * In addition to the log entry, the message, "CONFIG requested ACCEPTED", will be displayed upon the system console.
 
-To view the previous information, refer to [Dynamic LSAM Configuration](/reference-information/legacy#dynamic-lsam-configuration) in the Legacy Information topic.
+To view the previous information, refer to [Dynamic LSAM Configuration](../../reference-information/legacy#dynamic-lsam-configuration) in the Legacy Information topic.

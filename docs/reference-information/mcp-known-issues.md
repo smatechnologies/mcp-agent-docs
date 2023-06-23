@@ -16,7 +16,7 @@ SEG ARRAY ERR @178600
 
 ```
 
-The above error occurs if the "Max number concurrent jobs" configuration value is changed and the LSAM was restarted before removing the LSAM's checkpoint files. For information on modifying the "Max number concurrent jobs" option, refer to [Update the "Max Number Concurrent Jobs" Field](/configuration/update-max-concurrent-jobs).
+The above error occurs if the "Max number concurrent jobs" configuration value is changed and the LSAM was restarted before removing the LSAM's checkpoint files. For information on modifying the "Max number concurrent jobs" option, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs).
 
 ### SMA/COMM
 
@@ -26,7 +26,7 @@ ASSERTION FAILURE ON RANGE TEST @ (Expression out of range 91700)
  
 ```
 
-The above error occurs if the "Max number concurrent jobs" configuration value is changed and the LSAM was restarted before removing the LSAM's tracking file. For information on modifying the "Max number concurrent jobs" option, refer to [Update the "Max Number Concurrent Jobs" Field](/configuration/update-max-concurrent-jobs).
+The above error occurs if the "Max number concurrent jobs" configuration value is changed and the LSAM was restarted before removing the LSAM's tracking file. For information on modifying the "Max number concurrent jobs" option, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs).
 
 ## JORS Limitations
 
