@@ -5,7 +5,7 @@ sidebar_label: 'OpCon MCP Agent'
 
 # OpCon MCP Agent
 
-The MCP LSAM, Version 21.00.00, is an OpCon agent that allows OpCon to schedule MCP jobs within an MCP environment.
+The MCP LSAM, Version 21.04.00, is an OpCon agent that allows OpCon to schedule MCP jobs within an MCP environment.
 
 ## MCP Abbreviations
 
