@@ -4,7 +4,7 @@ These release notes include all enhancements and fixed issues for the MCP LSAM:
 
 ## Version 20.00.00 New Features
 
-### 2020 June
+### June 2020
 
 :eight_spoked_asterisk: It is now possible to request that the Resource Monitor be stopped when the LSAM has been requested to stop. Use the STOPLSAM screen to accomplish this.
 
@@ -17,7 +17,6 @@ These release notes include all enhancements and fixed issues for the MCP LSAM:
 ### 2018 December
 
 :eight_spoked_asterisk:	The SMA/MANAGER program has been updated to automatically back up configuration and definitions files and to allow the user to restore a backup file as the production file.
-
 
 ## Version 18.00.00 New Features
 
@@ -92,6 +91,13 @@ Also at this time, MCP SMA File Transfer does not support communications using T
 :eight_spoked_asterisk:	Effective with this release, the installation procedures for the MCP LSAM have changed. The two container files required for installation or upgrade are now contained within a single zipped file. Both the container files and the zip file now contain the MCP LSAM release number as part of the name; this will assist users in more readily identifying which MCP LSAM version they are working with and will aid in working with multiple versions concurrently. Note that the \*SMA/INSTALL program will now be uniquely named during the unwrap process. It is critical that you use the 6-digit version number to name the SMA/INSTALL program because this version number is used to identify which container from which to unwrap the LSAM executables and files.
 
 :eight_spoked_asterisk:	Access to MCP LSAM configuration settings is now provided via an API exported by the SMA/ALGOLPROCS library. With the exception of the \*SMA/CONFIG program, MCP LSAM components will no longer access the configuration file directly. This will reduce the IO overhead required at BOJ and upon delivery of the AX CONFIG command.
+
+
+## Version 21.06.00 Fixes
+
+### April 2025
+
+:white_check_mark: **OC-1761**: Fixed a bug in MCP Agent which was generating large debug print files through Resource Monitor component causing it to crash even when Debug mode was not turned ON.
 
 ## Version 21.04.00 Fixes
 
