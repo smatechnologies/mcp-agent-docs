@@ -99,6 +99,8 @@ Also at this time, MCP SMA File Transfer does not support communications using T
 
 :white_check_mark: **OC-1761**: Fixed a bug in MCP Agent which was generating large debug print files through Resource Monitor component causing it to crash even when Debug mode was not turned ON.
 
+:white_check_mark: **MCP-606**: Resource Monitor was excessively logging activity in debug log when Debugging is turned OFF. This was causing heavy CPU usage. Fixed Resource Monitor to only log detailed activity when Debugging is turned ON.
+
 ## Version 21.04.00 Fixes
 
 ### 2023 September
