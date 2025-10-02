@@ -1,4 +1,4 @@
-# General LSAM Congfiguration (GEN)
+# General LSAM Configuration (GEN)
 
 The General LSAM Configuration screen allows the user to configure the information needed to create a WFL that will start the LSAM and optionally also the Resource Monitor. 
 
