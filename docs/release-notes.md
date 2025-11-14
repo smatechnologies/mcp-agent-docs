@@ -2,6 +2,34 @@
 
 These release notes include all enhancements and fixed issues for the MCP LSAM:
 
+## Version 21.06.00 Fixes
+
+### April 2025
+
+:white_check_mark: **OC-1761**: Fixed a bug in MCP Agent which was generating large debug print files through Resource Monitor component causing it to crash even when Debug mode was not turned ON.
+
+:white_check_mark: **MCP-606**: Resource Monitor was excessively logging activity in debug log when Debugging is turned OFF. This was causing heavy CPU usage. Fixed Resource Monitor to only log detailed activity when Debugging is turned ON.
+
+## Version 21.04.00 Fixes
+
+### 2023 September
+
+:white_check_mark: Fixed processing DISPLAY tokens containing period (.) character as a token separator. Fixed a crash in TCPIP module when incoming message header gets defragmented.
+
+:white_check_mark: Fixed a crash (SEG ARRAY error) in MCP JORS during program startup.
+
+:white_check_mark: Fixed a crash (SEG ARRAY error) in SMA/TCPIP program.
+
+## Version 21.00.00 Fixes
+
+### 2021 July
+
+:white_check_mark: Using a common global storage for JobStart command was causing incorrect reporting of JobStart information when several jobs were started at the same time. Changed the MCP/INTERFACE to store the job start command in the array of job specific tracking information.
+
+:white_check_mark: If querying for MYSELF.NAME did not return information about the PACK on which MANAGER program was running, the program was not handling it correctly to identify the location for storing DISPLAYS files. Modified the MANAGER program to work with that scenario as well.
+
+:white_check_mark: Enhanced the MANAGER program to allow for USERCODES without passwords to start the LSAM and Resource Monitor. If you have a blank password for a USERCODE you want to use, just use period (.) in the password field.
+
 ## Version 20.00.00 New Features
 
 ### June 2020
@@ -11,6 +39,33 @@ These release notes include all enhancements and fixed issues for the MCP LSAM:
 :eight_spoked_asterisk:	With the release of MCP LSAM 20.00.00 (compiled on MCP 60.1), versions of MCP LSAM 19.00.00 and 19.01.00 have been compiled on MCP 60.1 and are now available. Previously, MCP LSAM versions 19.00.00 and 19.01.00 were originally compiled on MCP 58.1.
 
 :eight_spoked_asterisk:	A new utility, SMA/WFL/FILEARRIVAL, has been added to the suite of MCP LSAM utilities. It allows you to monitor, within an optional time frame, the arrival of a file on the current day. Upon detecting the file has met the title and optional time-altered constraints, the user-defined global property will be updated to reflect the full file title of a file, meeting the selection criteria. If no file is found during the specified timeframe, the job will fail. FILEARRIVAL runs as an OpCon job and does not require LSAM configuration or definitions files.
+
+## Version 20.00.00 Fixes
+
+### 2020 June
+
+:white_check_mark: Fixed an issue where the two fields on the LOADDISP screen are longer than one character, but should be the length of one.
+
+:white_check_mark: Upon creating a new LSAM configuration file from scratch, the SMAGEN screen of the SMA/MANAGER program displayed corrupted data. This has been resolved.
+
+:white_check_mark: Usercodes longer than 11 characters caused SMA/JORS to F-DS. This has been resolved.
+
+## Version 19.01.00 Fixes
+
+### 2019 December
+
+:white_check_mark: When utilizing the INITLSAM option within the Manager program and an LSAM and/or Resource Monitor usercode had been defined on the GEN screen, the Manager program failed to include the USER= statement in the WFL used to start the LSAM and/or Resource Monitor. This has been corrected.
+
+In conjunction with the above change, the following changes were made to the GEN screen and start WFLs:
+
+* Fields were created to accommodate the use of ACCESSCODE in the WFLs generated for initiating the LSAM and/or Resource Monitor.
+* All password fields are masked on the GEN screen.
+
+:white_check_mark: When the SMASUP program ran, it was waiting on a file incorrectly named *SMA/CONFIG/AUDIT. This has been corrected.
+
+:white_check_mark: When the MCP LSAM was configured to connect only with specified IP addresses, the LSAM would report that the IP address was invalid even though the OpCon IP address was in the list of allowed IP addresses. This has been corrected.
+
+:white_check_mark: When the user specified an allowed IP address, all other allowed IP address fields required an entry. This has been corrected.
 
 ## Version 18.01.00 New Features
 
@@ -42,6 +97,18 @@ The SMA/MANAGER program provides a single interface for performing configuration
 
 :eight_spoked_asterisk: The MCP LSAM Installation and Configuration documentation has been modified to emphasize the importance of a correct FAMILY assignment in order to prevent issues that arise from an improper FAMILY statement.
 
+## Version 17.00.01 Fixes
+
+### 2017 September
+
+:white_check_mark: For MCP LSAM 17.0, two LSAM components, SMA/RESOURCE/CHECK and SMA/FTAGENT, were excluded from the installation/upgrade activity. This issue has been corrected in MCP LSAM 17.00.01.
+
+## Version 17.0 Fixes
+
+### 2017 May
+
+:white_check_mark: When multiple file transfers were run in rapid succession, occasionally the *SMA/FTSERVER component would display an error, "No matching port...", the transfer would fail, and the resolution was to restart the FTSERVER. This has been corrected.
+
 ## Version 16.02 New Features
 
 ### 2017 January
@@ -56,11 +123,44 @@ To implement the alternate behavior, modify a working copy of \*SMA/WFL/REMOVEJO
 
 :eight_spoked_asterisk:	TLS certificates must be installed for the same usercode that is used for all SMA File Transfer jobs. This is a requirement because certificates are stored with a usercode and only the specified usercode may access the certificate.
 
+## Version 16.02.01 Fixes
+
+### 2017 September
+
+:white_check_mark: For MCP LSAM 16.02, two LSAM components, SMA/RESOURCE/CHECK and SMA/FTAGENT, were excluded from the installation/upgrade activity. This issue has been corrected in MCP LSAM 16.02.01.
+
+## Version 16.02 Fixes
+
+### 2017 January
+
+:white_check_mark: The following errors were displayed upon startup of the SMA/FTSERVER:
+
+* ATTRIBUTE ERROR:TCP_PORT.SECUREPROTOCOL INVALID SUBFILE INDEX @ 01C:007D:1
+* ATTRIBUTE ERROR:TCP_PORT.SSLSECUREMODE INVALID SUBFILE INDEX @ 01C:0071:5
+* ATTRIBUTE ERROR:TCP_PORT.SSLERROR INVALID SUBFILE INDEX @ 01C:0063:5
+
+This has been corrected.
+
+:white_check_mark: The instructions within the discussion of MSGIN were inaccurate and have been corrected.
+
 ## Version 16.01.00 New Features
 
 ### 2016 July
 
 :eight_spoked_asterisk:	Effective with MCP LSAM 16.01.00, the SMASUP program will be run automatically any time one of the MCP LSAM modules terminates abnormally (-DS). If debugging had not been enabled when the module stopped, minimal information will be contained within the containers created by SMASUP. However, these should be submitted with the Salesforce incident report nonetheless as they will contain information that may be useful in researching the issue.
+
+## Version 16.01.00 Fixes
+
+### 2016 July
+
+:white_check_mark: The SMA/FTHANDLER was not refreshing the Append LF to Unix value when told to pick up new LSAM configuration values. This has been corrected.
+
+:white_check_mark: Restarting a "tracked" job resulted in successive JOB ADOPT messages and confusing job status messages. Effective with this release, if a user restarts a tracked job, the job will be run and reported as an OpCon job, and not as a tracked job.
+
+:white_check_mark: When running an SMA File Transfer job, if a corresponding FTServer failed to comply with the maximum packet size and sent a message longer than the negotiated packet size, the MCP FTAgent did not exit gracefully. This has been corrected and the FTAgent will now respond by reporting the condition and exiting in a controlled manner.
+
+:white_check_mark: On rare occasion, a short-running MCP OpCon job submitted with a RUN command would be incorrectly reported as having failed. This has been corrected.
+
 
 ## Version 16.0 New Features
 
@@ -91,106 +191,6 @@ Also at this time, MCP SMA File Transfer does not support communications using T
 :eight_spoked_asterisk:	Effective with this release, the installation procedures for the MCP LSAM have changed. The two container files required for installation or upgrade are now contained within a single zipped file. Both the container files and the zip file now contain the MCP LSAM release number as part of the name; this will assist users in more readily identifying which MCP LSAM version they are working with and will aid in working with multiple versions concurrently. Note that the \*SMA/INSTALL program will now be uniquely named during the unwrap process. It is critical that you use the 6-digit version number to name the SMA/INSTALL program because this version number is used to identify which container from which to unwrap the LSAM executables and files.
 
 :eight_spoked_asterisk:	Access to MCP LSAM configuration settings is now provided via an API exported by the SMA/ALGOLPROCS library. With the exception of the \*SMA/CONFIG program, MCP LSAM components will no longer access the configuration file directly. This will reduce the IO overhead required at BOJ and upon delivery of the AX CONFIG command.
-
-
-## Version 21.06.00 Fixes
-
-### April 2025
-
-:white_check_mark: **OC-1761**: Fixed a bug in MCP Agent which was generating large debug print files through Resource Monitor component causing it to crash even when Debug mode was not turned ON.
-
-:white_check_mark: **MCP-606**: Resource Monitor was excessively logging activity in debug log when Debugging is turned OFF. This was causing heavy CPU usage. Fixed Resource Monitor to only log detailed activity when Debugging is turned ON.
-
-## Version 21.04.00 Fixes
-
-### 2023 September
-
-:white_check_mark: Fixed processing DISPLAY tokens containing period (.) character as a token separator. Fixed a crash in TCPIP module when incoming message header gets defragmented.
-
-:white_check_mark: Fixed a crash (SEG ARRAY error) in MCP JORS during program startup.
-
-:white_check_mark: Fixed a crash (SEG ARRAY error) in SMA/TCPIP program.
-
-## Version 21.00.00 Fixes
-
-### 2021 July
-
-:white_check_mark: Using a common global storage for JobStart command was causing incorrect reporting of JobStart information when several jobs were started at the same time. Changed the MCP/INTERFACE to store the job start command in the array of job specific tracking information.
-
-:white_check_mark: If querying for MYSELF.NAME did not return information about the PACK on which MANAGER program was running, the program was not handling it correctly to identify the location for storing DISPLAYS files. Modified the MANAGER program to work with that scenario as well.
-
-:white_check_mark: Enhanced the MANAGER program to allow for USERCODES without passwords to start the LSAM and Resource Monitor. If you have a blank password for a USERCODE you want to use, just use period (.) in the password field.
-
-## Version 20.00.00 Fixes
-
-### 2020 June
-
-:white_check_mark: Fixed an issue where the two fields on the LOADDISP screen are longer than one character, but should be the length of one.
-
-:white_check_mark: Upon creating a new LSAM configuration file from scratch, the SMAGEN screen of the SMA/MANAGER program displayed corrupted data. This has been resolved.
-
-:white_check_mark: Usercodes longer than 11 characters caused SMA/JORS to F-DS. This has been resolved.
-
-## Version 19.01.00 Fixes
-
-### 2019 December
-
-:white_check_mark: When utilizing the INITLSAM option within the Manager program and an LSAM and/or Resource Monitor usercode had been defined on the GEN screen, the Manager program failed to include the USER= statement in the WFL used to start the LSAM and/or Resource Monitor. This has been corrected.
-
-In conjunction with the above change, the following changes were made to the GEN screen and start WFLs:
-
-* Fields were created to accommodate the use of ACCESSCODE in the WFLs generated for initiating the LSAM and/or Resource Monitor.
-* All password fields are masked on the GEN screen.
-
-:white_check_mark: When the SMASUP program ran, it was waiting on a file incorrectly named *SMA/CONFIG/AUDIT. This has been corrected.
-
-:white_check_mark: When the MCP LSAM was configured to connect only with specified IP addresses, the LSAM would report that the IP address was invalid even though the OpCon IP address was in the list of allowed IP addresses. This has been corrected.
-
-:white_check_mark: When the user specified an allowed IP address, all other allowed IP address fields required an entry. This has been corrected.
-
-## Version 17.00.01 Fixes
-
-### 2017 September
-
-:white_check_mark: For MCP LSAM 17.0, two LSAM components, SMA/RESOURCE/CHECK and SMA/FTAGENT, were excluded from the installation/upgrade activity. This issue has been corrected in MCP LSAM 17.00.01.
-
-## Version 17.0 Fixes
-
-### 2017 May
-
-:white_check_mark: When multiple file transfers were run in rapid succession, occasionally the *SMA/FTSERVER component would display an error, "No matching port...", the transfer would fail, and the resolution was to restart the FTSERVER. This has been corrected.
-
-## Version 16.02.01 Fixes
-
-### 2017 September
-
-:white_check_mark: For MCP LSAM 16.02, two LSAM components, SMA/RESOURCE/CHECK and SMA/FTAGENT, were excluded from the installation/upgrade activity. This issue has been corrected in MCP LSAM 16.02.01.
-
-## Version 16.02 Fixes
-
-### 2017 January
-
-:white_check_mark: The following errors were displayed upon startup of the SMA/FTSERVER:
-
-* ATTRIBUTE ERROR:TCP_PORT.SECUREPROTOCOL INVALID SUBFILE INDEX @ 01C:007D:1
-* ATTRIBUTE ERROR:TCP_PORT.SSLSECUREMODE INVALID SUBFILE INDEX @ 01C:0071:5
-* ATTRIBUTE ERROR:TCP_PORT.SSLERROR INVALID SUBFILE INDEX @ 01C:0063:5
-
-This has been corrected.
-
-:white_check_mark: The instructions within the discussion of MSGIN were inaccurate and have been corrected.
-
-## Version 16.01.00 Fixes
-
-### 2016 July
-
-:white_check_mark: The SMA/FTHANDLER was not refreshing the Append LF to Unix value when told to pick up new LSAM configuration values. This has been corrected.
-
-:white_check_mark: Restarting a "tracked" job resulted in successive JOB ADOPT messages and confusing job status messages. Effective with this release, if a user restarts a tracked job, the job will be run and reported as an OpCon job, and not as a tracked job.
-
-:white_check_mark: When running an SMA File Transfer job, if a corresponding FTServer failed to comply with the maximum packet size and sent a message longer than the negotiated packet size, the MCP FTAgent did not exit gracefully. This has been corrected and the FTAgent will now respond by reporting the condition and exiting in a controlled manner.
-
-:white_check_mark: On rare occasion, a short-running MCP OpCon job submitted with a RUN command would be incorrectly reported as having failed. This has been corrected.
 
 ## Version 16.0 Fixes
 
