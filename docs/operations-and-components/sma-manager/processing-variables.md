@@ -1,4 +1,22 @@
+---
+title: Processing Variables (VAR)
+description: "Configure job concurrency limits, failure detection rules, task completion reporting, checkpoint frequency, and temporary file placement for the MCP Agent."
+tags:
+  - Reference
+  - System Administrator
+  - Automation Engineer
+  - Agents
+  - System Configuration
+---
+
 # Processing Variables (VAR)
+
+## What is it?
+
+The Processing Variables screen controls how the MCP Agent monitors concurrent jobs, determines job success or failure, reports task completion, creates recovery checkpoints, and stores temporary files. Most settings are dynamic and reload without restarting the Agent; the maximum concurrent jobs value requires a full stop, file removal, and restart.
+
+- Set task-level failure checking and fail-code behavior to align job status reporting with your site's WFL error-handling standards.
+- Define checkpoint frequency and interval to enable automatic recovery and restart of in-flight jobs after an unexpected Agent stoppage.
 
 The Processing Variables screen allows the user to configure the following:
 
@@ -6,17 +24,17 @@ The Processing Variables screen allows the user to configure the following:
 * Variables which alter the default determination of success or failure of a job
 * The level of granularity as it pertains to job status reporting
 * Whether and how frequently checkpoints are taken
-* Specify an alternate family to be used for temporary files created by the LSAM
+* Specify an alternate family to be used for temporary files created by the agent
 
-###### SMA Configuration and Operations Manager: SMAVAR
+*SMA Configuration and Operations Manager: SMAVAR*
 
 ![SMAVAR](../../../static/img/smavar.png)
 
-## MCP LSAM Configuration Settings: Processing Variables
+## MCP Agent Configuration Settings: Processing Variables
 
 ### Max number concurrent jobs
 
-This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires that the LSAM be stopped and restarted to implement the new value. This is the only field for which this is the case; all other config file changes are dynamic and will be refreshed upon the user selecting this action from the Main Menu.
+This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires that the agent be stopped and restarted to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and reload when you select this action from the Main Menu.
 
 ### Task level checking
 
@@ -41,7 +59,7 @@ This field is used in conjunction with the MCP Job Details field, Fail Code.
 
 ### Task completion message
 
-This field determines if and when an LSAM sends a task completion message.
+This field determines if and when the agent sends a task completion message.
 
 :::info Note 
 
@@ -66,9 +84,9 @@ This field enables/disables messaging during job processing to indicate Fail Cod
 
 This field determines the units of a Checkpoint Interval. Refer to User-defined Restart/Recovery Checkpoints for more information on checkpoints.
 
-At regular checkpoints, the LSAM saves tracking file and job array information for recovery and restart purposes. The automatic recovery/restart process falls back on the data from the last checkpoint.
+At regular checkpoints, the agent saves tracking file and job array information for recovery and restart purposes. The automatic recovery/restart process falls back on the data from the last checkpoint.
 
-* If N, the LSAM does not create user-defined checkpoints.
+* If N, the agent does not create user-defined checkpoints.
 * If M, the interval unit is by minute.
 * If U, the interval unit is by update to the job array.
 
@@ -88,7 +106,7 @@ This field determines whether to return job statistics appended to job status me
 
 ### Family name for temporary files	
 
-This field determines where the temporary files created by the MCP LSAM will be placed.
+This field determines where the temporary files created by the MCP Agent will be placed.
 
-* If no family name is entered, the temporary files created by the MCP LSAM will be placed on the same family upon which the LSAM resides.
-* If a family name is entered, temporary files created by the MCP LSAM will be placed on the specified family.
+* If no family name is entered, the temporary files created by the MCP Agent will be placed on the same family upon which the agent resides.
+* If a family name is entered, temporary files created by the MCP Agent will be placed on the specified family.

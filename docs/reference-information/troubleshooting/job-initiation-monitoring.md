@@ -1,3 +1,13 @@
+---
+title: Job Initiation/Monitoring Troubleshooting
+description: "Troubleshooting guidance for MCP Agent job initiation and monitoring issues including jobs stuck in QUEUED, Start Attempted, or Wait Machine states, and common job status errors."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # Job Initiation/Monitoring Troubleshooting
 
 ## Job Stuck in "QUEUED" State
@@ -16,7 +26,7 @@ The MIXLIMIT or TASKLIMIT attribute of the queue through which the job starts is
 
 2. Verify the job is in the queue.
 
-3. Increasing the MIXLIMIT or TASKLIMIT value, or changing the queue through which the job is run may be appropriate. For more information on this response, refer to [MCP LSAM Operation](../../operations-and-components/mcp-lsam-operation).
+3. Increasing the MIXLIMIT or TASKLIMIT value, or changing the queue through which the job is run may be appropriate. For more information on this response, refer to [MCP Agent Operation](../../operations-and-components/mcp-lsam-operation).
  
 ## Job Stuck in "Start Attempted" State
 
@@ -26,11 +36,11 @@ Job stays in a "Start Attempted" state.
  
 #### First Possible Explanation:
  
-Communication with the LSAM has been lost.
+Communication with the agent has been lost.
 
 ##### First Operator Response:
 
-Verify the LSAM modules \*SMA/COMM/xxx, \*SMA/TCPIP/xxx, and \*SMA/MCP/INTERFACE/xxx are up and running. For more information on this response, refer to \*[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
+Verify the agent modules \*SMA/COMM/xxx, \*SMA/TCPIP/xxx, and \*SMA/MCP/INTERFACE/xxx are up and running. For more information on this response, refer to \*[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
 
 #### Second Possible Explanation:
  
@@ -38,13 +48,13 @@ Verify the LSAM modules \*SMA/COMM/xxx, \*SMA/TCPIP/xxx, and \*SMA/MCP/INTERFACE
 
 ##### Second Operator Response:
 
-After changing the configuration variable "max number concurrent jobs", remove the following files before starting the LSAM:
+After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
 1. ```*SMA/TRACKING/FILE/xxx ON <packname>```
 
 2. ```*SMA/CP/MCS/xxx/= ON <packname>```
 
-Be sure to check ALL families on the system - not just the family on which the LSAM runs.
+Be sure to check ALL families on the system - not just the family on which the agent runs.
  
 ## Job Stuck in "Wait Machine" State
 
@@ -58,7 +68,7 @@ The maximum number of jobs is being run.
 
 ##### Operator Response:
 
-No action required. When the number of active jobs falls below the maximum for which the LSAM is configured, additional jobs are initiated by SAM. The LSAM may be configured for a maximum of 500 jobs. For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
+No action required. When the number of active jobs falls below the maximum for which the agent is configured, additional jobs are initiated by SAM. The agent may be configured for a maximum of 500 jobs. For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
  
 ## Job Status "0SNTX/SECRTY" Error
 
@@ -68,11 +78,11 @@ Receiving a 0SNTX/SECRTY ERR status.
  
 #### First Possible Explanation:
  
-The LSAM is running under a usercode without the correct privileges to run the job.
+The agent is running under a usercode without the correct privileges to run the job.
 
 ##### First Operator Response:
 
-Stop the LSAM and then start the LSAM under a usercode with correct privileges. For more information on this response, refer to Stop the LSAM.
+Stop the agent and then start the agent under a usercode with correct privileges. For more information on this response, refer to Stop the MCP Agent.
 
 #### Second Possible Explanation:
  
@@ -84,7 +94,7 @@ Verify the job's usercode on the Enterprise Manager's Job Details screen. For mo
 
 #### Third Possible Explanation:
  
-The queue through which the LSAM WFL runs has a TASKLIMIT.
+The queue through which the agent WFL runs has a TASKLIMIT.
 
 ##### Third Operator Response:
 

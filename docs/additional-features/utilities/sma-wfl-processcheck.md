@@ -1,6 +1,21 @@
+---
+title: "*SMA/WFL/PROCESSCHECK"
+description: "A utility WFL that makes an OpCon job dependent on the existence or absence of a specified process in the MCP active mix."
+tags:
+  - Procedural
+  - Automation Engineer
+  - Agents
+---
+
 # *SMA/WFL/PROCESSCHECK
 
-The WFL \*SMA/WFL/PROCESSCHECK/xxx allows a job to be dependent on the existence/absence of a given process in the list of executing processes on the platform.
+## What is it?
+
+\*SMA/WFL/PROCESSCHECK/xxx allows a job to proceed only when a specified process is either running or not running in the MCP active mix, supporting both exact process names and wildcard patterns. The utility accepts the process name and a criterion value (REQUIRES or EXCLUDES) as parameters.
+
+- Gate a dependent job so it runs only while a required companion process is active in the MCP mix
+- Gate a dependent job so it runs only after a blocking process has finished and left the active mix
+
 
 ## Syntax
 

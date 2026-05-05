@@ -1,10 +1,27 @@
+---
+title: Set Up Failure and Status Message Logic
+description: "Understand and configure how the MCP LSAM determines job success or failure using the JOB TO BE FAILED flag, Fail Codes, Fail Resets, and task-level checking."
+tags:
+  - Conceptual
+  - Automation Engineer
+  - System Configuration
+  - Agents
+---
+
 # Set Up Failure and Status Message Logic
+
+## What is it?
+
+This page explains the interaction between the JOB TO BE FAILED flag, Fail Code and Fail Reset matching, task-level checking settings, and task-completion messaging to determine how MCP job outcomes are reported in Enterprise Manager Operation. It provides reference tables for all combinations of these conditions and their resulting status messages.
+
+- Use this page when configuring Fail Codes and Fail Resets on MCP job definitions to understand exactly when the MCP Agent reports a job as failed versus finished OK, and which status message will appear in the Enterprise Manager.
+- Use this page to evaluate the effect of enabling task-level checking so that subordinate task failures are surfaced in job history without requiring WFL-level ABORT coding.
 
 An MCP job's status in Enterprise Manager Operation relies on several configuration settings: Fail Immediately on Fail Code, Send Fail/Reset Message, Task-Failure Checking, and Task-Completion Message. (Refer to the configuration file tables starting in [Processing Variables (VAR)](../configuration/processing-variables).) If a job is not failed immediately, the internal JOB TO BE FAILED flag also plays an important role.
 
 ## Job to be Failed Flag
 
-The JOB TO BE FAILED flag, set per job, ultimately determines the final status of MCP jobs run through the LSAM. The LSAM checks this flag when the job terminates. If the flag is set to the default "N", the LSAM reports the job as successful. If the flag is set to "Y", the LSAM reports a job's failure, even if the operating system reports a job's success.
+The JOB TO BE FAILED flag, set per job, ultimately determines the final status of MCP jobs run through the MCP Agent. The agent checks this flag when the job terminates. If the flag is set to the default "N", the agent reports the job as successful. If the flag is set to "Y", the agent reports a job's failure, even if the operating system reports a job's success.
 
 During the processing of a job or a task, a match between the console display and the words entered in the Fail Code or Fail Reset fields determines the JOB TO BE FAILED flag's setting. A Fail Code match sets the flag to "Y" and a Fail Reset match sets the flag back to "N". Refer to [Failure Criteria](https://help.smatechnologies.com/opcon/core/job-types/mcp#failure-criteria) in the Concepts online help. Regardless of the actual outcome of the job or tasks, the final value of the JOB TO BE FAILED flag decides the success or failure in Enterprise Manager Operation.
 
@@ -12,7 +29,7 @@ During the processing of a job or a task, a match between the console display an
 
 Use of Fail Codes is an alternative solution to programming a WFL to ABORT if a program IS NOT COMPLETED OK. Use of Fail Resets provides greater flexibility in assigning job statuses. For example, a critical application's success can reset the JOB TO BE FAILED flag despite the failure of other non-critical tasks. Refer to [Failure Criteria](https://help.smatechnologies.com/opcon/core/job-types/mcp#failure-criteria) in the Concepts online help.
 
-The next table shows all the factors involved in using the Fail Code/Fail Reset feature. Use the table to configure the LSAM's behavior upon a Fail Code or Fail Reset match.
+The next table shows all the factors involved in using the Fail Code/Fail Reset feature. Use the table to configure the MCP Agent's behavior upon a Fail Code or Fail Reset match.
 
 ### Fail Code/Fail Reset Conditions
 
@@ -26,11 +43,11 @@ The next table shows all the factors involved in using the Fail Code/Fail Reset 
 
 ## Task-Level Checking
 
-Task-level checking enables the LSAM to report a job as failed to Enterprise Manager Operation when a job's subordinate task fails. Display messages issued by the job do not determine the job completion status; job completion status is determined solely by the completion status of the subordinate task(s). With task-level checking enabled, the failure of any single task in a WFL marks the job as failed or sets the JOB TO BE FAILED flag to Y. 
+Task-level checking enables the MCP Agent to report a job as failed to Enterprise Manager Operation when a job's subordinate task fails. Display messages issued by the job do not determine the job completion status; job completion status is determined solely by the completion status of the subordinate task(s). With task-level checking enabled, the failure of any single task in a WFL marks the job as failed or sets the JOB TO BE FAILED flag to Y. 
 
-If defined, Fail Codes and/or Fail Resets are applied to tasks regardless of the task-level checking setting. For more information on configuration settings, refer to [Processing Variables (VAR)](../configuration/processing-variables). When the LSAM is configured to report at the task level (A or F), the Enterprise Manager's job history includes the completion status of each task. 
+If defined, Fail Codes and/or Fail Resets are applied to tasks regardless of the task-level checking setting. For more information on configuration settings, refer to [Processing Variables (VAR)](../configuration/processing-variables). When the MCP Agent is configured to report at the task level (A or F), the Enterprise Manager's job history includes the completion status of each task. 
 
-The next table shows all the factors involved in task-level checking. Use the table to configure the LSAM's behavior upon a task's failure or success.
+The next table shows all the factors involved in task-level checking. Use the table to configure the MCP Agent's behavior upon a task's failure or success.
 
 ### Task-Level Checking Conditions
 

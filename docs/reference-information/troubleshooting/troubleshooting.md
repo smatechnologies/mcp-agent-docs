@@ -1,4 +1,21 @@
+---
+title: Troubleshooting
+description: "Symptom-based troubleshooting tables for MCP LSAM issues organized by category, including AutoResponse, communication, configuration, file monitoring, file transfer, job initiation, JORS, and LSAM initialization."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # Troubleshooting
+
+## What is it?
+
+This page provides symptom-based tables for diagnosing and resolving common MCP Agent issues, organized by problem category.
+
+- Use these tables to quickly identify the likely cause of a symptom and navigate to the relevant explanation or solution.
+- Categories cover AutoResponse, communication, configuration, file monitoring, file transfer, job initiation/monitoring, JORS, and agent initialization.
 
 ## Troubleshooting Categories
 

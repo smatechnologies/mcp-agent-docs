@@ -1,13 +1,22 @@
+﻿---
+title: MCP Agent Initialization/Stopping Troubleshooting
+description: "Troubleshooting guidance for MCP Agent startup and shutdown issues including configuration file missing, seg array errors, INVALID INDEX errors, and LSAM stopping unexpectedly."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # LSAM Initialization/Stopping
 
 ## Configuration File Missing
 
 #### Full Description
-The LSAM reports the configuration file is absent.
+The agent reports the configuration file is absent.
  
 #### Possible Explanation:
  
-The SMA/CONFIG/FILE/xxx is not present under the same usercode used to start the LSAM.
+The SMA/CONFIG/FILE/xxx is not present under the same usercode used to start the agent.
 
 ##### Operator Response:
 
@@ -21,11 +30,11 @@ The *SMA/TCPIP module reports "seg array error @ 00081445".
  
 #### Possible Explanation:
  
-Both JORS and the LSAM are configured to use the same port. They each need their own unique port number.
+Both JORS and the agent are configured to use the same port. They each need their own unique port number.
 
 ##### Operator Response:
 
-Change the JORS port number in the LSAM configuration file and change the Advanced Machine setting for JORS port number in the Enterprise Manager to match the unique JORS port number in the LSAM configuration file.
+Change the JORS port number in the agent configuration file and change the Advanced Machine setting for JORS port number in the Enterprise Manager to match the unique JORS port number in the agent configuration file.
  
 ## I-DS @ 66100
 
@@ -49,11 +58,11 @@ The LSAM takes too long to come down.
  
 #### Possible Explanation:
  
-Depending on current LSAM activity, the ```<mix# *SMA/COMM/xxx >```HI 99 command may bring the LSAM down too slowly.
+Depending on current agent activity, the ```<mix# *SMA/COMM/xxx >```HI 99 command may bring the agent down too slowly.
 
 ##### Operator Response:
 
-Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the LSAM is also an alternative although is not recommended. For more information on this response, refer to *[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
+Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the agent is also an alternative, although it is not recommended. For more information on this response, refer to *[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
  
 ## SEG ARRAY ERR @ 2435000
 
@@ -63,15 +72,15 @@ Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the LSAM is also an alternativ
  
 #### Possible Explanation:
  
-This can occur if the LSAM has just been upgraded and one or more OpCon jobs were left running prior to the upgrade.
+This can occur if the agent has just been upgraded and one or more OpCon jobs were left running prior to the upgrade.
 
 #### Operator Response:
 
 1. Remove \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-2. Start the LSAM.
+2. Start the agent.
 
-For more information on this response, refer to [MCP LSAM Installation](../../installation/introduction).
+For more information on this response, refer to [MCP Agent Installation](../../installation/overview).
  
 
 ## SEG ARRAY ERR @ 178600
@@ -86,13 +95,13 @@ The "max number of concurrent jobs" configuration value has been changed.
 
 #####  Operator Response:
 
-After changing the configuration variable "max number concurrent jobs", remove the following files before starting the LSAM:
+After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
 1. \*SMA/TRACKING/FILE/xxxON ```<packname>```
 
 2. \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-3. Be sure to check all families on the system - not just the family on which the LSAM runs.
+3. Be sure to check all families on the system - not just the family on which the agent runs.
 
 For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
  
@@ -108,19 +117,19 @@ The "max number of concurrent jobs" configuration value has been changed.
 
 ##### Operator Response:
 
-After changing the configuration variable "max number concurrent jobs", remove the following files before starting the LSAM:
+After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
 1. \*SMA/TRACKING/FILE/xxxON ```<packname>```
 
 2. \*SMA/CP/MCS/xxx /= ON ```<packname>```
 
-3. Be sure to check ALL families on the system - not just the family on which the LSAM runs.
+3. Be sure to check ALL families on the system - not just the family on which the agent runs.
  
 ## LSAM Waiting for SMALIBRARY
 
 #### Full Description
 
-LSAM modules are in the waiting mix awaiting the SMALIBRARYxxx.
+Agent modules are in the waiting mix awaiting the SMALIBRARYxxx.
  
 #### Possible Explanation:
  
@@ -145,13 +154,13 @@ The cause of this situation is failure to remove the *SMA/CP/MCS/xxx/= and *SMA/
 
 ##### Operator Response:
 
-After changing the configuration variable "max number concurrent jobs", remove the following files before starting the LSAM:
+After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
 1. \*SMA/TRACKING/FILE/xxx ON ```<packname>```
 
 2. \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-3. Be sure to check ALL families on the system - not just the family on which the LSAM runs.
+3. Be sure to check ALL families on the system - not just the family on which the agent runs.
  
 ## Codefile will not Run...
 
@@ -165,11 +174,11 @@ The \*SMA/MCP/INTERFACE module displays the following messages when an LSAM begi
  
 #### Possible Explanation:
  
-The active MCP LSAM was compiled on an older version of MCP.
+The active MCP Agent was compiled on an older version of MCP.
 
 ##### Operator Response:
 
-Obtain and install a version of the MCP LSAM compiled on a newer version of MCP.
+Obtain and install a version of the MCP Agent compiled on a newer version of MCP.
  
 ## SEG ARRAY ERR around 924100
 
@@ -183,37 +192,37 @@ The \*SMA/CP/LIB/= files were not removed after changing the maximum number of c
 
 ##### Operator Response:
 
-Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](../../configuration/update-max-concurrent-jobs#remove-checkpoint-and-tracking-files)./installation/new-installation#define-lsam-to-idc
+Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](../../configuration/update-max-concurrent-jobs#remove-checkpoint-and-tracking-files)
  
 ## LSAM Stops Soon after Starting
 
 #### Full Description
 
-The LSAM begins to come up, but soon goes down again. One of these scenarios may be true:
+The agent begins to come up, but soon goes down again. One of these scenarios may be true:
  
 The notation "DCWRITE error 66" is present in the debug print file of the SMA/MCP/INTERFACE/xxx module - or -
  
-The message "EOT \*SMA/MCP/INTERFACE" is displayed on the system console as the LSAM begins to come up, but soon goes down again - or -
+The message "EOT \*SMA/MCP/INTERFACE" is displayed on the system console as the agent begins to come up, but soon goes down again - or -
  
 The notation "Linkage class violation in interface SMALIBRARYxxx to Library \*SMA/ALGOLPROCS/xxx" is present in the system log and on the system console.
  
 #### First Possible Explanation:
  
-The SMA/MCP/INTERFACE/xxx module has been installed as a usercoded file instead of a non-usercoded file. The SMA/MCP/INTERFACE/xxx must be non-usercoded because IDC does not permit the definition of a usercoded MCS. Attempting to initiate the LSAM without first defining SMA/MCP/INTERFACE/xxx as an MCS results in a DCWRITE error 66 (MCS not defined in NDLII). This error causes the SMA/MCP/INTERFACE/xxx module to terminate.
+The SMA/MCP/INTERFACE/xxx module has been installed as a usercoded file instead of a non-usercoded file. The SMA/MCP/INTERFACE/xxx must be non-usercoded because IDC does not permit the definition of a usercoded MCS. Attempting to initiate the agent without first defining SMA/MCP/INTERFACE/xxx as an MCS results in a DCWRITE error 66 (MCS not defined in NDLII). This error causes the SMA/MCP/INTERFACE/xxx module to terminate.
  
-The LSAM expects all of its files to be located in the same directory as the module; consequently, running all modules, except the SMA/MCP/INTERFACE/xxx, under a usercode causes the SMA/MCP/INTERFACE/xxx to be unable to locate the necessary files.
+The agent expects all of its files to be located in the same directory as the module; consequently, running all modules, except the SMA/MCP/INTERFACE/xxx, under a usercode causes the SMA/MCP/INTERFACE/xxx to be unable to locate the necessary files.
 
 ##### First Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-lsam-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-the-agent-to-idc).
 
 #### Second Possible Explanation:
  
-During the process of upgrading the MCP operating system, the definition of the SMA/MCP/INTERFACE/xxx module to IDC has been lost. Attempting to initiate the LSAM without first defining SMA/MCP/INTERFACE/xxx as an MCS results in a DCWRITE error 66 (MCS not defined in NDLII). This error causes the SMA/MCP/INTERFACE/xxx module to terminate, bringing the entire LSAM to EOJ shortly thereafter.
+During the process of upgrading the MCP operating system, the definition of the SMA/MCP/INTERFACE/xxx module to IDC has been lost. Attempting to initiate the agent without first defining SMA/MCP/INTERFACE/xxx as an MCS results in a DCWRITE error 66 (MCS not defined in NDLII). This error causes the SMA/MCP/INTERFACE/xxx module to terminate, bringing the entire agent to EOJ shortly thereafter.
 
 ##### Second Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-lsam-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-the-agent-to-idc).
 
 #### Third Possible Explanation:
  
@@ -223,21 +232,21 @@ The SMA/ALGOLPROCS/xxx module was not marked as a privileged program during inst
 
 Ensure the \*SMA/ALGOLPROCS/xxx module was not marked as a privileged program during installation.
  
-SMA Technologies strongly recommends that the MCP LSAM installation utility, \*SMA/INSTALL, be used for installations and upgrades in lieu of performing the installation steps manually.
+SMA Technologies strongly recommends that the MCP Agent installation utility, \*SMA/INSTALL, be used for installations and upgrades in lieu of performing the installation steps manually.
  
 ## SMA/MCP/INTERFACE Goes Waiting
 
 #### Full Description
 
-Upon LSAM initiation or job initiation, the \*SMA/MCP/INTERFACE goes into the waiting mix, unable to locate SMALIBRARY or \*SMA/ALGOLPROCS.
+Upon agent initiation or job initiation, the \*SMA/MCP/INTERFACE goes into the waiting mix, unable to locate SMALIBRARY or \*SMA/ALGOLPROCS.
  
 #### Possible Explanation:
  
-The usercode used to install the LSAM and then run the LSAM does not have as its primary family the family on which the LSAM resides.
+The usercode used to install the agent and then run the agent does not have as its primary family the family on which the agent resides.
 
 ##### Operator Response:
 
-Either change the primary family of the usercode to match the LSAM's family, or use a different usercode that already meets this requirement and re-initialize the LSAM. In some cases, it may be necessary to completely re-install the LSAM.
+Either change the primary family of the usercode to match the agent's family, or use a different usercode that already meets this requirement and re-initialize the agent. In some cases, it may be necessary to completely re-install the agent.
  
 ## INVALID INDEX @ 02430350
 
@@ -247,11 +256,11 @@ Upon LSAM initiation or job initiation, \*SMA/MCP/INTERFACE gets Invalid index @
  
 #### Possible Explanation:
  
-The site has upgraded LSAM versions and failed to remove the \*SMA/CP/MCS/= files after stopping the old version of the LSAM and prior to starting the new version.
+The site has upgraded agent versions and failed to remove the \*SMA/CP/MCS/= files after stopping the old version of the agent and prior to starting the new version.
 
 ##### Operator Response:
 
-Remove the \*SMA/CP/MCS/= files from the family on which the LSAM resides. Restart the LSAM.
+Remove the \*SMA/CP/MCS/= files from the family on which the agent resides. Restart the agent.
  
 ## INVALID OPERATOR @ 02693716
 
@@ -261,8 +270,8 @@ Upon starting a MCP REMOVE job, the \*SMA/MCP/INTERFACE/xxx gets Invalid Operato
  
 #### Possible Explanation:
  
-The site has multiple LSAM instances and a REMOVE MCP job follows a job with a very long file title.
+The site has multiple agent instances and a REMOVE MCP job follows a job with a very long file title.
 
 ##### Operator Response:
 
-Upgrade the MCP LSAM to version 05.03.00, or higher.
+Upgrade the MCP Agent to version 05.03.00, or higher.

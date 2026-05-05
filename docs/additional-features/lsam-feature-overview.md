@@ -1,10 +1,26 @@
-# LSAM Feature Overview
+---
+title: LSAM feature overview
+description: "An overview of the MCP LSAM's features and utilities, including file monitoring, resource monitoring, automated response, file transfer, and scheduling tools."
+tags:
+  - Conceptual
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
 
-The MCP LSAM has a variety of unique features and utilities. In this section, these tools have been thoroughly defined so that you may determine which best suit(s) your needs.
+# LSAM feature overview
+
+## What is it?
+
+The MCP Agent provides a suite of features and utilities that extend OpCon's automation capabilities on the MCP platform.
+
+- Use the MCP Agent features to monitor files, processes, and resources; capture ODT messages; transfer files; and schedule MCP-native commands as OpCon jobs.
+- Each feature integrates with the OpCon schedule to allow event-driven automation, dependency checking, and reporting through the OpCon interface.
+- Features such as File Monitor and Resource Monitor run independently of the agent and do not require task-based OpCon licensing.
 
 :::info Note
 
-If you are already familiar with the MCP LSAM features, you may bypass this section and go directly to the section for the feature that you wish to use.
+If you are already familiar with the MCP Agent features, you may bypass this section and go directly to the section for the feature that you wish to use.
 
 :::
 
@@ -14,18 +30,20 @@ There are multiple tools available for monitoring files and directories on the M
 
 | Tool | Description |
 | ---- | ----------- |
-| File Monitor | - This tool allows you to monitor continuously, and independently of any OpCon schedule. <br></br> - With File Monitor, you can send events to OpCon or take action directly on the MCP platform. <br></br> - File Monitor runs independently of the LSAM-based software and is not scheduled via OpCon, an advantage for those sites which utilize task-based OpCon licensing. <br></br> - For more information, refer to [File Monitor](../additional-features/lsam-features/file-monitor). |
+| File Monitor | - This tool allows you to monitor continuously, and independently of any OpCon schedule. <br></br> - With File Monitor, you can send events to OpCon or take action directly on the MCP platform. <br></br> - File Monitor runs independently of the agent software and is not scheduled via OpCon, an advantage for those sites which utilize task-based OpCon licensing. <br></br> - For more information, refer to [File Monitor](../additional-features/lsam-features/file-monitor). |
 | FILECHECK | - This tool allows you to check for the presence or absence of a particular file or set of wildcarded file names in order to satisfy a requirement for an OpCon job or schedule. <br></br> - FILECHECK's completion status depends on whether the requirements are satisfied. It may be used as a prerun, or as a job upon which other jobs are dependent. This allows you to control the processing path and to be assured that file dependencies are met before downstream processing occurs. <br></br> - FILECHECK runs as an OpCon job and does not require additional configuration or definition files to implement. <br></br> - For more information, refer to [Using *SMA/WFL/FILECHECK](../additional-features/utilities/sma-wfl-filecheck). |
 | FILECOUNT	| - This tool allows you to check for the presence or absence of a minimum or maximum number of particular files or set of wildcarded file names in order to satisfy a requirement for an OpCon job or schedule. <br></br> - FILECOUNT's completion status depends on whether the requirements are satisfied. It may be used as a prerun, or as a job upon which other jobs are dependent. This allows you to control the processing path and to be assured that file dependencies are met before downstream processing occurs. <br></br> - FILECOUNT runs as an OpCon job and does not require additional configuration or definition files to implement. <br></br> - For more information, refer to [Using *SMA/WFL/FILECOUNT](../additional-features/utilities/sma-wfl-filecount). |
 
 ## Monitor Resource Utilization
 
+The following tools are available for monitoring resource utilization on the MCP platform.
+
 | Tool | Description |
 | ---- | ----------- |
-| Resource Monitor | - This tool allows you to monitor continuously, and independently of any OpCon schedule. <br></br> - With Resource Monitor, you can send events to OpCon or take action directly on the MCP platform. <br></br> - Resource Monitor runs independently of the LSAM-based software and is not scheduled via OpCon, an advantage for those sites which utilize task-based OpCon licensing. <br></br> - For more information, refer to [Resource Monitor](../additional-features/lsam-features/resource-monitor). |
+| Resource Monitor | - This tool allows you to monitor continuously, and independently of any OpCon schedule. <br></br> - With Resource Monitor, you can send events to OpCon or take action directly on the MCP platform. <br></br> - Resource Monitor runs independently of the agent software and is not scheduled via OpCon, an advantage for those sites which utilize task-based OpCon licensing. <br></br> - For more information, refer to [Resource Monitor](../additional-features/lsam-features/resource-monitor). |
 | PROCESSCHECK | - This tool allows you to check for the presence or absence of a particular process or set of wildcarded process names in order to satisfy a requirement for an OpCon job or schedule. <br></br> - PROCESSCHECK's completion status depends on whether the requirements are satisfied. It may be used as a prerun, or as a job upon which other jobs are dependent. This allows you to control the processing path and to be assured that file dependencies are met before downstream processing occurs.<br></br> - PROCESSCHECK runs as an OpCon job and does not require additional configuration or definition files to implement. <br></br> - For more information, refer to Using *SMA/WFL/PROCESSCHECK. |
 | Operations Monitor | - This tool allows you to sample a limited subset of disk usage and usage values. Operations Monitor supports the following inquiries: DU, CPU usage for all user processes, CPU TRUE IDLE. <br></br> - The Operations Monitor utility allows you to supply a target value as well as OpCon events to be generated for wither success or failure, or both. <br></br> - You can also instruct this utility to create a cumulative report (i.e., you can accumulate samples throughout the month to assess critical metrics). <br></br> - Operations Monitor supports the following inquiries: DU, CPU usage for all user processes, CPU TRUE IDLE. <br></br> - Operations Monitor runs as an OpCon job and does not require additional configuration or definition files to implement. <br></br> - For more information, refer to [Operations Monitor](../additional-features/lsam-features/operations-monitor). |
-| Job-level Resource Utilization | - This feature enables statistics to be returned for every job initiated by the MCP LSAM. <br></br> - The returned values are also stored with the job's history. <br></br> - For more information, refer to Resource Utilization Statistics. |
+| Job-level Resource Utilization | - This feature enables statistics to be returned for every job initiated by the MCP Agent. <br></br> - The returned values are also stored with the job's history. <br></br> - For more information, refer to Resource Utilization Statistics. |
 | *SMA/WFL/CHECK/MIX | - This tool allows you to interrogate for the presence or absence of any entries in the MCP Waiting mix or Scheduled entries. <br></br> - CHECK/MIX prepares a report listing all Waiting or Scheduled entries detected. Access this report via the View Job Output option. <br></br> - For more information, refer to [Using *SMA/WFL/CHECK/MIX](../additional-features/utilities/sma-wfl-check-mix). |
 
 ## Capture ODT Messages

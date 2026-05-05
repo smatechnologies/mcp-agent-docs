@@ -1,10 +1,27 @@
-# Resource Utilization statistics
+---
+title: Resource Utilization Statistics
+description: "Describes how to enable and view job and task-level resource utilization statistics reported by the MCP Agent with the OpCon job status update message."
+tags:
+  - Reference
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
+
+# Resource Utilization Statistics
+
+## What is it?
+
+Resource Utilization Statistics allows the MCP Agent to return selected job- and task-level performance metrics — such as elapsed time, processor time, I/O time, and print lines — alongside the OpCon job status update message, making them visible in the Enterprise Manager. This feature is disabled by default. Enable it in the configuration file.
+
+- Review elapsed time, processor time, and I/O time for completed MCP jobs directly within the Enterprise Manager.
+- Capture task-level statistics for all subordinate tasks or only for failed tasks, depending on the configuration setting.
 
 Selected job or task-level statistics can be returned with the OpCon job status update message and are visible in the Enterprise Manager.
 
 ## Update the Configuration File
 
-By default, this feature is disabled. To enable resource utilization statistics reporting, the configuration file must be updated.
+By default, this feature is disabled. To enable resource utilization statistics reporting, update the configuration file.
  
 Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
 

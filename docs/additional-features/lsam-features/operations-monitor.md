@@ -1,4 +1,21 @@
+---
+title: Operations Monitor
+description: "Describes the SMA/WFL/OPS/MONITOR utility, which interrogates MCP system resources such as processor utilization and disk space to detect and respond to adverse conditions."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # Operations Monitor
+
+## What is it?
+
+The Operations Monitor (SMA/WFL/OPS/MONITOR) interrogates MCP system resources such as processor utilization and available disk space, then completes or fails based on configurable comparison criteria. It can also forward OpCon external events when defined conditions are met or when an alarm condition is triggered.
+
+- Monitor CPU idle percentage or disk usage and trigger an OpCon event when a threshold is exceeded.
+- Use the Operations Monitor as a prerun to delay a job until a system resource condition is satisfied.
 
 The WFL /*SMA/WFL/OPS/MONITOR/xxx performs a limited number of system resource interrogations, such as processor utilization and available disk space. This utility is intended to be used to monitor for adverse conditions.
 
@@ -73,12 +90,12 @@ When \*SMA/OBJ/OPS/MONITOR is run with the cumulative reporting enabled:
 * The current execution will create a new file if a user report file of the same title does NOT exist.
 
 To enable reporting:
-* Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP LSAM upgrade.
+* Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP Agent upgrade.
 * Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is executed with SW8 set (un-comment sequence number 15000).
 * Use the copied WFL in the File Title field of the Job Details.
 
 The default title of the report file is (uc)SMA/OPSMON/REPORT ON ```<pack name>```. If the site wishes to create a separate report for each unique entity monitored:
-* Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP LSAM upgrade.
+* Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP Agent upgrade.
 * Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is executed with SW8 set (un-comment sequence number 15000) AND modify line 15300 to define the desired file title for the report file.
 * Use the copied WFL in the File Title field of the Job Details.
 

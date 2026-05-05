@@ -1,23 +1,41 @@
+---
+title: Automated Response
+description: "Configure Automated Response to allow the MCP LSAM to detect console messages and automatically send events to OpCon or respond to waiting MCP processes."
+tags:
+  - Conceptual
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
+
 # Automated Response
 
-The Automated Response (AutoResponse) feature allows the MCP LSAM to respond to messages displayed on the MCP console. The predefined MCP LSAM responses can be sent to the MCP or to the Schedule Activity Monitor (SAM).
+## What is it?
+
+Automated Response (AutoResponse) allows the MCP Agent to monitor the MCP console for messages from jobs and the operating system, and automatically take predefined actions when a matching message is detected.
+
+- Use Automated Response to trigger OpCon events (such as setting properties or changing job statuses) based on MCP console messages without manual intervention.
+- Use Automated Response to reply automatically to MCP ACCEPT messages, releasing waiting processes without requiring an operator.
+- Automated Response is configured through Displays Files that define the message patterns to match and the actions to take.
+
+The Automated Response (AutoResponse) feature allows the MCP Agent to respond to messages displayed on the MCP console. The predefined responses can be sent to the MCP or to the Schedule Activity Monitor (SAM).
  
 The following types of messages are forwarded to the display handler for Automated Response processing:
 
 * WFL or program displays that appear on the MCP console and appear in the system log, preceded by DISPLAY (the process does not go into the waiting mix).
 * WFL or program displays that appear on the MCP console and appear in the system log, proceeded by ACCEPT (the process goes into the waiting mix).
-* System messages that appear on the MCP console or appear in the system log. The *SMA/RESOURCE/MONITOR, not the LSAM, captures system messages. The Resource Monitor must be enabled in order to utilize Automated Response for system messages.
+* System messages that appear on the MCP console or appear in the system log. The *SMA/RESOURCE/MONITOR, not the MCP Agent, captures system messages. Enable the Resource Monitor to use Automated Response for system messages.
 * Task/Job completion messages for the OpCon job when this job-level feature is enabled by checking the EOT Notice Message check box on the Job Details. For more information on utilizing this feature, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help. Possible completion status values are "EOT", "EOJ", and "DS". Explicit reasons for job/task discontinuance are not included in the display to simplify creation of the automated response entries in the displays files. All forms of DS (e.g., I-DS, F-DS, O-DS, P-DS, etc.) are denoted as "DS".
 
 ## Update the Configuration File
 
-If Automated Response was not activated during the installation, the configuration file must be updated.
+If Automated Response was not activated during the installation, update the configuration file.
  
 Modify the following fields under [Optional Modules (OPT)](../../configuration/optional-modules):
 
 a. **Autoresponse**: Set to a value of **Y**.
 
-b. **Resource Monitor Freq**: To capture and analyze messages emitted by processes started outside the LSAM, enter the *frequency*, in seconds, that the Resource Monitor should sample for system metrics. While this frequency value has no bearing on the processing of system messages, a value must be defined in order for the Resource Monitor to run.
+b. **Resource Monitor Freq**: To capture and analyze messages emitted by processes started outside the MCP Agent, enter the *frequency*, in seconds, that the Resource Monitor should sample for system metrics. While this frequency value has no bearing on the processing of system messages, define a value for the Resource Monitor to run.
 
 ## Automated Response Data File
 
@@ -27,7 +45,7 @@ A Displays File contains the definition of the MCP tokens to compare to a consol
  
 The following four kinds of Displays Files are allowed:
 
-* **Global**: Entries in the Global Displays File apply to all jobs initiated by the LSAM. Careful consideration should be given to the number of entries in the Global Displays File, particularly if the volume of display messages emitted in the site's environment is high. When Automated Response is activated, each message displayed by an OpCon job is processed by the LSAM and compared to the entries within the Global Displays File. In a display-intensive environment, this can lead to delays in processing if the Global Displays File is in use.
+* **Global**: Entries in the Global Displays File apply to all jobs initiated by the MCP Agent. Consider the number of entries in the Global Displays File carefully, particularly if the volume of display messages emitted in the site's environment is high. When Automated Response is activated, each message displayed by an OpCon job is processed by the agent and compared to the entries within the Global Displays File. In a display-intensive environment, this can lead to delays in processing if the Global Displays File is in use.
  
 More efficient processing can be achieved by using Template or Job-specific Displays Files in lieu of a Global Displays File when possible. Please note that this approach does result in a greater number of individual Displays Files.
  
@@ -36,15 +54,17 @@ If you suspect that you are experiencing a delay due to high display message vol
 * The Global Displays File is optional and, if used, must be named \*SMA/DISPLAYS/xxx.
 * The Global Displays File is not dynamic. After updating \*SMA/DISPLAYS/xxx, issue the AX REFRESH command to the \*SMA/DISPLAY/HANDLER/xxx to reload the Displays File.
 
-The Global Message Definitions File is not dynamic. After updating the *SMA/DISPLAYS/xxx, instruct the LSAM to reload the Definitions File using the LOADDISP option of SMA/MANAGER and selecting the Global Displays file.
+The Global Message Definitions File is not dynamic. After updating the *SMA/DISPLAYS/xxx, instruct the MCP Agent to reload the Definitions File using the LOADDISP option of SMA/MANAGER and selecting the Global Displays file.
 
 * **Template**: Entries in Template Displays File are only applied to the associated jobs. The use of a Template Displays File precludes the use of a job-specific Displays File for that job. Template Displays Files are associated with specific OpCon jobs by denoting the template file name on the MCP Job Details. Template Displays Files must be named \*SMA/DISPLAYS/```<unique template file name>```. Template Displays Files are dynamic. There is no need to reload the file after updating a Job-specific or Template Displays File. For further information on the SMA/DISPLAYS template file, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help.
 
 * **Job-specific**: Entries in Job-specific Displays File are only applied to the associated job. Job-specific Displays Files must be named *SMA/DISPLAYS/```<WFL source file name>``` (without the usercode or familyname). Job-specific Displays Files are dynamic. There is no need to reload the file after updating a Job-specific or Template Displays File.
 
-* **System Message**: Entries in the System Message Definitions File are applied to ALL processes. The System Message Definitions File is not dynamic. After updating the \*SMA/DISPLAYS/SYSMSG/xxx, instruct the LSAM to reload the Definitions File using the LOADDISP option of SMA/MANAGER and selecting the System Message Displays file. The format of the System Message file differs slightly than the format of the other three types of Displays Files.
+* **System Message**: Entries in the System Message Definitions File are applied to ALL processes. The System Message Definitions File is not dynamic. After updating the \*SMA/DISPLAYS/SYSMSG/xxx, instruct the MCP Agent to reload the Definitions File using the LOADDISP option of SMA/MANAGER and selecting the System Message Displays file. The format of the System Message file differs slightly than the format of the other three types of Displays Files.
 
 ### Define an Automated Response
+
+To define an automated response, complete the following steps:
 
 1. Decide whether to use the Global Displays File or a Job-specific Displays File. The console displays are matched first against any scenarios defined in the Job-specific Displays File and then matched to any scenarios defined in the Global Displays File.
 
@@ -146,7 +166,7 @@ Do not place a space on either side of the equals sign (=). This results in an i
 
 If problems arise while implementing the Automated Response feature, the *SMA/DISPLAY/HANDLER/xxx can run in stand-alone, debug mode using the following steps:
 
-1. Stop the MCP LSAM. Refer to MCP LSAM Operations and Components.
+1. Stop the MCP Agent. Refer to MCP LSAM Operations and Components.
 2. Start the Displays Handler: RUN \*SMA/DISPLAY/HANDLER/xxx.
 3. Set Switch Four (SW4) to true: ```<mix number of *SMA/DISPLAY/HANDLER/xxx> SW4=TRUE```.
 
@@ -170,7 +190,7 @@ c. The console display.
 
 :::tip Example 
 
-A WFL (JOB1) executes multiple actions and another job (JOB2) is waiting for output from one of the actions in JOB1. Instead of JOB2 waiting until JOB1 finishes completely, the key action in JOB1 can display a unique message after it is completed. As a result, a message is sent to the SAM-SS to start JOB2.
+A WFL (JOB1) executes multiple actions and another job (JOB2) is waiting for output from one of the actions in JOB1. Instead of JOB2 waiting until JOB1 finishes completely, the key action in JOB1 can display a unique message after it completes. As a result, the message triggers the SAM-SS to start JOB2.
 
 :::
 
@@ -236,7 +256,7 @@ Line 000100 defines the combination of tokens that must be matched in a console 
 
 6. The job is submitted, and the mix number is 12345. When a match is found in a console display, the automatic response is:
 
-a. An external event is sent to the SAM-SS with the following information:
+a. Automated Response sends an external event to the SAM-SS with the following information:
 
 ```
 
@@ -253,3 +273,36 @@ COPY EOM/BUDGET/DATA AS SAVE/EOM/BUDGET/DATA
 ```
 
 c. The program is prompted to continue: ```12345 OK```
+
+## FAQs
+
+**When should I use a Global Displays File versus a Job-specific Displays File?**
+Use a Job-specific or Template Displays File whenever possible. The Global Displays File is checked against every display message from every OpCon job, so a large Global file can introduce processing delays in high-volume environments. Job-specific files are only checked for the associated job.
+
+**Do I need to reload the Displays File after every change?**
+It depends on the file type. The Global Displays File and the System Message Definitions File are not dynamic — after editing, you must issue a reload using the LOADDISP option in SMA/MANAGER. Job-specific and Template Displays Files are dynamic and take effect immediately without a reload.
+
+**What record types are valid in a Displays File?**
+Three: `D` (defines the token pattern to match), `A` (defines an action to send to ClearPath MCP), and `S` (defines an OpCon event to send to SAM-SS). Each scenario requires a `D` record followed by one or more `A` and/or `S` records.
+
+**What is the maximum line length for a Displays File record?**
+72 characters. Lines cannot be continued to the following line, except for S records that require two lines (`S1$<event>` and `S2<event>`), which together may comprise up to 350 characters after token substitution.
+
+**What is the difference between a DISPLAY message and an ACCEPT message?**
+A DISPLAY message appears on the MCP console but the process continues running. An ACCEPT message causes the process to go into the waiting mix until it receives a reply. Automated Response can reply automatically to ACCEPT messages to release waiting processes without operator intervention.
+
+## Glossary
+
+**Displays File**: A SEQDATA file containing D, A, and S records that define which console messages to match and what actions to take when a match is found.
+
+**Token**: A contiguous group of one or more letters, numbers, and/or special characters preceded and followed by a single space. Tokens are identified by their ordinal position in the display message.
+
+**D record**: A record type in a Displays File that defines the MCP token pattern to match. Uses the syntax `#M<position>=<value>` for each token.
+
+**A record**: A record type in a Displays File that defines an action to deliver directly to the ClearPath MCP operating system (for example, replying to a waiting process or copying a file).
+
+**S record**: A record type in a Displays File that defines an OpCon external event to send to the SAM-SS (for example, setting a property or adding a job).
+
+**ACCEPT display**: A console message type that causes the originating process to enter the waiting mix. Automated Response can issue an automatic reply to release the process.
+
+**DISPLAY message**: A console message type that does not cause the originating process to wait. Automated Response can still trigger events or MCP actions in response to these messages.

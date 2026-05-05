@@ -1,13 +1,30 @@
+---
+title: Utilities Overview
+description: "An overview of the utilities included with the MCP LSAM installation, covering file checking, process checking, file conversion, command-line scheduling, and syntax validation."
+tags:
+  - Conceptual
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
+
 # Utilities Overview
 
-Many utilities are provided with the MCP LSAM installation. In the table that follows, a short description of each utility is provided. Click on the link for a more in-depth discussion of the utility.
+## What is it?
+
+The MCP Agent ships with a set of utilities that extend automation capabilities beyond what the agent scheduler provides natively.
+
+- Use these utilities as OpCon jobs to check for files or processes, manipulate files, convert MCP print files to ASCII, and deliver commands to the MCP console or system software.
+- Each utility runs as a standard OpCon job, so success or failure is reported directly in the OpCon interface without additional monitoring configuration.
+
+The table below provides a short description of each utility. See the linked page for a more in-depth discussion.
  
 For all utilities accessible to the user, the JOBSUMMARY job variable is set to CONDITIONAL, which will cause a job summary to be created in the event the utility fails. If this is not the behavior desired at your site, you may comment out the JOBSUMMARY = CONDITIONAL; line in the WFL or modify the value to better suit your environment.
 
 | Utility | Short Description |
 | ------- | ----------------- |
 | File Arrival | A command-line alternative to implementing an OpCon File Arrival job for MCP.The utility is intended to serve the purpose of detecting a file on the MCP platform that has been created within a specified time frame on the date the utility is run. The time frame parameters are optional. Upon detecting a file meeting the criteria, a property will be set to the value of the MCP file title. |
-| \*SMA/SYNTAX/CHECK	| Validates the syntax of the contents of the definitions files used by various LSAM modules. These definitions files include \*SMA/DISPLAYS, \*SMA/DISPLAYS/SYSMSG, \*SMA/FILEMON/DEFS and \*SMA/PERFMON/DEFS. |
+| \*SMA/SYNTAX/CHECK	| Validates the syntax of the contents of the definitions files used by various agent modules. These definitions files include \*SMA/DISPLAYS, \*SMA/DISPLAYS/SYSMSG, \*SMA/FILEMON/DEFS and \*SMA/PERFMON/DEFS. |
 | *SMA/WFL/CHECK/MIX | Interrogates the Waiting mix or Scheduled mix. This utility provides a batch interface to be used in lieu of an operator logging onto the MCP system to perform the interrogations. |
 | \*SMA/WFL/CHANGE | This WFL has been replaced by the MCP Job and Prerun type, CHANGE. Please refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help for a complete discussion of the MCP Job Details. | 
 | \*SMA/WFL/CLEANUP/LINC17/FILES	| This utility is used to clean up the *SMA/LINC17/FILES directory on the MCP. The directory contains files created when an EAE/AB Suite MCP job is run using an ACCEPTFILE. |

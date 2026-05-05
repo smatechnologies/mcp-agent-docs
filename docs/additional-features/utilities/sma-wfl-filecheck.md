@@ -1,6 +1,21 @@
+---
+title: "*SMA/WFL/FILECHECK"
+description: "A utility WFL that makes an OpCon job dependent on the presence or absence of a file on the MCP platform."
+tags:
+  - Procedural
+  - Automation Engineer
+  - Agents
+---
+
 # *SMA/WFL/FILECHECK
 
-The WFL \*SMA/WFL/FILECHECK/xxx allows a job to be dependent on the presence/absence of a file.
+## What is it?
+
+\*SMA/WFL/FILECHECK/xxx allows a job to proceed only when a specified file is either present or absent on the MCP platform, supporting both exact file names and wildcard patterns. The utility accepts the file name, a criterion value (REQUIRES or EXCLUDES), and an optional family name as parameters.
+
+- Gate a dependent job so it runs only when a required input file is present on the MCP platform
+- Gate a dependent job so it runs only when a lock or indicator file has been removed from the MCP platform
+
 
 ## Syntax
 On the MCP Job Details screen, use the syntax specified in these next two subsections

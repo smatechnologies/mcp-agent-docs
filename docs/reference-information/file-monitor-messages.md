@@ -1,6 +1,16 @@
+---
+title: File Monitor Messages
+description: "A reference table of error messages that may appear in the *SMA/FILE/MONITOR printer backup file, with descriptions and corrective guidance."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # File Monitor Messages
 
-The table contains error messages that may be encountered in the \*SMA/FILE/MONITOR```<forward slash (/) and optional LSAM identifier>``` printer backup file.
+The table contains error messages that may be encountered in the \*SMA/FILE/MONITOR```<forward slash (/) and optional agent instance identifier>``` printer backup file.
 
 | Message | Type | Description |
 | ------- | ---- | ----------- | 

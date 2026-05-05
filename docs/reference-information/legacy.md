@@ -1,10 +1,27 @@
+---
+title: Legacy Information
+description: "Reference pre-18.00.00 MCP LSAM procedures for configuration, startup, shutdown, and feature management that have been superseded by SMA/MANAGER."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+  - System Configuration
+---
+
 # Legacy Information
 
-This section contains information that has been preserved from prior to the MCP LSAM 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides the user with an Operations interface for accomplishing many tasks that previously required the user to interact directly with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP LSAM Administration guide. Please refer to the [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) and [MCP LSAM Operations and Components](../operations-and-components/mcp-lsam-operation) sections for current instructions on using SMA/MANAGER.
+## What is it?
+
+This page preserves the pre-18.00.00 MCP Agent procedures for tasks such as running the SMA/CONFIG program, starting and stopping the agent via AX commands, and managing definitions files — procedures that were replaced by the SMA/MANAGER interface introduced in version 18.00.00. Each section cross-references the current equivalent procedure in the main documentation.
+
+- Use this page when working with an MCP Agent version earlier than 18.00.00 where SMA/MANAGER is not available and the legacy SMA/CONFIG program or direct AX command methods must be used instead.
+- Use this page as a reference when migrating from a pre-18.00.00 environment to understand which legacy steps map to their current SMA/MANAGER equivalents.
+
+This section contains information preserved from prior to the MCP Agent 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides an Operations interface for accomplishing many tasks that previously required direct interaction with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP Agent Administration guide. Refer to the [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) and [MCP LSAM Operations and Components](../operations-and-components/mcp-lsam-operation) sections for current instructions on using SMA/MANAGER.
 
 ## Automated Installation/Upgrade
 
-### Stop the LSAM and Resource Monitor
+### Stop the MCP Agent and Resource Monitor
 
 :::info Note 
 
@@ -18,7 +35,7 @@ Please allow up to five minutes for the components to shut themselves down.
 
 3. Repeat Steps 1 and 2 for *SMA/RESOURCE/MONITOR, if active.
 
-To view the new procedure, refer to [Stop the LSAM and Resource Monitor](../installation/upgrade-installation#stop-the-lsam-and-resource-monitor) in the Automated Installation/Upgrade topic.
+To view the new procedure, refer to [Stop the MCP Agent and Resource Monitor](../installation/upgrade-installation#stop-the-agent-and-resource-monitor) in the Automated Installation/Upgrade topic.
  
 ## Run the Configuration Program
 
@@ -56,7 +73,7 @@ To view the new procedure, refer to the [Run the Manager Program](../configurati
 
 ### Configuration Settings
 
-Configuration Settings for SMA LSAM
+Configuration Settings for SMA/CONFIG
  
 ![Configuration Settings for SMA LSAM](../../static/img/configuration-settings-for-sma-lsam.png)
 
@@ -73,7 +90,7 @@ Communication Parameters (Legacy)
 Processing Variables (Legacy)
 Optional Modules (Legacy)
  
-## MCP LSAM Operation
+## MCP Agent Operation
 
 ### Create a Usercode and Assign Privileges
 
@@ -91,7 +108,7 @@ c. Go to the Home position. Transmit the screen.
 
 4. On the Makeuser - Basic Usercode Attributes screen:
 
-a. Enter the usercode's password and FAMILY assignments required by the LSAM machine.
+a. Enter the usercode's password and FAMILY assignments required by the MCP Agent machine.
 
 b. Select user attributes by typing an X beside the following fields:
 * Privileged User
@@ -102,11 +119,11 @@ c. Go to the Home position. Transmit the screen.
 
 5. On the Action line, type QUIT. Transmit the line.
 
-### Start the LSAM
+### Start the MCP Agent
 
 1. Log in to the ClearPath MCP using the usercode created in the Create a Usercode and Assign Privileges procedure.
 
-Start the LSAM using any of the three following methods:
+Start the agent using any of the three following methods:
 
 a. Create a WFL containing the following information:
 
@@ -129,24 +146,24 @@ Manually ```RUN *SMA/COMM/xxx ON<PACK NAME>; BDNAME=<optional BDNAME task attrib
 
 \- or -
 
-Auto Initiate the LSAM. To define this from the MCP ODT, enter:
+Auto Initiate the agent. To define this from the MCP ODT, enter:
 
 ```AI + SMALSAM<optional LSAM identifier> = *SMA/COMM/xxx ON <diskpack>3,```
 
 
 :::info Note 
 
-Options (a) or (c) are preferred over method (b) because they will cause the LSAM to be automatically restarted following a halt load, enabling automatic restart and recovery of the LSAM.
+Options (a) or (c) are preferred over method (b) because they cause the agent to be automatically restarted following a halt load, enabling automatic restart and recovery.
  
-To use a print prefix other than *BD, specify the BDNAME ```<value>``` task attribute in the WFL that initiates the LSAM. This approach is recommended for those sites at which print files reside only for a short time on the MCP platform (i.e., when an extract program removes the print files periodically or when a site's policy directs print files not to be retained). Additional task attributes, such as PRINTDEFAULTS, JOBSUMMARYTITLE, and JOBSUMMARY, may be appropriate for the site. In particular, the (PRINTDEFAULTS = (SAVEPRINTFILE = TRUE)) statement should be considered.
+To use a print prefix other than *BD, specify the BDNAME ```<value>``` task attribute in the WFL that initiates the agent. This approach is recommended for sites at which print files reside only for a short time on the MCP platform (i.e., when an extract program removes the print files periodically or when a site's policy directs print files not to be retained). Additional task attributes, such as PRINTDEFAULTS, JOBSUMMARYTITLE, and JOBSUMMARY, may be appropriate for the site. In particular, the (PRINTDEFAULTS = (SAVEPRINTFILE = TRUE)) statement should be considered.
 
 :::
 
-To view the new procedure, refer to [Start the LSAM](http://localhost:3000/opcon/agents/mcp/operations-and-components/mcp-lsam-operation#start-the-lsam) in the LSAM Operation topic.
+To view the new procedure, refer to [Start the MCP Agent](../operations-and-components/mcp-lsam-operation#start-the-agent) in the Agent Operation topic.
 
-### Stop the LSAM
+### Stop the MCP Agent
 
-Stop the LSAM using either of the two methods provided in this section. For either option, allow up to five minutes for the components to shut themselves down.
+Stop the agent using either of the two methods provided in this section. For either option, allow up to five minutes for the components to shut themselves down.
  
 #### Option One: Stop the Components
 
@@ -160,22 +177,22 @@ Stop the LSAM using either of the two methods provided in this section. For eith
 
 2. On the MARC main menu screen, go to the Action line. Type ```<mix number of *SMA/COMM/xxx>``` HI 99. Transmit.
 
-To view the new procedure, refer to [Stop the LSAM](../operations-and-components/mcp-lsam-operation#stop-the-lsam) in the LSAM Operation topic.
+To view the new procedure, refer to [Stop the MCP Agent](../operations-and-components/mcp-lsam-operation#stop-the-agent) in the Agent Operation topic.
  
-## MCP LSAM Components
+## MCP Agent Components
 
 ### *SMA/CONFIG
 
-The LSAM configuration program, used to maintain the LSAM's configuration file.
+The agent configuration program, used to maintain the agent's configuration file.
 
 #### *SMA/CONFIG Associated Files
 
 | External File Title | Permanent? | Description |
 | ------------------- | ---------- | ----------- |
-| *SMA/CONFIG/AUDIT/xxx | Y | This file contains an audit history of changes to the LSAM configuration file. |
+| *SMA/CONFIG/AUDIT/xxx | Y | This file contains an audit history of changes to the agent configuration file. |
 | CONFIG_SCREEN | N | This remote file is used to interact with users. |
 | CONFIG_PROGRAM | N | This file is used to determine environment variables. |
-| *BD/…../LINE | Y | - This print file contains a report of the LSAM configuration settings. <br></br> - The name of this file may differ depending on the site print defaults and/or the use of the BDNAME task attribute. |
+| *BD/…../LINE | Y | - This print file contains a report of the agent configuration settings. <br></br> - The name of this file may differ depending on the site print defaults and/or the use of the BDNAME task attribute. |
  
 ## Automated Response Data File
 
@@ -199,9 +216,9 @@ To view the new information, refer to [Global](../additional-features/lsam-featu
 
 To view the new procedure, refer to [Define an Automated Response](../additional-features/lsam-features/automated-response#define-an-automated-response) in the Automated Response Data File topic.
  
-## Dynamic LSAM Configuration
+## Dynamic Agent Configuration
 
-For all LSAM configuration variables, except 'Max number concurrent jobs', changes made to the LSAM configuration file may be applied while the LSAM is active. To apply the changes, you must deliver an AX CONFIG to the \*SMA/COMM/xxx and \*SMA/RESOURCE/MONITOR/xxx programs. If any of the Optional Modules were not started when the LSAM was initiated, or have been stopped, and they have since been activated in the LSAM's configuration file, deliver an AX CONFIG to the \*SMA/COMM module to initiate them. However, if you initiated one of those Optional Modules with the LSAM and have since deactivated it within the LSAM configuration file, the current execution of that module will not be stopped. It simply will not be initiated by the LSAM the next time the LSAM is started.
+For all agent configuration variables, except 'Max number concurrent jobs', changes made to the agent configuration file may be applied while the agent is active. To apply the changes, deliver an AX CONFIG to the \*SMA/COMM/xxx and \*SMA/RESOURCE/MONITOR/xxx programs. If any of the Optional Modules were not started when the agent started, or have been stopped, and they have since been activated in the agent's configuration file, deliver an AX CONFIG to the \*SMA/COMM module to initiate them. However, if you started one of those Optional Modules with the agent and have since deactivated it within the agent configuration file, the current execution of that module will not be stopped. It simply will not be initiated by the agent the next time the agent starts.
  
 If the AX CONFIG request is misspelled (e.g., AX CONVAL) the erroneous input will be displayed, followed by "request REJECTED!"
  
@@ -263,7 +280,7 @@ To view the new procedure, refer to [Maintain Definitions Files](../additional-f
  
 ## File Monitoring
 
-Each time a file close notification is received, it will be processed by the Resource Monitor and forwarded to the File Monitor. If you update the \*SMA/FILEMON/DEFS /xxx file and wish for the changes to take effect immediately as opposed to upon the next initiation of the Resource Monitor, you should deliver an AX FILEMON message to the \*SMA/RESOURCE/MONITOR/xxx program. This will cause the Resource Monitor to the list of files to be refreshed without the need to terminate the Resource Monitor. The Resource Monitor will inform \*SMA/FILE/MONITOR/xxx of the changes to \*SMA/FILEMON/DEFS/xxx so that the pointers to the associated actions within the file will be accurate.
+Each time a file close notification is received, the Resource Monitor processes it and forwards it to the File Monitor. If you update the \*SMA/FILEMON/DEFS /xxx file and want the changes to take effect immediately rather than upon the next initiation of the Resource Monitor, deliver an AX FILEMON message to the \*SMA/RESOURCE/MONITOR/xxx program. This refreshes the Resource Monitor's file list without terminating the Resource Monitor. The Resource Monitor then informs \*SMA/FILE/MONITOR/xxx of the changes to \*SMA/FILEMON/DEFS/xxx so that the pointers to the associated actions within the file are accurate.
  
 To view the new information, refer to the [File Monitoring](../additional-features/lsam-features/file-monitor) topic.
 
@@ -277,6 +294,6 @@ To view the new information, refer to [SMA/FILE/MONITOR Behavior](../additional-
 
 ### Enable Debug
 
-Deliver to the \*SMA/COMM/xxx module an AX DEBUG ```<optional timer>``` command, where ```<optional timer>``` is the number of minutes for which to capture debug information. If the timer is omitted, debugging will remain active until a) an AX LOGS command is delivered to the \*SMA/COMM/xxx module, or b) the LSAM is brought down. This method sets debug switches for all the LSAM components, excluding the Resource and File Monitors. To enable debugging for the Resource and File Monitors, deliver an AX DEBUG ```<optional timer>``` to the \*SMA/RESOURCE/MONITOR/xxx module.
+Deliver to the \*SMA/COMM/xxx module an AX DEBUG ```<optional timer>``` command, where ```<optional timer>``` is the number of minutes for which to capture debug information. If the timer is omitted, debugging remains active until a) an AX LOGS command is delivered to the \*SMA/COMM/xxx module, or b) the agent is brought down. This method sets debug switches for all the agent components, excluding the Resource and File Monitors. To enable debugging for the Resource and File Monitors, deliver an AX DEBUG ```<optional timer>``` to the \*SMA/RESOURCE/MONITOR/xxx module.
  
 To view the new information, refer to [Enable Debug](../debugging) in the Problem Resolution and Debugging topic.

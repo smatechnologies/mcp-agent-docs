@@ -1,10 +1,25 @@
+---
+title: "*SMA/WFL/CHECK/MIX"
+description: "A utility WFL that checks for processes in the MCP Waiting or Scheduled mix and reports the results to OpCon."
+tags:
+  - Procedural
+  - Operations Staff
+  - Agents
+---
+
 # *SMA/WFL/CHECK/MIX
 
-The WFL \*SMA/WFL/CHECK/MIX enables the user to check to see if there are any processes in the Waiting mix or Scheduled mix. This utility provides a batch interface to be used in lieu of an operator logging onto the MCP system to perform the interrogations.
+## What is it?
+
+\*SMA/WFL/CHECK/MIX provides a batch interface for checking whether any processes are present in the MCP Waiting mix or Scheduled mix, eliminating the need for an operator to log on to the MCP system to perform the interrogation. When processes are found, the WFL creates a print file listing them and aborts, causing the OpCon job to be reported as Failed.
+
+- Detect stalled or waiting MCP processes as part of a scheduled OpCon workflow
+- Trigger downstream remediation jobs when entries are found in the Waiting or Scheduled mix
+
 
 ## Usage
 
-To use this utility, set up an OpCon job with the following MCP Job Details:
+To use this utility, complete the following steps:
 
 * **Job Command**: START
 * **Usercode**: Desired usercode under which to run the utility

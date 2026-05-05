@@ -1,12 +1,29 @@
+---
+title: Copy Installation Files to MCP
+description: "Transfer the MCP LSAM container files from a Windows machine to the ClearPath MCP system via FTP before running the installer."
+tags:
+  - Procedural
+  - System Administrator
+  - Installation
+  - Agents
+---
+
 # Copy Installation Files to MCP
 
-Before you install the *SMA/INSTALL program, you must FTP the LSAM container files from the OpCon installation media on a Windows machine to the MCP machine. Follow the procedures here to perform the FTP.
+## What is it?
+
+This page provides step-by-step FTP procedures for transferring the MCP Agent installation container files from a Windows machine to the ClearPath MCP system and then unwrapping the installer program. It covers the binary transfer requirements and the UNWRAP command syntax needed to prepare the files for the installation run.
+
+- Use this page when performing a new or upgrade installation to move the agent and installer container files onto the target MCP family before running `*SMA/INSTALL`.
+- Use this page to verify a successful file transfer by reviewing the byte values returned in the FTP command window.
+
+Before you install the `*SMA/INSTALL` program, you must FTP the agent container files from the OpCon installation media on a Windows machine to the MCP machine. To perform the FTP, complete the following steps:
 
 1. Use menu path: ```Start > Run```.
 
 2. Enter ```CMD``` in the Open text box.
 
-3. Click the OK button. The Command window displays.
+3. Select the **OK** button. The Command window displays.
 
 4. Enter the FTP command and the TCP/IP address of the ClearPath MCP: ```FTP<TCP/IP address>```.
 

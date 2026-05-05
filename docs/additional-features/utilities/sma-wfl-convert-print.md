@@ -1,8 +1,21 @@
+---
+title: "*SMA/WFL/CONVERT/PRINT (MCP Print File Conversion)"
+description: "A utility that converts an MCP printer backup print file to an ASCII text file to enable distribution via SMA File Transfer."
+tags:
+  - Procedural
+  - Automation Engineer
+  - Agents
+---
+
 # *SMA/WFL/CONVERT/PRINT (MCP Print File Conversion)
 
-The print conversion utility converts an MCP print file (kind=BACKUPPPRINTER) to an ASCII text file. Sites may find this utility helpful as a preliminary step to a SMA File Transfer job in distributing print files to users for viewing in an ASCII environment (Windows, UNIX, etc.).
- 
-The utility consists of two modules: \*SMA/WFL/CONVERT/PRINT and \*SMA/OBJ/CONVERT/PRINT. You will only reference the WFL, \*SMA/WFL/CONVERT/PRINT, which accepts two parameters. The first parameter is the title of the MCP print file to be converted; the second parameter is the title of the ASCII text file to be created. It is anticipated that you will then define a SMA File Transfer job to effect a text transfer of the ASCII file.
+## What is it?
+
+\*SMA/WFL/CONVERT/PRINT converts an MCP print file (kind=BACKUPPRINTER) to an ASCII text file, making it suitable for distribution to users on Windows, UNIX, or other ASCII-based platforms via an SMA File Transfer job. The utility consists of two modules — \*SMA/WFL/CONVERT/PRINT and \*SMA/OBJ/CONVERT/PRINT — and accepts the source print file title and the destination ASCII file title as parameters.
+
+- Convert an MCP printer backup file to ASCII text as a preliminary step before an SMA File Transfer job
+- Distribute MCP print output to users on non-MCP platforms as part of a scheduled OpCon workflow
+
 
 ## Syntax
 

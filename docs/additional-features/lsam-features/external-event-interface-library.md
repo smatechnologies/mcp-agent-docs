@@ -1,10 +1,26 @@
+---
+title: External Event Interface Library
+description: "Describes the External Event Interface Library and SMA/EVENTGEN utility, which enable user programs to pass OpCon events directly to the MCP Agent."
+tags:
+  - Reference
+  - Automation Engineer
+  - Agents
+---
+
 # External Event Interface Library
 
-The External Event Interface Library allows OpCon events to be passed directly to the LSAM from a user program. Several methods of accessing the library are available: the \*SMA/EVENTGEN utility, an ALGOL program, and a COBOL85 program.
+## What is it?
+
+The External Event Interface Library allows OpCon events to be passed directly to the MCP Agent from a user program using the SMA/EVENTGEN utility, an ALGOL program, or a COBOL85 program. It is commonly used when a WFL contains multiple tasks and the failure or completion of a specific task should trigger an OpCon action.
+
+- Trigger an OpCon event from within a WFL that was not initiated by OpCon, such as one started by an online user program.
+- Send notifications, release schedules, or add jobs to OpCon dynamically based on task outcomes within a running WFL.
+
+Several methods of accessing the library are available: the \*SMA/EVENTGEN utility, an ALGOL program, and a COBOL85 program.
 
 ## Using *SMA/EVENTGEN
 
-In a WFL, the \*SMA/EVENTGEN/xxx utility forwards external events to the SAM-SS. The program accepts three parameters: the SAM ID, the SAM external token, and the external event to be forwarded. The SAM ID and SAM external token can default to the values defined in the LSAM's configuration file. For information on these configuration settings, refer to the [General LSAM Configuration (GEN)](../../configuration/general-lsam-configuration) topic. In order to use the default(s), substitute a null string (i.e., "") for the SAM ID and SAM external token value when running the \*SMA/EVENTGEN/xxx utility. The \*SMA/EVENTGEN program requires no modification.
+In a WFL, the \*SMA/EVENTGEN/xxx utility forwards external events to the SAM-SS. The program accepts three parameters: the SAM ID, the SAM external token, and the external event to be forwarded. The SAM ID and SAM external token can default to the values defined in the agent configuration file. For information on these configuration settings, refer to the [General LSAM Configuration (GEN)](../../configuration/general-lsam-configuration) topic. To use the defaults, substitute a null string (i.e., "") for the SAM ID and SAM external token value when running the \*SMA/EVENTGEN/xxx utility. The \*SMA/EVENTGEN program requires no modification.
  
 The utility is often applied in the event a WFL contains numerous tasks and the failure (or completion) of a given task should trigger an OpCon action. This WFL may or may not have been initiated using OpCon. This application of the utility is valuable when the WFL cannot be scheduled using OpCon (i.e., it is initiated by a user of an online program).
 
@@ -44,7 +60,7 @@ NOTIFY:LOG,<Severity>,<EventID>,<Msg>
 
 ## Customizing External Event Generation
 
-A sample ALGOL program and a sample COBOL85 program are provided with the LSAM. The file names are \*NEW/SMA/SRC/MULTI/EVENT/C85 and \*NEW/SMA/SRC/MULTI/EVENT/ALGOL, respectively.
+A sample ALGOL program and a sample COBOL85 program are provided with the MCP Agent. The file names are \*NEW/SMA/SRC/MULTI/EVENT/C85 and \*NEW/SMA/SRC/MULTI/EVENT/ALGOL, respectively.
 
 ### Modify the ALGOL Program
 
@@ -83,17 +99,17 @@ The *SMA/EVENTGEN program sets its TASKVALUE attribute with the result from the 
 
 :::tip Example
 
-In this use case, we have the need to dynamically supply different values as parameters to a job through an OpCon Event. One of these values contains a character that would cause a problem with the event. The solution for this problem is to define multiple properties instead, and place the problem character in the job definition. For this example, the problem character in question is a comma (,).
+In this use case, you need to dynamically supply different values as parameters to a job through an OpCon Event. One of these values contains a character that would cause a problem with the event. The solution is to define multiple properties instead, and place the problem character in the job definition. For this example, the problem character in question is a comma (,).
  
 On the Job Definition, the first Parameter to the job must be a string of alpha characters (e.g., DAILY), and the second parameter must be a string of alpha characters with a comma in the middle (e.g., TEST,JOB).
  
 The *incorrect* approach is:
 
-1. In the Job Details for the platform, we use the following Tokens separated by commas:
+1. In the Job Details for the platform, use the following Tokens separated by commas:
 
 ```[[JI.PARAM1]],[[JI.PARAM2]]```
 
-2. In the OpCon Event to add the job, we use this syntax:
+2. In the OpCon Event to add the job, use this syntax:
 ```$JOB:ADD,$DATE,SCHEDULE,JOB,FREQCODE,PARAM1=DAILY;PARAM2=TEST,JOB```
 
 **Result**
@@ -102,11 +118,11 @@ The job will fail because a comma is used by OpCon as a delimiter for events, an
  
 The **correct** approach is:
 
-1. In the Job Details for the platform, we use the following tokens separated by commas:
+1. In the Job Details for the platform, use the following tokens separated by commas:
 
 ```[[JI.PARAM1]],[[JI.PARAM2]],[[JI.PARAM3]]```
 
-2. In the OpCon Event to add the job, we use this syntax:
+2. In the OpCon Event to add the job, use this syntax:
 
 ```$JOB:ADD,$DATE,SCHEDULE,JOB,FREQCODE,PARAM1=DAILY;PARAM2=TEST;PARAM3=JOB```
 

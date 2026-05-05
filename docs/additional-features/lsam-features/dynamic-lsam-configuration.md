@@ -1,10 +1,26 @@
+﻿---
+title: Dynamic LSAM Configuration
+description: "Explains how to apply MCP Agent configuration changes while the agent is running without requiring a restart."
+tags:
+  - Procedural
+  - System Administrator
+  - Agents
+---
+
 # Dynamic LSAM Configuration
 
-For all LSAM configuration variables, except 'Max number concurrent jobs', changes made to the LSAM configuration file may be applied while the LSAM is active. To apply the changes, you must select LOADCFG from the Main Menu of \*SMA/MANAGER/xxx. If any of the Optional Modules were not started when the LSAM was initiated, or have been stopped, and they have since been activated in the LSAM's configuration file, select LOADCFG from the Main Menu of \*SMA/MANAGER to initiate them. However, if you initiated one of those Optional Modules with the LSAM and have since deactivated it within the LSAM configuration file, the current execution of that module will not be stopped. It simply will not be initiated by the LSAM the next time the LSAM is started.
+## What is it?
+
+Dynamic configuration allows most MCP Agent configuration variables to be applied while the agent is active by selecting LOADCFG from the Main Menu of SMA/MANAGER, eliminating the need to restart the agent. The exception is the 'Max number concurrent jobs' value, which requires a full restart to take effect.
+
+- Apply updated configuration settings to a running MCP Agent without interrupting active jobs.
+- Start Optional Modules that were activated in the configuration file after the agent was initially started.
+
+For all MCP Agent configuration variables, except 'Max number concurrent jobs', changes made to the agent configuration file may be applied while the agent is active. To apply the changes, select LOADCFG from the Main Menu of \*SMA/MANAGER/xxx. If any of the Optional Modules were not started when the agent was initiated, or have been stopped, and they have since been activated in the agent configuration file, select LOADCFG from the Main Menu of \*SMA/MANAGER to initiate them. However, if you initiated one of those Optional Modules with the agent and have since deactivated it within the agent configuration file, the current execution of that module will not be stopped. It simply will not be initiated by the agent the next time the agent is started.
 
 :::info Note
 
-Changes to the 'Max number concurrent jobs' value will NOT be implemented while the LSAM is active.
+Changes to the 'Max number concurrent jobs' value will NOT be implemented while the agent is active.
 
 :::
 
@@ -16,4 +32,4 @@ All modules unconditionally note within their respective log files that an updat
 * Unable to refresh configuration values: ```<name of configuration file>```.
 * In addition to the log entry, the message, "CONFIG requested ACCEPTED", will be displayed upon the system console.
 
-To view the previous information, refer to [Dynamic LSAM Configuration](../../reference-information/legacy#dynamic-lsam-configuration) in the Legacy Information topic.
+To view the previous information, refer to [Dynamic LSAM Configuration](../../reference-information/legacy#dynamic-agent-configuration) in the Legacy Information topic.

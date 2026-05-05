@@ -1,4 +1,20 @@
+---
+title: Resource Monitor
+description: "Describes the SMA/RESOURCE/MONITOR component, which continuously monitors MCP system messages, files, and system resources and triggers predefined actions when defined conditions are detected."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # Resource Monitor
+
+## What is it?
+
+The Resource Monitor (SMA/RESOURCE/MONITOR) runs continuously and monitors three categories of MCP activity: system messages including end-of-job and end-of-task messages, file events such as creation, deletion, or reaching a size threshold, and selected system resource metrics. When a monitored event occurs, the data is forwarded to the appropriate handler — the Display Handler, File Monitor, or retained by the Resource Monitor — which then performs the predefined actions.
+
+- Monitor disk space or CPU utilization metrics and trigger OpCon events or MCP commands when defined thresholds are reached.
+- Watch for specific system messages or file changes and automatically respond with actions such as starting a WFL or sending an OpCon notification.
 
 The \*SMA/RESOURCE/MONITOR runs continuously, gathering data as configured. Possible objects of the monitoring process are the following categories: system messages to include EOJ/EOT messages, files (creation, deletion, recent alterations, attainment of a percentage of maximum allowable size), and selected system resources. 
 
@@ -30,7 +46,7 @@ Modify the following fields under [Optional Modules](../../operations-and-compon
 
 ## Start the Resource Monitor
 
-In order to provide continuous monitoring apart from the MCP LSAM, the Resource Monitor is initiated independently of the LSAM. If you have configured the Resource Monitor to be initiated concurrently with the LSAM, use the STATUS choice of SMA/MANAGER to confirm that the Resource Monitor is running. If you did not have the Resource Monitor set up to be initiated with the LSAM, use the INITRM choice on the SMA/MANAGER Main Menu to start it.
+To provide continuous monitoring apart from the MCP Agent, the Resource Monitor is initiated independently of the agent. If you have configured the Resource Monitor to be initiated concurrently with the agent, use the STATUS choice of SMA/MANAGER to confirm that the Resource Monitor is running. If you did not have the Resource Monitor set up to be initiated with the agent, use the INITRM choice on the SMA/MANAGER Main Menu to start it.
  
 To view the previous information, refer to [Start the Resource Monitor](../../reference-information/legacy#start-the-resource-monitor) in the Legacy Information topic.
 
@@ -50,7 +66,7 @@ To view the previous procedure, refer to [Maintain Definitions Files](../../refe
 
 ## Monitor for Performance and Disk Space Utilization Metrics
 
-To instruct the Resource Monitor to monitor for performance and disk space utilization metrics, the MCP LSAM must be configured to define the sampling interval used by the Resource Monitor. The Resource Monitor will first determine, by checking the LSAM configuration file, if the Resource Monitor feature is in use. If it is, then the program will check for the presence of the Performance Monitor Definitions file, \*SMA/PERFMON/DEFS/xxx. If the file exists, the program will load into an internal table a list of performance metrics defined within the \*SMA/PERFMON/DEFS/xxx file, storing the location of the definition in the file within the internal table, and will then initiate monitoring at the frequency defined in the LSAM configuration file. Otherwise, the program will make an entry in the debug log.
+To instruct the Resource Monitor to monitor for performance and disk space utilization metrics, configure the MCP Agent to define the sampling interval used by the Resource Monitor. The Resource Monitor first determines, by checking the agent configuration file, if the Resource Monitor feature is in use. If it is, the program checks for the presence of the Performance Monitor Definitions file, \*SMA/PERFMON/DEFS/xxx. If the file exists, the program loads into an internal table a list of performance metrics defined within the \*SMA/PERFMON/DEFS/xxx file, storing the location of the definition in the file within the internal table, and then initiates monitoring at the frequency defined in the agent configuration file. Otherwise, the program makes an entry in the debug log.
  
 At the configured frequency, the defined metrics will be interrogated and the results analyzed to determine whether a target condition has been reached. Upon attainment of a target condition, the associated action(s) contained in the Definitions file will be executed.
  
@@ -155,7 +171,7 @@ The Diskspace Utilization Metrics table identifies the possible metrics for Disk
 
 ## SAM Action Records
 
-SAM action records are indicated by the presence of an "S" in the first position of the record, followed immediately by a "$". Any valid OpCon external event may be used. One suggestion would be to set a machine instance property upon which jobs are dependent, thereby allowing users to control the number of jobs submitted when resource availability is limited. If omitted from the definition, the OpCon userid and password will be obtained from the LSAM configuration file.
+SAM action records are indicated by the presence of an "S" in the first position of the record, followed immediately by a "$". Any valid OpCon external event may be used. One suggestion would be to set a machine instance property upon which jobs are dependent, thereby allowing users to control the number of jobs submitted when resource availability is limited. If omitted from the definition, the OpCon userid and password will be obtained from the agent configuration file.
 
 #### S
 
@@ -173,7 +189,7 @@ MCP action records are indicated by the presence of an "M" in the first position
 
 ## System Message Monitoring
 
-To instruct the Resource Monitor to monitor system messages, the MCP LSAM must be configured to use the Automated Response feature. To specify the message to be monitored and the actions to take when the message is displayed, insert, within the definitions file (\*SMA/DISPLAYS/SYSMSG/xxx), the system message tokens and actions to take when the system message is displayed. If the LSAM is not configured for Automated Response or the \*SMA/DISPLAYS/SYSMSG/xxx file does not exist, the Resource Monitor program will make an entry in the debug log and will NOT monitor system messages.
+To instruct the Resource Monitor to monitor system messages, configure the MCP Agent to use the Automated Response feature. To specify the message to be monitored and the actions to take when the message is displayed, insert the system message tokens and actions within the definitions file (\*SMA/DISPLAYS/SYSMSG/xxx). If the agent is not configured for Automated Response or the \*SMA/DISPLAYS/SYSMSG/xxx file does not exist, the Resource Monitor program makes an entry in the debug log and will NOT monitor system messages.
  
 As system messages are received, the Resource Monitor will scan the list of message definitions in search of a possible match. This scan will be cursory and is intended to identify messages that do not match any of the token definitions, so those messages will not be forwarded to the Display Handler for further matching and processing. The approach will be that of an OR comparison. If any token of the incoming message matches any token in the definitions file, the message will be forwarded.
  
@@ -195,7 +211,7 @@ The syntax rules for entries in the \*SMA/DISPLAYS/SYSMSG/xxx file are the same 
 
 ### SMA/DISPLAY/HANDLER
 
-The Display Handler will make no distinction between messages from the LSAM and messages from the Resource Monitor. System message definitions and actions are defined within the \*SMA/DISPLAYS/SYSMSG/xxx file only. Because system messages are quite plentiful and diverse in content, it is strongly recommended that definitions for the system messages be specific enough to avoid the possibility of inadvertently getting a match. For more information on the Automated Response, refer to [Automated Response](automated-response).
+The Display Handler will make no distinction between messages from the MCP Agent and messages from the Resource Monitor. System message definitions and actions are defined within the \*SMA/DISPLAYS/SYSMSG/xxx file only. Because system messages are quite plentiful and diverse in content, it is strongly recommended that definitions for the system messages be specific enough to avoid the possibility of inadvertently getting a match. For more information on the Automated Response, refer to [Automated Response](automated-response).
 
 ## File Monitoring
 
@@ -207,7 +223,7 @@ To view the previous information, refer to [File Monitoring](../../reference-inf
 
 The syntax rules for entries in the \*SMA/FILEMON/DEFS/xxx file are documented under F- Record in File Monitor. MCP action records are indicated by the presence of an "M" in the first position of the record. Any valid MCP command may be entered. It is anticipated that a common usage of this definition will be to start a WFL job or running a program. If starting a WFL, the command START, followed by the full title of any valid WFL file, must be entered. 
 
-You should take care to ensure that the WFL is syntactically correct and present in the location specified, as the WFL job will not be monitored by the LSAM. If starting a program, the command RUN, followed by the full title of any valid executable file, must be entered. You should take care to ensure that the executable file is present in the location specified and appropriate permissions exist, as the process will not be monitored by the LSAM.
+Ensure that the WFL is syntactically correct and present in the location specified, as the WFL job will not be monitored by the MCP Agent. If starting a program, enter the command RUN followed by the full title of any valid executable file. Ensure that the executable file is present in the location specified and that appropriate permissions exist, as the process will not be monitored by the agent.
  
 **M**
 **MCP command**
@@ -238,7 +254,7 @@ To view the previous information, refer to [SMA/FILE/MONITOR Behavior](../../ref
  
 If, at any time, you wish to force the File Monitor to re-evaluate the conditions of all files defined within \*SMA/FILEMON/DEFS/xxx, you should deliver an AX RESTART to \*SMA/FILE/MONITOR/xxx. The RESTART option will cause the File Monitor to close and reopen the definitions file (\*SMA/FILEMON/DEFS/xxx) as well as check the defined conditions and perform the associated actions if the conditions occur.
  
-The \*SMA/FILE/MONITOR/xxx program will, based upon the value of the LSAM Idle Timer, check for new records in the \*SMA/SMA/FILE/LIST/xxx file. If a new record is present, the File Monitor will process and remove it from the \*SMA/FILE/LIST/xxx file.
+The \*SMA/FILE/MONITOR/xxx program will, based upon the value of the agent idle timer, check for new records in the \*SMA/SMA/FILE/LIST/xxx file. If a new record is present, the File Monitor will process and remove it from the \*SMA/FILE/LIST/xxx file.
  
 Upon retrieving a file from the list, associated actions will be retrieved from the \*SMA/FILEMON/DEFS/xxx file and performed. The date and time stamp in the File Monitor control file will be updated with the time stamp from the "File Close" log entry.
 
@@ -269,3 +285,35 @@ MSTART *SMA/WFL/COMMAND("*SMA/RESOURCE/MONITOR","AX SYSMSG")
 
 ```
 
+## FAQs
+
+**Does the Resource Monitor need to run inside the agent process?**
+No. The Resource Monitor runs independently of the MCP Agent and can be initiated separately using the INITRM choice on the SMA/MANAGER Main Menu. This independence makes it suitable for sites using task-based OpCon licensing.
+
+**What three categories does the Resource Monitor monitor?**
+System messages (including EOJ/EOT messages), file events (creation, deletion, modification, or attainment of a percentage of maximum size), and selected system resource metrics (CPU utilization and disk usage).
+
+**Do I need to reload after changing a definitions file?**
+Yes, for the changes to take immediate effect. Use LOADDISP (system message definitions), LOADFILE (file monitor definitions), or LOADPERF (performance monitor definitions) from the SMA/MANAGER Main Menu. Without a reload, changes take effect only when the Resource Monitor is next initiated.
+
+**Can I monitor a metric only during specific hours?**
+Yes. Performance Monitor definition records support optional Start time and End time parameters (24-hour clock) to restrict sampling to a defined window. Monitoring cannot span midnight; create two separate entries to cover a window that crosses midnight.
+
+**What happens when a monitored condition is met repeatedly?**
+Each time a defined file event, system message, or performance metric condition is met, the associated actions are executed again. There is no built-in facility for one-time-only processing.
+
+## Glossary
+
+**Resource Monitor (\*SMA/RESOURCE/MONITOR)**: The MCP Agent component that runs continuously and monitors system messages, file events, and system resource metrics, forwarding events to the appropriate handler.
+
+**Performance Monitor Definitions File (\*SMA/PERFMON/DEFS/xxx)**: The user-maintained file that specifies which CPU or disk metrics to monitor, the comparison operator and target value, the accumulation method (AVG or SUM), and the actions to take when the target is reached.
+
+**D record (Performance Monitor)**: A definition record in the Performance Monitor Definitions File that specifies a metric type, comparison, target value, and optional accumulation and time-window parameters.
+
+**S record (Performance Monitor)**: An action record in the Performance Monitor Definitions File that defines an OpCon external event to send to SAM-SS when a performance target is reached.
+
+**M record (Performance Monitor)**: An action record in the Performance Monitor Definitions File that defines an MCP command (typically START or RUN) to execute when a performance target is reached.
+
+**Metric Type U**: CPU utilization. Monitors processor time across categories such as USER PROC, MCP PROC, TRUE IDLE, and others.
+
+**Metric Type DU**: Disk usage. Monitors available sectors, capacity, and related metrics on a specified diskpack.

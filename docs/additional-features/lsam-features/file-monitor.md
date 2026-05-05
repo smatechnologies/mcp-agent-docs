@@ -1,4 +1,22 @@
+---
+title: File Monitor
+description: "Configure and use File Monitor to take automated actions when defined file conditions are met on the MCP platform, such as file creation, deletion, modification, or size thresholds."
+tags:
+  - Conceptual
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
+
 # File Monitor
+
+## What is it?
+
+File Monitor is an MCP Agent component that monitors defined files for specific conditions and takes automated actions — such as sending external events to OpCon or executing MCP commands — when those conditions are detected.
+
+- Use File Monitor to trigger OpCon events when a file is created, deleted, modified, or reaches a defined size threshold.
+- File Monitor runs independently of the agent scheduling process, making it suitable for task-based OpCon licensing environments.
+- Unlike file-checking utilities (FILECHECK, FILECOUNT), File Monitor runs continuously and does not require an OpCon job to drive it.
 
 File Monitor takes user-defined actions upon the attainment of various file conditions which occur against a user defined set of files. When the file meets the criterion, File Monitor sends external events to the SAM and supporting services (SAM-SS), and/or sends selected MCP commands to the MCP operating system. File Monitoring criteria include:
 
@@ -40,6 +58,8 @@ The File Monitor is started by the Resource Monitor. Refer to the discussion of 
 The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages).
 
 ## Files Rules
+
+To define and maintain file monitoring rules, complete the following steps:
 
 1. Edit the \*SMA/FILEMON/DEFS/xxx file using the *SMA/MANAGER program (?ON SMAMGRxxx). Select the FILEMENU choice, and edit/insert/delete records as desired.
 2. Save your changes.
@@ -195,3 +215,40 @@ The following example is a \*SMA/FILEMON/DEFS/xxx file:
 ```
 
 :::
+
+## FAQs
+
+**How is File Monitor different from FILECHECK?**
+File Monitor runs continuously and independently of the OpCon schedule, triggering actions as soon as a file condition is detected. FILECHECK runs as an OpCon job and checks for a file condition at the moment the job executes — it does not watch continuously.
+
+**Does File Monitor require a running OpCon job to operate?**
+No. File Monitor runs as a privileged process under the Resource Monitor and operates independently of the agent scheduling process. This makes it suitable for task-based OpCon licensing environments where running a continuous monitoring job would consume a task license.
+
+**What wildcard characters can I use in file definitions?**
+Two: an equals sign (`=`) wildcards an entire filename node or suffix, and a question mark (`?`) wildcards a single character. They cannot be combined in the same file definition — use only `=` or only `?` within one F record.
+
+**Do I need to reload the Definitions File after making changes?**
+No — the File Monitor Definitions File (`*SMA/FILEMON/DEFS/xxx`) is dynamic. After saving changes in SMA/MANAGER, select the LOADFILE choice from the Main Menu and the File Monitor picks up the new definitions automatically.
+
+**What happens if a monitored file condition is already met when File Monitor starts?**
+Upon initiation, File Monitor checks the status of all defined files. If a monitored condition exists and the file has been altered since the last time File Monitor was active, the associated actions will be performed immediately.
+
+## Glossary
+
+**F record**: Defines a file to monitor and the condition to watch for. Format: `<FILE TITLE>.,<CONDITION>`.
+
+**F- record**: A continuation record used when the file title and condition do not fit on a single F record line.
+
+**F2 record**: An optional record that specifies the time window (start and stop, 24-hour format) during which the file condition should be monitored.
+
+**M record**: Defines an MCP command to execute when the file condition is met (CHANGE TO, COPY AS, DISPLAY, or REMOVE).
+
+**S record**: Defines an OpCon external event to send to SAM-SS when the file condition is met.
+
+**PRESENT**: File condition indicating the file exists on the MCP or was created during the current processing cycle.
+
+**ALTERED**: File condition indicating the file was modified or created during the current processing cycle.
+
+**DELETED**: File condition indicating the file is absent or was removed during the current processing cycle.
+
+**WARN=##**: File condition indicating the file has reached a user-defined percentage of its maximum allowable size.

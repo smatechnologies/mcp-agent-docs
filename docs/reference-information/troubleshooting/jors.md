@@ -1,3 +1,13 @@
+﻿---
+title: Job Output Retrieval System (JORS) Troubleshooting
+description: "Troubleshooting guidance for MCP Agent JORS issues including no output file responses and JORS failing to start."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # Job Output Retrieval System (JORS)
 
 ## No Output File
@@ -20,7 +30,7 @@ The \*SMA/JORS/xxx module is unable to detect the print files.
 
 ##### Second Operator Response:
 
-If the family on which print files is located is absent from the FAMILY statement of the usercode under which the LSAM started:
+If the family on which print files is located is absent from the FAMILY statement of the usercode under which the agent started:
 
 1. DS the \*SMA/JORS/xxx module.
 
@@ -34,8 +44,8 @@ JORS is not running.
  
 #### Possible Explanation:
  
-"Neither JORS nor outgoing File Transfer is configured – terminating" is displayed on the console. If neither JORS nor the outgoing file transfers have been enabled in the LSAM's configuration file and the user attempts to initiate *SMA/JORS in lieu of having the LSAM initiate JORS, the message above will be displayed on the system console.
+"Neither JORS nor outgoing File Transfer is configured â€“ terminating" is displayed on the console. If neither JORS nor the outgoing file transfers have been enabled in the agent's configuration file and the user attempts to initiate *SMA/JORS in lieu of having the agent initiate JORS, the message above will be displayed on the system console.
 
 ##### Operator Response:
 
-Configure JORS in the LSAM's configuration file. For more information on configuring JORS in the LSAM's configuration file, refer to [Configure JORS in the LSAM Configuration](../../additional-features/lsam-features/jors#configure-jors-in-the-lsam-configuration).
+Configure JORS in the agent's configuration file. For more information on configuring JORS, refer to [Configure JORS in the LSAM Configuration](../../additional-features/lsam-features/jors#configure-jors-in-the-agent-configuration).

@@ -1,4 +1,22 @@
+---
+title: File Monitoring Definition File Maintenance
+description: "Create and edit file monitoring definitions that instruct the Resource Monitor to watch for file events and trigger actions or OpCon events in response."
+tags:
+  - Procedural
+  - System Administrator
+  - Automation Engineer
+  - Agents
+  - System Configuration
+---
+
 # File Monitoring Definition File Maintenance
+
+## What is it?
+
+The File Monitoring Definition File Maintenance screens let you create or edit the definitions file that the Resource Monitor uses to detect file events on specified MCP files and respond with platform actions or external OpCon events. Changes are temporarily saved as you navigate pages and permanently committed on the SAVEFILE screen.
+
+- Define file titles with optional wildcards and optional time windows during which the condition should be monitored.
+- Specify MCP actions and external OpCon events to perform when a monitored file condition is met.
 
 ## File Monitoring Definition File Maintenance Main Menu (FILEMENU)
 
@@ -8,7 +26,7 @@ The file monitoring definitions file is used by the Resource Monitor to capture 
 
 Use "C" or "E" to indicate whether you want to Create or Edit the definitions file.
 
-###### SMA Configuration and Operations Manager: SMAFILEMENU
+*SMA Configuration and Operations Manager: SMAFILEMENU*
 
 ![SMAFILEMENU](../../../static/img/smafilemenu.png)
 
@@ -16,7 +34,7 @@ Use "C" or "E" to indicate whether you want to Create or Edit the definitions fi
 
 Use this screen to modify records within the file monitoring definitions file.
 
-###### SMA Configuration and Operations Manager: SMAFILELIST
+*SMA Configuration and Operations Manager: SMAFILELIST*
 
 ![SMAFILELIST](../../../static/img/smafilelist.png)
 
@@ -30,7 +48,7 @@ There are various navigation paths you can take from this screen, depending on t
 
 Errors will be displayed in the status field at the bottom of the screen. If there are no errors, the changes will be temporarily saved.
 
-## MCP LSAM Configuration Settings: File Monitoring Definition File Maintenance (FILELIST)
+## MCP Agent Configuration Settings: File Monitoring Definition File Maintenance (FILELIST)
 
 ### D/E/I
 
@@ -69,6 +87,6 @@ The long field below the action, type, and sequence line is used to define the f
 
 Use this screen to permanently save the file monitoring definitions changes. The definitions file will be re-sequenced as part of the save.
 
-###### SMA Configuration and Operations Manager: SMASAVEFILE
+*SMA Configuration and Operations Manager: SMASAVEFILE*
 
 ![SMASAVEFILE](../../../static/img/smasavefile.png)

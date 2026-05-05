@@ -1,24 +1,32 @@
 module.exports = {
   mySidebar: [
     'index',
+    'overview',
     'release-notes',
     {
-      type: 'category', 
+      type: 'category',
       label: 'Installation',
       collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'installation/overview',
+      },
       items: [
-        'installation/introduction',
         'installation/pre-installation-worksheet',
         'installation/copy-installation-files',
         'installation/automated-installation-upgrade',
         'installation/new-installation',
         'installation/upgrade-installation',
-      ], 
+      ],
     },
     {
-      type: 'category', 
+      type: 'category',
       label: 'Configuration',
       collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'configuration/overview',
+      },
       items: [
         'configuration/mcp-lsam-configuration',
         'configuration/configuration-settings',
@@ -28,16 +36,20 @@ module.exports = {
         'configuration/optional-modules',
         'configuration/update-max-concurrent-jobs',
         'configuration/set-up-failure-status-message',
-      ], 
+      ],
     },
     {
-      type: 'category', 
+      type: 'category',
       label: 'Operations and Components',
       collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'operations-and-components/overview',
+      },
       items: [
         'operations-and-components/mcp-lsam-operation',
         {
-          type: 'category', 
+          type: 'category',
           label: 'SMA/MANAGER',
           collapsed: true,
           items: [
@@ -59,21 +71,24 @@ module.exports = {
             'operations-and-components/sma-manager/restore-configuration-and-definition-files',
             'operations-and-components/sma-manager/error-and-informational-messages',
             'operations-and-components/sma-manager/transaction-server-utility',
-          ], 
+          ],
         },
         'operations-and-components/core-programs-and-files',
         'operations-and-components/optional-programs-and-files',
         'operations-and-components/additional-files-and-impact',
-      ], 
+      ],
     },
     {
-      type: 'category', 
+      type: 'category',
       label: 'Additional Features',
       collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'additional-features/lsam-feature-overview',
+      },
       items: [
-        'additional-features/lsam-feature-overview',
         {
-          type: 'category', 
+          type: 'category',
           label: 'LSAM Features',
           collapsed: true,
           items: [
@@ -94,10 +109,10 @@ module.exports = {
             'additional-features/lsam-features/resource-monitor',
             'additional-features/lsam-features/resource-utilization-statistics',
             'additional-features/lsam-features/user-defined-restart-checkpoints',
-          ], 
+          ],
         },
         {
-          type: 'category', 
+          type: 'category',
           label: 'MCP LSAM Utilities',
           collapsed: true,
           items: [
@@ -115,22 +130,26 @@ module.exports = {
             'additional-features/utilities/sma-wfl-processcheck',
             'additional-features/utilities/sma-wfl-remove',
             'additional-features/utilities/sma-resource-check',
-          ], 
+          ],
         },
-      ], 
+      ],
     },
     'debugging',
     {
-      type: 'category', 
+      type: 'category',
       label: 'Reference Information',
       collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'reference-information/overview',
+      },
       items: [
         'reference-information/machine-messages',
         'reference-information/file-monitor-messages',
         'reference-information/sma-file-transfer-messages',
         'reference-information/mcp-known-issues',
         {
-          type: 'category', 
+          type: 'category',
           label: 'Troubleshooting',
           collapsed: true,
           items: [
@@ -144,13 +163,13 @@ module.exports = {
             'reference-information/troubleshooting/jors',
             'reference-information/troubleshooting/lsam-initialization-stopping',
             'reference-information/troubleshooting/mcp-job-flow',
-          ], 
+          ],
         },
         'reference-information/legacy',
         'reference-information/communication-parameters-legacy',
         'reference-information/processing-variables-legacy',
         'reference-information/optional-modules-legacy',
-      ], 
+      ],
     },
   ],
 };

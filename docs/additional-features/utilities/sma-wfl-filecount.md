@@ -1,6 +1,21 @@
+---
+title: "*SMA/WFL/FILECOUNT"
+description: "A utility WFL that makes an OpCon job dependent on a minimum number of matching files being present or absent on the MCP platform."
+tags:
+  - Procedural
+  - Automation Engineer
+  - Agents
+---
+
 # *SMA/WFL/FILECOUNT
 
-The WFL *SMA/WFL/FILECOUNT/xxx allows a job to be dependent on the presence/absence of a specified minimum number of files.
+## What is it?
+
+\*SMA/WFL/FILECOUNT/xxx allows a job to proceed only when at least a specified minimum number of files matching a given name pattern are present (or fewer than that number are present) on the MCP platform. The utility accepts the file name pattern, a criterion value (REQUIRES or EXCLUDES), a family name, and the minimum file count as parameters.
+
+- Gate a downstream job so it runs only after a minimum number of input files have arrived on the MCP platform
+- Hold a job until fewer than a specified number of files matching a pattern are present
+
 
 ## Syntax
 

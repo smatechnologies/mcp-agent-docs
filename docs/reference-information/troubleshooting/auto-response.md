@@ -1,3 +1,13 @@
+---
+title: AutoResponse Troubleshooting
+description: "Troubleshooting guidance for common AutoResponse issues including display monitor rules not applied, external events not sent, and high message count conditions."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # AutoResponse Troubleshooting
 
 ## Display Monitor Rules not Applied
@@ -8,17 +18,17 @@ AutoResponse is configured, but does not appear to be responding to displays.
  
 #### First Possible Explanation:
  
-The global displays file is missing. Effective with MCP LSAM 04.14.02, this file is no longer required.
+The global displays file is missing. Effective with MCP Agent 04.14.02, this file is no longer required.
 
-###### First Operator Response:
+*First Operator Response:*
 
 Create a \*SMA/DISPLAYS/xxx file. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
 
 #### Second Possible Explanation:
  
-The global displays file is under a different usercode than the LSAM.
+The global displays file is under a different usercode than the agent.
 
-###### Second Operator Response:
+*Second Operator Response:*
 
 Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or copy it under the correct usercode. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
 
@@ -26,7 +36,7 @@ Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or c
  
 The display is not correctly defined in the displays file.
 
-###### Third Operator Response:
+*Third Operator Response:*
 
 Run the \*SMA/DISPLAY/HANDLER/xxx in debug mode to troubleshoot the entry. For more information on this response, refer to \*[SMA/DISPLAY/HANDLER](../../operations-and-components/optional-programs-and-files#smadisplayhandler-associated-files).
 
@@ -34,7 +44,7 @@ Run the \*SMA/DISPLAY/HANDLER/xxx in debug mode to troubleshoot the entry. For m
  
 The display message has not yet been processed by the \*SMA/DISPLAY/HANDLER.
 
-###### Fourth Operator Response:
+*Fourth Operator Response:*
 
 Query the \*SMA/DISPLAY/HANDLER/xxx to determine the display message backlog. This is accomplished by delivering an AX COUNT to the \*SMA/DISPLAY/HANDLER and observing the response on the system console.
  
@@ -46,11 +56,11 @@ External Events do not appear to have been sent to the SAM.
  
 #### First Possible Explanation:
  
-Communication between the SAM and the LSAM is not active.
+Communication between the SAM and the agent is not active.
 
 ##### First Operator Response:
 
-Verify the LSAM is up and is communicating with the SAM. For information on verifying LSAM communication, refer to [Machines](https://help.smatechnologies.com/opcon/core/objects/machines) in the Concepts online help.
+Verify the agent is up and is communicating with the SAM. For information on verifying agent communication, refer to [Machines](https://help.smatechnologies.com/opcon/core/objects/machines) in the Concepts online help.
 
 #### Second Possible Explanation:
  
@@ -71,7 +81,7 @@ The \*SMA/DISPLAYS/xxx file was modified, but the *SMA/DISPLAY/HANDLER/xxx progr
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
+After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the agent's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
  
 ## Title Missing "." @41800
 
@@ -85,7 +95,7 @@ The job's File Title field on the Enterprise Manager's Job Details screen contai
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the LSAM's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
+After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the agent's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor#files-rules).
  
 ## Jobs Stuck in "Waiting" State
 
@@ -103,7 +113,7 @@ Reduce the Idle Timer. For more information on this response, refer to [Idle Tim
 
 :::info Note 
 
-MCP LSAM version 04.09.00 or higher is required in order to configure the Idle Timer.
+MCP Agent version 04.09.00 or higher is required in order to configure the Idle Timer.
 
 ::: 
 
@@ -125,4 +135,4 @@ There are two possible reactions to the present situation:
 
 * Allow processing to continue and see if the message count decreases on its own,
 \- or -
-* Stop the LSAM and remove the \*SMA/DISPMSG/FILE – be advised that any actions associated with messages in the backlog will NOT occur and you will need to manually attend to any downstream processes that would have been impacted by these actions.
+* Stop the agent and remove the \*SMA/DISPMSG/FILE — be advised that any actions associated with messages in the backlog will NOT occur and you will need to manually attend to any downstream processes that would have been impacted by these actions.

@@ -1,10 +1,24 @@
+---
+title: File Arrival Utility
+description: "A command-line alternative to the OpCon File Arrival job type for detecting files on the MCP platform within a specified time frame."
+tags:
+  - Procedural
+  - Automation Engineer
+  - Agents
+---
+
 # File Arrival Utility
+
+## What is it?
+
+The MCP File Arrival utility detects whether a file has been created on the MCP platform within a specified time frame on the date the utility runs, then sets an OpCon property to the value of the file title when a matching file is found. It consists of the WFL \*SMA/WFL/FILEARRIVAL and the program \*SMA/OBJ/FILEARRIVAL, and depends on a valid installation of the MCP Agent.
+
+- Detect a file arrival within a configurable time window and report the file title via an OpCon property
+- Use as a batch alternative to the OpCon File Arrival job type for MCP platform workflows
 
 ## Overview
 
-The MCP File Arrival utility has been created as a command-line alternative to implementing an OpCon File Arrival job for MCP. The utility is intended to serve the purpose of detecting a file on the MCP platform that has been created within a specified time frame on the date the utility is run. The time frame parameters are optional. Upon detecting a file meeting the criteria, a property will be set to the value of the MCP file title.
- 
-This utility consists of a WFL \*SMA/WFL/FILEARRIVAL and a program \*SMA/OBJ/FILEARRIVAL. The WFL utilizes \*SMA/EVENTGEN to construct a ```$PROPERTY:SET``` event. The File Arrival program calls the SEARCH_MIX_OR_FILES API within the \*SMA/ALGOLPROCS library, making this utility dependent upon a valid installation of the MCP Agent.
+The WFL \*SMA/WFL/FILEARRIVAL and the program \*SMA/OBJ/FILEARRIVAL make up the utility. The WFL uses \*SMA/EVENTGEN to construct a ```$PROPERTY:SET``` event. The File Arrival program calls the SEARCH_MIX_OR_FILES API within the \*SMA/ALGOLPROCS library, making this utility dependent upon a valid installation of the MCP Agent.
 
 ## Initial Requirements
 
@@ -51,7 +65,7 @@ If no file is found, the property will be set to null (if supported).
 
 Create a property within OpCon to be used to contain the file title of the file which meets the specified criteria.
  
-If running this utility within a unique instance of the MCP LSAM, modify the RUN statements for \*SMA/OBJ/FILEARRIVAL and \*SMA/EVENTGEN to reflect the unique instance name.
+If running this utility within a unique instance of the MCP Agent, modify the RUN statements for \*SMA/OBJ/FILEARRIVAL and \*SMA/EVENTGEN to reflect the unique instance name.
  
 Define an MCP Job to start the \*SMA/WFL/FILEARRIVAL utility. There are four parameters defined:
 

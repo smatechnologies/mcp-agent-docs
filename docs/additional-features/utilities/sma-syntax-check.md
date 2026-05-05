@@ -1,6 +1,22 @@
+---
+title: "*SMA/SYNTAX/CHECK"
+description: "A utility for validating the syntax of MCP Agent definitions files before implementing them in a production environment."
+tags:
+  - Procedural
+  - System Administrator
+  - Agents
+---
+
 # *SMA/SYNTAX/CHECK
 
-This utility is used to validate the syntax of the contents of the definitions files used by various LSAM modules. These definitions files include \*SMA/DISPLAYS, \*SMA/DISPLAYS/SYSMSG, \*SMA/FILEMON/DEFS and \*SMA/PERFMON/DEFS. SMA Technologies strongly encourages the use of this utility prior to implementing a definitions file within the production environment in order to minimize the potential for disruption to production processing. The SMA/RESOURCE/MONITOR also automatically executes SMA/SYNTAX/CHECK at BOJ and upon being notified of a new definitions file.
+## What is it?
+
+\*SMA/SYNTAX/CHECK validates the syntax of definitions files used by MCP Agent modules, including \*SMA/DISPLAYS, \*SMA/DISPLAYS/SYSMSG, \*SMA/FILEMON/DEFS, and \*SMA/PERFMON/DEFS. SMA Technologies strongly encourages running this utility before implementing any definitions file in production to minimize the risk of disrupting production processing.
+
+- Validate a new or modified displays definitions file before delivering it to \*SMA/DISPLAY/HANDLER
+- Validate file monitor or performance monitor definitions files before notifying \*SMA/RESOURCE/MONITOR of changes
+
+The SMA/RESOURCE/MONITOR also automatically runs SMA/SYNTAX/CHECK at BOJ and upon being notified of a new definitions file.
  
 After manually initiating the program, you will be asked to identify the type of file to be analyzed. There are four possible responses:
 

@@ -1,6 +1,21 @@
+---
+title: Command-line Interface Utility
+description: "Describes the SMA/COMMAND and SMA/WFL/COMMAND programs that forward commands to specified processes on the MCP system."
+tags:
+  - Reference
+  - System Administrator
+  - Automation Engineer
+  - Agents
+---
+
 # Command-line Interface Utility
 
-The Command-line Interface Utility forwards commands to specified processes on the MCP system. The process may be the MCP itself or may be any other process in an active or waiting state.
+## What is it?
+
+The Command-line Interface Utility forwards commands to active or waiting processes on the MCP system, including the MCP itself, using the SMA/COMMAND program. Because processes initiated via a RUN command are limited to a single parameter, the utility must be run through a WFL such as SMA/WFL/COMMAND.
+
+- Enable or disable COMS programs in advance of or following batch processing jobs.
+- Issue MCP PRIMITIVE RUN commands or manipulate network entities using the MCP as the target process.
 
 ## Using SMA/COMMAND
 
@@ -45,7 +60,7 @@ Via the Enterprise Manager, the SMA/WFL/COMMAND WFL forwards commands to specifi
  
 ### Initiate a Command
 
-Use the Command-line Interface through the Enterprise Manager to initiate a command.
+To initiate a command using the Command-line Interface through the Enterprise Manager, complete the following steps:
 
 1. Enter the SMA/WFL/COMMAND in the **File Title** field on the Job Details screen.
 

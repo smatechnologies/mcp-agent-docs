@@ -1,3 +1,13 @@
+---
+title: File Monitoring Troubleshooting
+description: "Troubleshooting guidance for MCP Agent file monitoring issues including events not sent to SAM, file monitor rule changes not applied, and files not monitored as defined."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # File Monitoring Troubleshooting
 
 ## Event not Sent
@@ -35,11 +45,11 @@ For more information on this response, refer to [Run the Manager Program](../../
 
 #### Fourth Possible Explanation:
  
-In MCP LSAM versions prior to 04.14.02, there were instances in which file creations and deletions were not recognized. This issue was corrected in MCP LSAM version 04.14.02.
+In MCP Agent versions prior to 04.14.02, there were instances in which file creations and deletions were not recognized. This issue was corrected in MCP Agent version 04.14.02.
 
 ##### Fourth Operator Response:
 
-Upgrade to MCP LSAM version 04.14.02 or higher.
+Upgrade to MCP Agent version 04.14.02 or higher.
  
 ## Changes to File Monitor Rules not Applied
 
@@ -53,7 +63,7 @@ The \*SMA/FILEMON/DEFS/xxx file was modified, but the *SMA/RESOURCE/MONITOR/xxx 
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/FILEMON/DEFS/xxx file, copy it under the LSAM's usercode and deliver an "AX FILEMON" to the \*SMA/RESOURCE/MONITOR/xxx program. For more information on this response, refer to [File Monitor](../../additional-features/lsam-features/file-monitor).
+After making modifications to the \*SMA/FILEMON/DEFS/xxx file, copy it under the agent's usercode and deliver an "AX FILEMON" to the \*SMA/RESOURCE/MONITOR/xxx program. For more information on this response, refer to [File Monitor](../../additional-features/lsam-features/file-monitor).
  
 ## Files not Monitored
 
@@ -63,8 +73,8 @@ Some files are not being monitored as defined.
  
 #### Possible Explanation:
  
-A logic error within \*SMA/RESOURCE/MONITOR/xxx caused corruption of family names if the family name was longer then 5 characters.
+A logic error within \*SMA/RESOURCE/MONITOR/xxx caused corruption of family names if the family name was longer than 5 characters.
 
 ##### Operator Response:
 
-Upgrade to MCP LSAM version 04.14.00 or higher.
+Upgrade to MCP Agent version 04.14.00 or higher.

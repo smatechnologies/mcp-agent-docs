@@ -1,5 +1,8 @@
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  markdown: {
+    format: 'detect',
+  },
   title: 'SMA Technologies Help',
   tagline: 'MCP Agent',
   url: 'https://help.smatechnologies.com',
@@ -18,6 +21,11 @@ module.exports = {
         href: 'https://help.smatechnologies.com',
       },
     },
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
     footer: {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} SMA Technologies.`,
@@ -28,7 +36,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          breadcrumbs: false,
+          breadcrumbs: true,
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
@@ -46,9 +54,10 @@ module.exports = {
   ],
   plugins: [
     [
-      require.resolve('@cmfcmf/docusaurus-search-local'), 
-      {
-      }
+      '@cmfcmf/docusaurus-search-local',
+      {},
     ],
   ],
 };
+
+module.exports = config;

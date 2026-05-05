@@ -1,3 +1,13 @@
+---
+title: File Transfer Troubleshooting
+description: "Troubleshooting guidance for MCP Agent SMA File Transfer issues including jobs failing with P-DS and Warning 86 console messages."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # File Transfer Troubleshooting
 
 ## Job Fails with P-DS

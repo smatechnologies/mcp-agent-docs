@@ -1,8 +1,21 @@
+---
+title: "*SMA/RESOURCE/CHECK"
+description: "A utility program that checks for the existence or absence of a file or executing process on the MCP platform and reports the result via TASKVALUE."
+tags:
+  - Reference
+  - Automation Engineer
+  - Agents
+---
+
 # *SMA/RESOURCE/CHECK
 
-The WFL \*SMA/WFL/RESOURCE/CHECK/xxx checks for the existence/absence of a given process in the list of executing processes on the platform or checks on the presence/absence of a file. The program \*SMA/RESOURCE/CHECK sets the TASKVALUE to 1 if the requested criteria have been met; otherwise, the program sets the TASKVALUE to 0.
- 
-\*SMA/WFL/PROCESSCHECK and \*SMA/WFL/FILECHECK use this program; however, a user-written WFL may call \*SMA/RESOURCE/CHECK.
+## What is it?
+
+\*SMA/RESOURCE/CHECK is a program called by \*SMA/WFL/PROCESSCHECK and \*SMA/WFL/FILECHECK that searches for a file or a running process on the MCP platform and sets the TASKVALUE to 1 when the requested criteria are met, or to 0 when they are not. User-written WFLs may also call this program directly using the syntax described below.
+
+- Check whether a specific file exists on the MCP platform before allowing a dependent job to proceed
+- Check whether a specific process is currently running in the active mix before allowing a dependent job to proceed
+
 
 ## Syntax
 

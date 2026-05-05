@@ -1,17 +1,36 @@
+---
+title: Optional Modules (OPT)
+description: "Enable and configure Automated Response, Job Adoption, File Monitor, JORS, SMA File Transfer, and MSGIN settings on the SMAOPT screen."
+tags:
+  - Reference
+  - System Administrator
+  - System Configuration
+  - Agents
+---
+
 # Optional Modules (OPT)
 
-The Optional Modules screen allows the user to configure the following:
+## What is it?
+
+This page documents each field on the SMAOPT screen within SMA/MANAGER, which activates and configures optional MCP Agent capabilities including Automated Response, external job tracking, File Monitor, Job Output Retrieval (JORS), SMA File Transfer (SMAFT), and MSGIN file detection.
+
+- Use this page to enable and configure JORS port numbers and print file prefixes so that job output can be retrieved and viewed in the Enterprise Manager.
+- Use this page to configure SMA File Transfer direction, TLS options, the number of concurrent FTServer instances, and the MSGIN file check frequency.
+
+The Optional Modules screen allows you to configure the following:
 
 * Enable/disable general features such as Automated Response, Job Adoption, File Monitor, and Resource Monitor
 * Define values for variables that enable Job Output Retrieval (JORS)
 * Define values for variables that affect SMA File Transfer
 * Define MSGIN variables
 
-###### SMA Configuration and Operations Manager: SMAOPT
+**SMA Configuration and Operations Manager: SMAOPT**
 
 ![SMAOPT](../../static/img/smaopt.png)
 
 ## MCP LSAM Configuration Settings: Optional Modules
+
+The following sections describe each field on the SMAOPT screen.
 
 ## General Optional Modules
 
@@ -21,13 +40,13 @@ This field indicates whether the Auto-Response feature is active.
 
 ### Mixwatcher?
 
-This field determines whether or not the LSAM tracks external jobs.
+This field determines whether the MCP Agent tracks external jobs.
 
-* If Y, the LSAM tracks external jobs.
+* If Y, the agent tracks external jobs.
 
 Note: Once detected, tracked jobs are displayed in the Enterprise Manager.
 
-* If N, the LSAM does not track external jobs.
+* If N, the agent does not track external jobs.
 
 ### File Monitor
 
@@ -45,7 +64,7 @@ This field sets the approximate number of seconds the Resource Monitor should wa
 
 ### JORS in use
 
-This field determines whether or not the LSAM will initiate the *SMA/JORS/xxx program.
+This field determines whether the MCP Agent will initiate the *SMA/JORS/xxx program.
 
 ### JORS Port Number
 
@@ -57,7 +76,7 @@ The JORS port number must also be configured on the Administration > Machines > 
 
 This field defines the initial node(s) of the print file names.
 
-The LSAM uses this value and the mix number (and, optionally, the usercode of the job) to locate the print files by preceding the job's mix number with this prefix (e.g., *BD/00jjjjj).
+The MCP Agent uses this value and the mix number (and, optionally, the usercode of the job) to locate the print files by preceding the job's mix number with this prefix (e.g., *BD/00jjjjj).
 
 Although multiple nodes may be used to define the print file prefix, multiple print file prefixes are not supported.
 
@@ -135,7 +154,7 @@ This field sets the number of seconds between MSGIN file checks.
 
 ### Family	
 
-This field specifies the family on which MSGIN/= files resides. If multiple LSAMs are in use, configure each LSAM to look for MSGIN/= files on unique families.
+This field specifies the family on which MSGIN/= files resides. If multiple MCP Agent instances are in use, configure each agent instance to look for MSGIN/= files on unique families.
 
 
 

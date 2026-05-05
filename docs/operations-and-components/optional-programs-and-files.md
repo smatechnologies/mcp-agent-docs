@@ -1,14 +1,31 @@
+---
+title: Optional Programs and Files
+description: "Reference the optional MCP LSAM programs and their associated files that support features such as File Monitor, JORS, File Transfer, Automated Response, and MSGIN."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+  - System Configuration
+---
+
 # Optional Programs and Files
 
-The programs listed in this section are installed with the MCP LSAM. The files listed below each program are created as a result of executing the feature, or are used by the feature.
+## What is it?
 
-### MCP LSAM Optional Programs
+This page lists each optional MCP Agent program—such as *SMA/FILE/MONITOR, *SMA/JORS, *SMA/FTAGENT, *SMA/DISPLAY/HANDLER, and SMASUP—along with the permanent and temporary files each program uses or creates. Short descriptions link each program to the relevant feature documentation.
+
+- Use this page to identify which optional programs must be active for a specific feature (such as JORS or File Transfer) and to understand the associated definition and data files those programs depend on.
+- Use this page when diagnosing feature-specific issues to locate the debug print files and definitions files for the relevant optional component.
+
+The programs listed in this section are installed with the MCP Agent. The files listed below each program are created as a result of executing the feature, or are used by the feature.
+
+### MCP Agent Optional Programs
 
 | Optional Program | Short Description |
 | ---------------- | ----------------- |
-| *SMA/ANNOUNCE/xxx | - This program is used to notify the LSAM to monitor the process which initiated the *SMA/ANNOUNCE program, and to report the completion status of the process. <br></br> - This program is only used for processes started outside of OpCon. <br></br> - For more information, refer to [External Jobs Tracking](../additional-features/lsam-features/external-jobs-tracking). |
-| *SMA/COMMAND | - This program is used to forward commands to specified processes on the MCP system. <br></br> - The process may be the MCP itself or any other process in an active or waiting state. <br></br> - For more information, refer to [Command-line Interface Utility](../additional-features/lsam-features/command-line-interface-utility). |
-| *SMA/DISPLAY/HANDLER/xxx | This program handles the Automated Response feature. Automated Response allows the MCP LSAM to respond to messages displayed on the MCP console. For more information, refer to [Automated Response](../additional-features/lsam-features/automated-response). |
+| *SMA/ANNOUNCE/xxx | - This program notifies the agent to monitor the process that initiated the *SMA/ANNOUNCE program and to report the completion status of the process. <br></br> - This program is only used for processes started outside of OpCon. <br></br> - For more information, refer to [External Jobs Tracking](../additional-features/lsam-features/external-jobs-tracking). |
+| *SMA/COMMAND | - This program forwards commands to specified processes on the MCP system. <br></br> - The process may be the MCP itself or any other process in an active or waiting state. <br></br> - For more information, refer to [Command-line Interface Utility](../additional-features/lsam-features/command-line-interface-utility). |
+| *SMA/DISPLAY/HANDLER/xxx | This program handles the Automated Response feature. Automated Response allows the MCP Agent to respond to messages displayed on the MCP console. For more information, refer to [Automated Response](../additional-features/lsam-features/automated-response). |
 |*SMA/OBJ/CONVERT/PRINT <br></br> *SMA/WFL/CONVERT/PRINT | A utility used to convert an MCP BACKUPPRINTER file to an ASCII text file prior to transferring the ASCII file to a non-MCP machine. For more information, refer to Using [*SMA/WFL/CONVERT/PRINT (MCP Print File Conversion)](../additional-features/utilities/sma-wfl-convert-print). |
 | *SMA/EVENTGEN/xxx | - This utility program is inserted into a WFL and is used to forward external events to the SAM-SS. <br></br> - The program accepts three parameters: the SAM ID, the SAM external token, and the external event to be forwarded. <br></br> - For more information, refer to [External Event Interface Library](../additional-features/lsam-features/external-event-interface-library). |
 | *SMA/FILE/MONITOR/xxx | File Monitor receives notification that user-specified files have been altered and sends external events to the SAM and supporting services, or forwards selected MCP commands to the MCP when these files meet a defined criterion. For more information, refer to [File Monitor](../additional-features/lsam-features/file-monitor). |
@@ -24,7 +41,7 @@ The programs listed in this section are installed with the MCP LSAM. The files l
 | *SMA/RESOURCE/MONITOR/xxx | This program monitors system messages, CPU and disk utilization, and file status notifications if configured by the user. For more information on utilities, refer to [Resource Monitor](../additional-features/lsam-features/resource-monitor). |
 | SMASUP | This program gathers detailed debug information into one file for analysis by SMA Technologies. For more information on the Data Collector for MCP, refer to [Data Collector for MCP (SMASUP)](../additional-features/lsam-features/data-collector-for-mcp). |
 | *SMA/SURROGATE/xxx | This program monitors and reports on external (tracked or adopted) jobs. For more information on Tracking External Jobs, refer to [External Jobs Tracking](../additional-features/lsam-features/external-jobs-tracking). |
-| *SMA/SYNTAX/CHECK | This utility program is used to validate the syntax of various definitions files created by the user and utilized by the LSAM and utilities. |
+| *SMA/SYNTAX/CHECK | This utility program validates the syntax of various definitions files created by the user and used by the agent and utilities. |
 | *SMA/WFL/CHECK/MIX | This utility WFL is used to interrogate the presence of entries in the Waiting or Scheduled mix. For more information, refer to Using *SMA/WFL/CHECK/MIX. |
 | *SMA/WFL/FILECHECK/xxx | This WFL reports the presence/absence of a file. For more information on utilities, refer to Utilities. |
 | *SMA/WFL/OPS/MONITOR/xxx | This WFL enables the user to take action based upon the value of selected CPU usage metrics or available disk space. For more information on utilities, refer to [Utilities](../additional-features/utilities/mcp-lsam-utilities). |
@@ -63,7 +80,7 @@ The programs listed in this section are installed with the MCP LSAM. The files l
 | ------------------- | ---------- | ----------- |
 | FTPORT | N | This port is used to communicate between *SMA/FTAGENT and the File Transfer server. |
 | TEMP/SMAFT/```<SAM job id>``` | N | This temporary file is used to store the transferred data prior formatting. |
-| *TEMP/SMAFTPARMS/```<SAM job id>``` | N | This file is used to pass transfer data from the LSAM to the SMA File Transfer Agent. |
+| *TEMP/SMAFTPARMS/```<SAM job id>``` | N | This file is used to pass transfer data from the agent to the SMA File Transfer Agent. |
 | User-defined | Y | This is the formatted file received via SMA File Transfer. The name of this file is specified on the File Transfer Job Details as the Destination File Name. |
 | User-defined/```<backup suffix>``` | Y | This is the backed up copy of the received file. The name is derived by appending the backup suffix specified in the configuration file to the file name specified for the Destination File Name on the File Transfer Job Details. |
 | *BD/…/…/PRT_FTAGENT | Y | - This print file contains errors and debug information. <br></br> - The name of this file may differ depending on the site print defaults and/or the use of the BDNAME task attribute. |
@@ -112,8 +129,8 @@ The programs listed in this section are installed with the MCP LSAM. The files l
 | External File Title | Permanent? | Description |
 | ------------------- | ---------- | ----------- |
 | SMASUPTXT | Y | This ASCII text file contains the SMA file and process information. |
-| SMASUPFILCON | Y | This container file contains several critical MCP LSAM files. |
-| SMASUPPRTCON | Y | This container file contains the MCP LSAM debug print files. |
+| SMASUPFILCON | Y | This container file contains several critical MCP Agent files. |
+| SMASUPPRTCON | Y | This container file contains the MCP Agent debug print files. |
 
 
 

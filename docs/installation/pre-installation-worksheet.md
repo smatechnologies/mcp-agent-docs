@@ -1,6 +1,21 @@
+---
+title: Pre-Installation Worksheet
+description: "Collect all required configuration values and optional feature decisions before beginning an MCP LSAM installation."
+tags:
+  - Reference
+  - System Administrator
+  - Installation
+  - Getting Started
+---
+
 # Pre-Installation Worksheet
 
-The Pre-installation Worksheet has fields of required information for a successful MCP LSAM installation as well as fields for optional features which aid in implementing all of the LSAM features.
+## What is it?
+
+This page provides a structured worksheet for recording the information needed to complete an MCP Agent installation and configure optional features. It covers required settings such as MCP queues, usercodes, family names, and port numbers, as well as optional features like File Monitor, Job Output Retrieval, and File Transfer.
+
+- Use this worksheet before beginning installation to ensure all required MCP environment details are gathered in one place, reducing the risk of incomplete or incorrect configuration.
+- Use the optional features checklist to decide in advance which agent capabilities to enable, so the appropriate port numbers and settings are ready when needed.
 
 ## Required Information
 

@@ -1,3 +1,13 @@
+---
+title: SMA File Transfer Messages
+description: "A reference table of error and informational messages that may appear in the *SMA/FTAGENT, with possible causes and recommended actions."
+tags:
+  - Reference
+  - System Administrator
+  - Operations Staff
+  - Agents
+---
+
 # SMA File Transfer Messages
 
 The following error and informational messages may be encountered in the \*SMA/FTAGENT.
@@ -22,8 +32,8 @@ The following error and informational messages may be encountered in the \*SMA/F
 | Encryption is not supported | Remove Encryption requirement from OpCon job. |
 | File exists and overwrite not permitted | "Do Not Overwrite" has been specified on the transfer job. |
 | File is not available | Verify privileges. |
-| FTAgent configured for non-TLS only; job requires TLS | The machine properties as defined within the OpCon database indicate that the MCP FTAGENT will support transfers using a connection secured by TLS, but the LSAM configuration setting for SMAFT security (the Sec? field) indicates that all transfers require that the connection NOT be secured with TLS. |
-| FTAgent configured for TLS only; job requires non-TLS	| The machine properties as defined within the OpCon database indicate that the MCP FTAGENT will support transfers using an unsecure connection, but the LSAM configuration setting for SMAFT security (the Sec? field) indicates that all transfers require that the connection be secured with TLS. |
+| FTAgent configured for non-TLS only; job requires TLS | The machine properties as defined within the OpCon database indicate that the MCP FTAGENT will support transfers using a connection secured by TLS, but the agent configuration setting for SMAFT security (the Sec? field) indicates that all transfers require that the connection NOT be secured with TLS. |
+| FTAgent configured for TLS only; job requires non-TLS	| The machine properties as defined within the OpCon database indicate that the MCP FTAGENT will support transfers using an unsecure connection, but the agent configuration setting for SMAFT security (the Sec? field) indicates that all transfers require that the connection be secured with TLS. |
 | FTAgent is unresponsive | Check the status of the FTAgent on both machines. |
 | FTServer is unresponsive | Check the status of the FTServer on both machines. |
 | FTServer OPEN error | Check the status of the FTServer on both machines. | 

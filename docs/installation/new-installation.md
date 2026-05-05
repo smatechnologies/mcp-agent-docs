@@ -1,6 +1,23 @@
+---
+title: New Installation
+description: "Run the *SMA/INSTALL program, define the LSAM to IDC, and complete initial configuration for a first-time MCP LSAM installation."
+tags:
+  - Procedural
+  - System Administrator
+  - Installation
+  - Agents
+---
+
 # New Installation
 
-If the MCP LSAM has not been installed on the machine, follow the procedures in this section for the first installation.
+## What is it?
+
+This page walks through the complete process for installing the MCP Agent for the first time, including running `*SMA/INSTALL`, defining the agent as an MCS in IDC, and opening the SMA/MANAGER program for initial configuration. It covers both CANDE and MARC menu methods for each step.
+
+- Use this page when the MCP Agent has never been installed on the target machine and a clean first installation is required.
+- Use this page to ensure the agent is correctly registered with IDC so that the MCP Agent interface can function as a properly declared MCS within the environment.
+
+If the MCP Agent has not been installed on the machine, follow the procedures in this section for the first installation.
 
 :::warning 
 
@@ -24,9 +41,9 @@ If the ```*SMA/INSTALL/nnnnnn``` program is not correctly named, the install/upg
 
 "Invalid version number. Aborting install/upgrade." To recover from this, name the ```*SMA/INSTALL/nnnnnn``` program correctly and rerun it.
 
-For a list of files which are installed with the MCP LSAM, please refer to [MCP LSAM Components](../operations-and-components/core-programs-and-files).
+For a list of files installed with the MCP Agent, refer to [MCP LSAM Components](../operations-and-components/core-programs-and-files).
 
-## Define LSAM to IDC
+## Define the Agent to IDC
 
 ### Obtain the DCPREFIX
 
@@ -36,7 +53,7 @@ By default, the NIF file is called ```*SYSTEM/DATACOMINFO ON DISK``` (*SYSTEM ON
 
 For example, ```(USERCODE)CUSTOMER/DATACOMINFO ON PROD```. To obtain this information, use the ID command from the Action line of the MARC Main Menu to get the NIF prefix.
 
-Below is an example of the response of the ID command. This response tells us that we have to indicate that *SYSTEM ON DISK is the "full DCPREFIX" when running IDC.
+The following example shows the response of the ID command. This response indicates that `*SYSTEM ON DISK` is the "full DCPREFIX" when running IDC.
 
 ```
 
@@ -56,9 +73,9 @@ NUMBER OF PSEUDOS IN-USE: 100
 
 ```
 
-### Define the LSAM to IDC
+### Define the Agent to IDC
 
-Complete the following steps to define the LSAM to IDC:
+To define the agent to IDC, complete the following steps:
 
 1. Choose a or b:
 
@@ -87,7 +104,7 @@ The DCPREFIX is the leading node name(s) for the DATACOMINFO file for IDC withou
 
 :::info Note 
 
-```<PACK NAME>``` is the name of the family on which the LSAM is installed (e.g., DISK).
+```<PACK NAME>``` is the name of the family on which the agent is installed (e.g., DISK).
 
 :::
 
@@ -101,6 +118,6 @@ The DCPREFIX is the leading node name(s) for the DATACOMINFO file for IDC withou
 
 12. To return to the MARC main menu, go to the Action line. Type HO. Transmit the line.
 
-## Configure the LSAM
+## Configure the Agent
 
-The SMA/MANAGER program is used to configure the LSAM. To begin using the LSAM, refer to [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) to configure and operate the LSAM.
+Use the SMA/MANAGER program to configure the agent. To begin using the MCP Agent, refer to [MCP LSAM Configuration](../configuration/mcp-lsam-configuration).

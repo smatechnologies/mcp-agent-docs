@@ -1,4 +1,22 @@
+---
+title: Resource Monitoring Definition File Maintenance
+description: "Create and edit resource monitoring definitions that instruct the Resource Monitor to watch system performance metrics and trigger actions or OpCon events in response."
+tags:
+  - Procedural
+  - System Administrator
+  - Automation Engineer
+  - Agents
+  - System Configuration
+---
+
 # Resource Monitoring Definition File Maintenance
+
+## What is it?
+
+The Resource Monitoring Definition File Maintenance screens let you create or edit the definitions file that the Resource Monitor uses to sample system performance metrics and respond with MCP platform actions or external OpCon events when defined conditions are met. Changes are temporarily held as you navigate pages and permanently committed on the SAVERES screen.
+
+- Define metric conditions and thresholds using D-type records, then pair them with M-type action records or S-type external OpCon event records to automate responses.
+- Use comment records (% or *) to document or temporarily disable definitions without deleting them from the file.
 
 ## Resource Monitoring Definition File Maintenance Main Menu (RESMENU)
 
@@ -9,7 +27,7 @@ The resource monitoring definitions file is used by the Resource Monitor to capt
 
 Use "C" or "E" to indicate whether you want to Create or Edit the definitions file.
 
-###### SMA Configuration and Operations Manager: SMARESMENU
+*SMA Configuration and Operations Manager: SMARESMENU*
 
 ![SMARESMENU](../../../static/img/smaresmenu.png)
 
@@ -17,7 +35,7 @@ Use "C" or "E" to indicate whether you want to Create or Edit the definitions fi
 
 Use this screen to modify records within the resource monitoring definitions file.
 
-###### SMA Configuration and Operations Manager: SMARESLIST
+*SMA Configuration and Operations Manager: SMARESLIST*
 
 ![SMARESLIST](../../../static/img/smareslist.png)
 
@@ -31,7 +49,7 @@ There are various navigation paths you can take from this screen, depending on t
 
 Errors will be displayed in the status field at the bottom of the screen. If there are no errors, the changes will be temporarily saved.
 
-## MCP LSAM Configuration Settings: Resource Monitoring Definition File Maintenance (RESLIST)
+## MCP Agent Configuration Settings: Resource Monitoring Definition File Maintenance (RESLIST)
 
 ### D/E/I
 
@@ -64,6 +82,6 @@ The long field below the action, type, and sequence line is used to define the f
 
 Use this screen to permanently save the Resource Monitor definition changes. The definitions file will be re-sequenced as part of the save.
 
-###### SMA Configuration and Operations Manager: SMASAVERES
+*SMA Configuration and Operations Manager: SMASAVERES*
 
 ![SMASAVERES](../../../static/img/smasaveres.png)

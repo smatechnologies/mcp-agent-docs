@@ -1,8 +1,26 @@
+---
+title: Displays Definition File Maintenance (DISPLIST)
+description: "Create, edit, and save records in the displays definition file that the MCP Agent uses for automated response to job display messages."
+tags:
+  - Procedural
+  - System Administrator
+  - Automation Engineer
+  - Agents
+  - System Configuration
+---
+
 # Displays Definition File Maintenance (DISPLIST)
+
+## What is it?
+
+The Displays Definition File Maintenance screens let you add, edit, and delete records in the displays definition file, which the Display Handler uses to match job display messages and trigger actions or external OpCon events. Changes are temporarily saved as you navigate pages and permanently committed on the SAVEDISP screen.
+
+- Select the global displays file, the system message file, or a job-specific template file to target the appropriate scope of message monitoring.
+- Use record types (D, A, S, S1, S2) to define message tokens, platform actions, and external events up to and beyond 70 characters.
 
 Use this screen to modify records within the displays definition file.
 
-###### SMA Configuration and Operations Manager: SMADISPLIST
+*SMA Configuration and Operations Manager: SMADISPLIST*
 
 ![SMADISPLIST](../../../static/img/smadisplist.png)
 
@@ -16,7 +34,7 @@ There are various navigation paths you can take from this screen, depending on t
 
 Errors will be displayed in the status field at the bottom of the screen. If there are no errors, the changes will be temporarily saved.
 
-## MCP LSAM Configuration Settings: Displays Definition File Maintenance (DISPLIST)
+## MCP Agent Configuration Settings: Displays Definition File Maintenance (DISPLIST)
 
 ### D/E/I
 
@@ -49,6 +67,6 @@ The long field below the action, type, and sequence line is used to define the m
 
 Use this screen to permanently save the displays definitions changes. The definitions file will be re-sequenced as part of the save.
 
-###### SMA Configuration and Operations Manager: SMASAVEDISP
+*SMA Configuration and Operations Manager: SMASAVEDISP*
 
 ![SMASAVEDISP](../../../static/img/smasavedisp.png)
