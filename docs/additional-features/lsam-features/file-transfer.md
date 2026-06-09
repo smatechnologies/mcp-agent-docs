@@ -22,7 +22,7 @@ SMA File Transfer (SMAFT) transfers files between the MCP platform and other pla
 
 The SMA File Transfer (SMAFT) system reliably transfers files across multiple platforms via an OpCon job. The SMA/FTAGENT, SMA/FTSERVER, and SMA/FTHANDLER components are installed with the MCP Agent. The source and destination machines must have these components for a file transfer.
  
-After receiving instructions from the resident MCP Agent, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in Solution Manager and on the agent machine (refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
+After receiving instructions from the resident MCP Agent, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in Enterprise Manager or Solution Manager and on the agent machine (refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
  
 The MCP SMA/FTSERVER permits the user to configure up to nine concurrent transfers.
 
@@ -62,7 +62,7 @@ Additional disk space is required to run SMA File Transfer:
 
 ## Configuration
 
-Before attempting a transfer, configure the machines in Solution Manager and in the source and destination machines' agents.
+Before attempting a transfer, configure the machines in Enterprise Manager or Solution Manager and in the source and destination machines' agents.
  
 In the source and destination machines' agent configuration files, define the parameters for file transfers. For many agents, these settings are commingled with the agent's Job Output Retrieval System (JORS) parameters. However, for the MCP Agent, JORS and the 
 FTSERVER are separate processes and are configured individually.

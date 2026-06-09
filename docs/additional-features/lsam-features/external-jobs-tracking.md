@@ -80,7 +80,7 @@ The following definitions assume that the original compiled SMA/ANNOUNCE program
     * If not defined, SAM assumes the job is located on the AdHoc schedule.
     * If the job is not found on the schedule, the tracking request is denied.
     * If a schedule other than the AdHoc schedule is specified, the schedule must already be built in the Daily tables. If the schedule does not exist in the daily tables, the tracking request is denied.
-* ```<JobName>``` is the name of the job as known to OpCon. This is the name entered in the Job Master in Solution Manager.
+* ```<JobName>``` is the name of the job as known to OpCon. This is the name entered in the Job Master in Enterprise Manager or Solution Manager.
     * If the job does not exist in Job Master, the tracking request is denied.
     * If a duplicate job already exists in the Daily tables (and the job name is 124 characters or less in length), a $nnn suffix is added to the job name (e.g., TestJob is displayed as TestJob$001, TestJob$002, TestJob$003, and so forth).
     * If a duplicate job already exists in the Daily tables and the job name is longer than 128 characters, the tracking request is denied. The maximum name length in the Job Master must not exceed 64 characters.
