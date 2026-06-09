@@ -33,13 +33,13 @@ c. JORS: Prefix
 
 d. JORS: Family
 
-## Configure the JORS Port in Solution Manager
+## Configure the JORS Port in the Enterprise Manager
 
-For Solution Manager to connect to the MCP Agent for job output, configure the JORS Port Number to match the JORS Port configured through the agent. The default JORS port number is **3110**. For more information on setting the JORS Port Number for the machine, refer to [Configuring Advanced Machine Parameters and Properties](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Configuring-Advanced-Machine-Properties) in the OpCon online help.
+For the Enterprise Manager to connect to the MCP Agent for job output, configure the JORS Port Number to match the JORS Port configured through the agent. The default JORS port number is **3110**. For more information on setting the JORS Port Number for the machine, refer to [Configuring Advanced Machine Parameters and Properties](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Configuring-Advanced-Machine-Properties) in the Enterprise Manager online help.
 
-## View Job Output in Solution Manager
+## View Job Output in the Enterprise Manager
 
-For more information on viewing MCP job output from Solution Manager, refer to [Viewing Job Output](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Performing-Job-Procedures-List#viewing-job-output) in the OpCon online help.
+For more information on viewing MCP job output from the Enterprise Manager, refer to [Viewing Job Output](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Performing-Job-Procedures-List#viewing-job-output) in the Enterprise Manager online help.
 
 ## FAQs
 

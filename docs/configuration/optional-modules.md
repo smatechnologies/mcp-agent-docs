@@ -70,7 +70,7 @@ This field determines whether the MCP Agent will initiate the *SMA/JORS/xxx prog
 
 This field specifies the port number used for communicating job output information with Solution Manager. The default value is **3110**.
 
-The JORS port number must also be configured on the Administration > Machines > Advanced Settings > Communication Settings > JORS Port Number in Solution Manager.
+The JORS port number must also be configured on the Administration > Machines > Advanced Settings > Communication Settings > JORS Port Number in the Enterprise Manager.
 
 ###Print Prefix	
 
@@ -131,13 +131,13 @@ If the File Transfer variable is set to a value other than "N," the Nbr of FTSer
 
 This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when not using TLS.
 
-The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Solution Manager.
+The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in the Enterprise Manager.
 
 ### FTServer TLS Port	
 
 This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when using TLS.
 
-The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Solution Manager.
+The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in the Enterprise Manager.
 
 ### Backup Suffix	
 
