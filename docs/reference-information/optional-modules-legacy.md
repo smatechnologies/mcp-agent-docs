@@ -9,6 +9,12 @@ tags:
 
 # Optional Modules (Legacy)
 
+:::caution Superseded
+
+This page documents the legacy \*SMA/CONFIG configuration format. Use [Optional Modules (OPT)](../configuration/optional-modules) for current configuration guidance using SMA/MANAGER.
+
+:::
+
 ## General Settings
 
 | Field | Default | Valid Values | Description |

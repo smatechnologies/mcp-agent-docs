@@ -9,6 +9,12 @@ tags:
 
 # Communication Parameters (Legacy)
 
+:::caution Superseded
+
+This page documents the legacy \*SMA/CONFIG configuration format. Use [Communication Parameters (COMM)](../configuration/communication-parameters) for current configuration guidance using SMA/MANAGER.
+
+:::
+
 | Field | Default | Valid Values | Description |
 | ----- | ------- | ------------ | ----------- |
 | OpCon port | 03100 | 0 – 65535 | This field specifies the TCP/IP port number that will be used for communication between the agent and SMANetCom. |

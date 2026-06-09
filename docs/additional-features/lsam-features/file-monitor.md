@@ -18,7 +18,7 @@ File Monitor is an MCP Agent component that monitors defined files for specific 
 - File Monitor runs independently of the agent scheduling process, making it suitable for task-based OpCon licensing environments.
 - Unlike file-checking utilities (FILECHECK, FILECOUNT), File Monitor runs continuously and does not require an OpCon job to drive it.
 
-File Monitor takes user-defined actions upon the attainment of various file conditions which occur against a user defined set of files. When the file meets the criterion, File Monitor sends external events to the SAM and supporting services (SAM-SS), and/or sends selected MCP commands to the MCP operating system. File Monitoring criteria include:
+File Monitor takes user-defined actions upon the attainment of various file conditions which occur against a user defined set of files. When the file meets the criterion, File Monitor sends external events to SAM and/or sends selected MCP commands to the MCP operating system. File Monitoring criteria include:
 
 * Achievement of a user-defined percentage of maximum allowable size
 * Absence or removal
@@ -69,7 +69,7 @@ To define and maintain file monitoring rules, complete the following steps:
 6. The first position in each record must indicate the record type:
     * F: Indicates a file record.
     * M: Indicates an MCP command to be delivered to the MCP operating system. The command should not be followed by a period (.) or any other punctuation.
-    * S: Indicates an OpCon event to be sent to the SAM-SS. The event should not be followed by a period (.) or any other punctuation.
+    * S: Indicates an OpCon event to be sent to SAM. The event should not be followed by a period (.) or any other punctuation.
     * %: Indicates a comment record.
 7. At least one M or S record must follow each F record.
 
@@ -243,7 +243,7 @@ Upon initiation, File Monitor checks the status of all defined files. If a monit
 
 **M record**: Defines an MCP command to execute when the file condition is met (CHANGE TO, COPY AS, DISPLAY, or REMOVE).
 
-**S record**: Defines an OpCon external event to send to SAM-SS when the file condition is met.
+**S record**: Defines an OpCon external event to send to SAM when the file condition is met.
 
 **PRESENT**: File condition indicating the file exists on the MCP or was created during the current processing cycle.
 

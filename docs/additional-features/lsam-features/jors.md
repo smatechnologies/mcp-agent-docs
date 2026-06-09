@@ -17,7 +17,7 @@ JORS (Job Output Retrieval System) allows users to view job output from MCP jobs
 - Use JORS to retrieve and review MCP job print output from the OpCon interface after a job completes.
 - JORS requires configuration in both the MCP Agent and the OpCon machine definition before it can be used.
 
-The Job Output Retrieval System (JORS) allows users to view job output from the OpCon Enterprise Manager. To activate JORS, configure both the MCP Agent and the Enterprise Manager.
+The Job Output Retrieval System (JORS) allows users to view job output from Solution Manager. To activate JORS, configure both the MCP Agent and Solution Manager.
 
 ## Configure JORS in the Agent Configuration
 
@@ -33,29 +33,29 @@ c. JORS: Prefix
 
 d. JORS: Family
 
-## Configure the JORS Port in the EM
+## Configure the JORS Port in Solution Manager
 
-For the Enterprise Manager to connect to the MCP Agent for job output, configure the JORS Port Number to match the JORS Port configured through the agent. For more information on setting the JORS Port Number for the machine, refer to [Configuring Advanced Machine Parameters and Properties](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Configuring-Advanced-Machine-Properties) in the Enterprise Manager online help.
+For Solution Manager to connect to the MCP Agent for job output, configure the JORS Port Number to match the JORS Port configured through the agent. The default JORS port number is **3110**. For more information on setting the JORS Port Number for the machine, refer to [Configuring Advanced Machine Parameters and Properties](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Configuring-Advanced-Machine-Properties) in the OpCon online help.
 
-## View Job Output in the EM
+## View Job Output in Solution Manager
 
-For more information on viewing MCP job output from the OpCon Enterprise Manager, refer to [Viewing Job Output](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Performing-Job-Procedures-List#viewing-job-output) in the Enterprise Manager online help.
+For more information on viewing MCP job output from Solution Manager, refer to [Viewing Job Output](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Performing-Job-Procedures-List#viewing-job-output) in the OpCon online help.
 
 ## FAQs
 
 **What must be configured before JORS will work?**
-JORS requires configuration in two places: the agent configuration file (JORS, JORS Port, JORS Prefix, and JORS Family fields under Optional Modules) and the OpCon machine definition in the Enterprise Manager (the JORS Port Number under Advanced Machine Settings must match the port configured in the agent).
+JORS requires configuration in two places: the agent configuration file (JORS, JORS Port, JORS Prefix, and JORS Family fields under Optional Modules) and the OpCon machine definition in the Solution Manager (the JORS Port Number under Advanced Machine Settings must match the port configured in the agent).
 
-**What happens if the JORS Port Number in the Enterprise Manager does not match the agent?**
-The Enterprise Manager will be unable to connect to the MCP Agent for job output retrieval. The View Job Output feature will return an error or no output.
+**What happens if the JORS Port Number in the Solution Manager does not match the agent?**
+The Solution Manager will be unable to connect to the MCP Agent for job output retrieval. The View Job Output feature will return an error or no output.
 
 **Does JORS require direct access to the MCP system to view output?**
-No. Once JORS is configured, users can view MCP job print output directly from the OpCon Enterprise Manager without requiring direct access to the MCP system.
+No. Once JORS is configured, users can view MCP job print output directly from the OpCon Solution Manager without requiring direct access to the MCP system.
 
 ## Glossary
 
-**JORS (Job Output Retrieval System)**: The MCP Agent component that makes job print output accessible from the OpCon Enterprise Manager after a job completes.
+**JORS (Job Output Retrieval System)**: The MCP Agent component that makes job print output accessible from the OpCon Solution Manager after a job completes.
 
-**JORS Port**: The TCP port number on which the JORS process listens for connections from the Enterprise Manager. Must match the JORS Port Number configured in the machine's Advanced Machine Settings.
+**JORS Port**: The TCP port number on which the JORS process listens for connections from the Solution Manager. Must match the JORS Port Number configured in the machine's Advanced Machine Settings.
 
 **JORS Prefix / JORS Family**: Agent configuration parameters that control where JORS looks for job output files on the MCP platform.

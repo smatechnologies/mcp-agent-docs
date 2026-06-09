@@ -9,6 +9,12 @@ tags:
 
 # Processing Variables (Legacy)
 
+:::caution Superseded
+
+This page documents the legacy \*SMA/CONFIG configuration format. Use [Processing Variables (VAR)](../configuration/processing-variables) for current configuration guidance using SMA/MANAGER.
+
+:::
+
 | Field | Default | Valid Values | Description |
 | ----- | ------- | ------------ | ----------- |
 | Max number concurrent jobs | 10 | 1 – 500 | This field specifies the maximum number of jobs the agent is allowed to process concurrently. <br></br><br></br> - When changing the value of this field, the configuration program displays the following message at the bottom of the screen: ```MAX JOBS changed - Remove *SMA/CP/MCS/= files``` <br></br><br></br> Transmit "M" after receiving the warning message to confirm the change Refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs) for additional procedures required to change this parameter. |

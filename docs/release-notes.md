@@ -20,9 +20,13 @@ April 2025
 
 :white_check_mark: **MCP-606**: Resource Monitor was excessively logging activity in the debug log when debugging was turned off, causing heavy CPU usage. Fixed Resource Monitor to only log detailed activity when debugging is turned on.
 
+### 21.05.00
+
+:white_check_mark: Fixed an issue in the Resource Monitor where debug logging was not activating when SW2 was set, preventing debug output from being written to the debug file when troubleshooting Resource Monitor issues.
+
 ### 21.04.00
 
-2023 September
+September 2023
 
 :white_check_mark: Fixed processing DISPLAY tokens containing a period (.) character as a token separator. Fixed a crash in the TCPIP module when an incoming message header gets defragmented.
 
@@ -32,7 +36,7 @@ April 2025
 
 ### 21.00.00
 
-2021 July
+July 2021
 
 :white_check_mark: Using a common global storage for the JobStart command was causing incorrect reporting of JobStart information when several jobs were started at the same time. Changed the MCP/INTERFACE to store the job start command in the array of job-specific tracking information.
 
@@ -70,7 +74,7 @@ The STOPLSAM integration with Resource Monitor simplifies shutdown procedures by
 
 ### 19.01.00
 
-2019 December
+December 2019
 
 :white_check_mark: When using the INITLSAM option within the Manager program and an LSAM and/or Resource Monitor USERCODE had been defined on the GEN screen, the Manager program failed to include the USER= statement in the WFL used to start the LSAM and/or Resource Monitor. This has been corrected.
 
@@ -89,7 +93,7 @@ In conjunction with the above change, the following changes were made to the GEN
 
 ### 18.01.00
 
-2018 December
+December 2018
 
 ### What's new
 
@@ -97,7 +101,7 @@ In conjunction with the above change, the following changes were made to the GEN
 
 ### 18.00.00
 
-2018 June
+June 2018
 
 ### What's new
 

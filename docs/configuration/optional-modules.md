@@ -14,7 +14,7 @@ tags:
 
 This page documents each field on the SMAOPT screen within SMA/MANAGER, which activates and configures optional MCP Agent capabilities including Automated Response, external job tracking, File Monitor, Job Output Retrieval (JORS), SMA File Transfer (SMAFT), and MSGIN file detection.
 
-- Use this page to enable and configure JORS port numbers and print file prefixes so that job output can be retrieved and viewed in the Enterprise Manager.
+- Use this page to enable and configure JORS port numbers and print file prefixes so that job output can be retrieved and viewed in Solution Manager.
 - Use this page to configure SMA File Transfer direction, TLS options, the number of concurrent FTServer instances, and the MSGIN file check frequency.
 
 The Optional Modules screen allows you to configure the following:
@@ -44,7 +44,7 @@ This field determines whether the MCP Agent tracks external jobs.
 
 * If Y, the agent tracks external jobs.
 
-Note: Once detected, tracked jobs are displayed in the Enterprise Manager.
+Note: Once detected, tracked jobs are displayed in Solution Manager.
 
 * If N, the agent does not track external jobs.
 
@@ -54,7 +54,7 @@ This field indicates whether File Monitor should be started by the Resource Moni
 
 ### Resource Mon Freq
 
-This field sets the approximate number of seconds the Resource Monitor should wait between performance metrics samples:
+This field sets the approximate number of seconds the Resource Monitor should wait between performance metrics samples. The default value is **1800** seconds; valid range is **30–86400**.
 
 * 3600 = one hour
 
@@ -68,9 +68,9 @@ This field determines whether the MCP Agent will initiate the *SMA/JORS/xxx prog
 
 ### JORS Port Number
 
-This field specifies the port number used for communicating job output information with the Enterprise Manager.
+This field specifies the port number used for communicating job output information with Solution Manager. The default value is **3110**.
 
-The JORS port number must also be configured on the Administration > Machines > Advanced Settings > Communication Settings > JORS Port Number in the Enterprise Manager.
+The JORS port number must also be configured on the Administration > Machines > Advanced Settings > Communication Settings > JORS Port Number in Solution Manager.
 
 ###Print Prefix	
 
@@ -131,13 +131,13 @@ If the File Transfer variable is set to a value other than "N," the Nbr of FTSer
 
 This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when not using TLS.
 
-The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in the Enterprise Manager.
+The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Solution Manager.
 
 ### FTServer TLS Port	
 
 This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when using TLS.
 
-The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in the Enterprise Manager.
+The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Solution Manager.
 
 ### Backup Suffix	
 
@@ -147,7 +147,7 @@ This field specifies the suffix that should be appended to the name of the exist
 
 ### Frequency
 
-This field sets the number of seconds between MSGIN file checks.
+This field sets the number of seconds between MSGIN file checks. Set to **0** to disable MSGIN file checking.
 
 * Setting the MSGIN/ file check frequency to a low value increases overhead, but increases the frequency of file checking.
 * Setting the MSGIN/ file check frequency to a high value minimizes overhead, but decreases the frequency of file checking.

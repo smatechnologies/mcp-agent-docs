@@ -57,8 +57,8 @@ On the MCP Job Details screen, use the syntax specified in these next two subsec
 * ```<Criterion>``` is the criterion used to determine if the result of the inquiry should be deemed successful.
     * The value TRUE indicates success if the condition is met.
     * The value FALSE indicates success if the condition is not met.
-* ```<Good Event>``` is the optional OpCon external event to be forwarded to SAM-SS in the event of success. This parameter is optional. If unnecessary, insert a pair of double quotes to indicate a null value.
-* ```<Bad Event>``` is the optional OpCon external event to be forwarded to SAM-SS in the event of success is not achieved. This parameter is optional. If unnecessary, omit the parameter or insert a pair of double quotes to indicate a null value.
+* ```<Good Event>``` is the optional OpCon external event to be forwarded to SAM in the event of success. This parameter is optional. If unnecessary, insert a pair of double quotes to indicate a null value.
+* ```<Bad Event>``` is the optional OpCon external event to be forwarded to SAM in the event of success is not achieved. This parameter is optional. If unnecessary, omit the parameter or insert a pair of double quotes to indicate a null value.
 
 ## Keywords Available
 
@@ -72,7 +72,7 @@ To support the collection and reporting of meaningful data, the following MCP-sp
  
 For sites that opt not to use external events, the OpCon job should be defined to trigger a JOB:RESCHEDULE event if the job fails. The frequency of the sampling can be dictated within the JOB:RESCHEDULE event. If the job completes successfully (it got a hit on the target conditions), an appropriate event should be triggered. This event might be some form of notification, adding a cleanup job to a schedule, placing a schedule on hold, etc. 
 
-The Operations Monitor utility may also be used as a prerun if the desire is to execute a job on the MCP platform when the utility completes successfully rather than to trigger an event. When used as a prerun, the frequency of sampling is controlled by the OpCon timer associated with prerun re-submission (the default is three minutes).
+The Operations Monitor utility may also be used as a prerun if the desire is to run a job on the MCP platform when the utility completes successfully rather than to trigger an event. When used as a prerun, the frequency of sampling is controlled by the OpCon timer associated with prerun re-submission (the default is three minutes).
 
 ## Reporting
 
