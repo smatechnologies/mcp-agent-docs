@@ -22,7 +22,9 @@ April 2025
 
 ### 21.05.00
 
-:white_check_mark: Fixed an issue in the Resource Monitor where debug logging was not activating when SW2 was set, preventing debug output from being written to the debug file when troubleshooting Resource Monitor issues.
+December 2024
+
+:white_check_mark: **MCP-605**: Fixed an issue in the Resource Monitor where debug logging was not activating when SW2 was set.
 
 ### 21.04.00
 

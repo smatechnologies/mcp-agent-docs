@@ -147,7 +147,7 @@ This field specifies the suffix that should be appended to the name of the exist
 
 ### Frequency
 
-This field sets the number of seconds between MSGIN file checks. Set to **0** to disable MSGIN file checking.
+This field sets the number of seconds between MSGIN file checks.
 
 * Setting the MSGIN/ file check frequency to a low value increases overhead, but increases the frequency of file checking.
 * Setting the MSGIN/ file check frequency to a high value minimizes overhead, but decreases the frequency of file checking.
