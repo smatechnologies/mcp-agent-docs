@@ -56,11 +56,11 @@ The syntax for running the SMA/COMMAND program is:
 
 ## Using SMA/WFL/COMMAND
 
-Via the Enterprise Manager, the SMA/WFL/COMMAND WFL forwards commands to specified processes on the MCP system. The process may be the MCP itself, or any other process in an active or waiting state. The \*SMA/WFL/COMMAND string parameters are the name of the target process and the command to be passed to the \*SMA/COMMAND program.
+Via Enterprise Manager or Solution Manager, the SMA/WFL/COMMAND WFL forwards commands to specified processes on the MCP system. The process may be the MCP itself, or any other process in an active or waiting state. The \*SMA/WFL/COMMAND string parameters are the name of the target process and the command to be passed to the \*SMA/COMMAND program.
  
 ### Initiate a Command
 
-To initiate a command using the Command-line Interface through the Enterprise Manager, complete the following steps:
+To initiate a command using the Command-line Interface through Enterprise Manager or Solution Manager, complete the following steps:
 
 1. Enter the SMA/WFL/COMMAND in the **File Title** field on the Job Details screen.
 
