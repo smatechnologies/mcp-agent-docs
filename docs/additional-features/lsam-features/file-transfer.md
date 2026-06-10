@@ -22,7 +22,7 @@ SMA File Transfer (SMAFT) transfers files between the MCP platform and other pla
 
 The SMA File Transfer (SMAFT) system reliably transfers files across multiple platforms via an OpCon job. The SMA/FTAGENT, SMA/FTSERVER, and SMA/FTHANDLER components are installed with the MCP Agent. The source and destination machines must have these components for a file transfer.
  
-After receiving instructions from the resident MCP Agent, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in the Enterprise Manager and on the agent machine (refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
+After receiving instructions from the resident MCP Agent, the SMAFT component determines the best method for transporting the file with the corresponding SMAFT component on the participating machine. After negotiating the file transfer settings, the file is transferred. Configuration in Enterprise Manager or Solution Manager and on the agent machine (refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration)) in addition to the File Transfer Job's details (refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help) dictate a transfer's behavior. Also, refer to Print File Conversion later in this topic for a utility that can be used to prepare the contents of an MCP print file for transfer to a Windows/UNIX/ASCII-based machine.
  
 The MCP SMA/FTSERVER permits the user to configure up to nine concurrent transfers.
 
@@ -62,7 +62,7 @@ Additional disk space is required to run SMA File Transfer:
 
 ## Configuration
 
-Before attempting a transfer, configure the machines in the Enterprise Manager and in the source and destination machines' agents.
+Before attempting a transfer, configure the machines in Enterprise Manager or Solution Manager and in the source and destination machines' agents.
  
 In the source and destination machines' agent configuration files, define the parameters for file transfers. For many agents, these settings are commingled with the agent's Job Output Retrieval System (JORS) parameters. However, for the MCP Agent, JORS and the 
 FTSERVER are separate processes and are configured individually.
@@ -73,7 +73,7 @@ FTSERVER are separate processes and are configured individually.
 
 * For UNIX LSAM file transfer parameters, refer to the [JORS](https://help.smatechnologies.com/opcon/agents/unix/configuration/parameters/jors-and-smaft-parameters) and [SMAFT Parameters Settings](https://help.smatechnologies.com/opcon/agents/unix/configuration/parameters/jors-and-smaft-parameters) in the UNIX LSAM online help.
 
-In the Enterprise Manager, adjust the Advanced Machine Settings for the destination machine to correspond with the source machine's agent file transfer settings (or vice versa). Under the category File Transfer Settings, define the "File Transfer" type and the "File Transfer Port Number". For information on these settings, refer to [File Transfer Jobs](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help. Once configuration is complete (and verified), a File Transfer Job can be defined. For more information, refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help.
+In Enterprise Manager or Solution Manager, adjust the Advanced Machine Settings for the destination machine to correspond with the source machine's agent file transfer settings (or vice versa). Under the category File Transfer Settings, define the "File Transfer" type and the "File Transfer Port Number". For information on these settings, refer to [File Transfer Jobs](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help. Once configuration is complete (and verified), a File Transfer Job can be defined. For more information, refer to [File Transfer Job Details](https://help.smatechnologies.com/opcon/core/job-types/file-transfer) in the Concepts online help.
  
 Within MCP SMA File Transfer, the record length applied to the destination file using predefined SMA File Transfer protocol is sometimes unacceptable for downstream user programs.
 

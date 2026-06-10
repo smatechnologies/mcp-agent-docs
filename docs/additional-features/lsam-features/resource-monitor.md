@@ -310,7 +310,7 @@ Each time a defined file event, system message, or performance metric condition 
 
 **D record (Performance Monitor)**: A definition record in the Performance Monitor Definitions File that specifies a metric type, comparison, target value, and optional accumulation and time-window parameters.
 
-**S record (Performance Monitor)**: An action record in the Performance Monitor Definitions File that defines an OpCon external event to send to SAM-SS when a performance target is reached.
+**S record (Performance Monitor)**: An action record in the Performance Monitor Definitions File that defines an OpCon external event to send to SAM when a performance target is reached.
 
 **M record (Performance Monitor)**: An action record in the Performance Monitor Definitions File that defines an MCP command (typically START or RUN) to execute when a performance target is reached.
 

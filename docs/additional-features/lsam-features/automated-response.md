@@ -25,7 +25,7 @@ The following types of messages are forwarded to the display handler for Automat
 * WFL or program displays that appear on the MCP console and appear in the system log, preceded by DISPLAY (the process does not go into the waiting mix).
 * WFL or program displays that appear on the MCP console and appear in the system log, proceeded by ACCEPT (the process goes into the waiting mix).
 * System messages that appear on the MCP console or appear in the system log. The *SMA/RESOURCE/MONITOR, not the MCP Agent, captures system messages. Enable the Resource Monitor to use Automated Response for system messages.
-* Task/Job completion messages for the OpCon job when this job-level feature is enabled by checking the EOT Notice Message check box on the Job Details. For more information on utilizing this feature, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help. Possible completion status values are "EOT", "EOJ", and "DS". Explicit reasons for job/task discontinuance are not included in the display to simplify creation of the automated response entries in the displays files. All forms of DS (e.g., I-DS, F-DS, O-DS, P-DS, etc.) are denoted as "DS".
+* Job completion messages for the OpCon job when this job-level feature is enabled by selecting the **EOT Notice Message** option on the Job Details. For more information on utilizing this feature, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help. Possible completion status values are "EOT", "EOJ", and "DS". Explicit reasons for job/task discontinuance are not included in the display to simplify creation of the automated response entries in the displays files. All forms of DS (e.g., I-DS, F-DS, O-DS, P-DS, etc.) are denoted as "DS".
 
 ## Update the Configuration File
 
@@ -126,7 +126,7 @@ The file rules must be followed exactly for the Automated Response feature to fu
 * The first position in each record must indicate the record type:
     * **A**: Indicates an action to be sent to the ClearPath MCP.
     * **D**: Indicates the tokens within the console display message to match.
-    * **S**: Indicates an OpCon event to be sent to the SAM-SS. The event should not be followed by a period (.) or any other punctuation.
+    * **S**: Indicates an OpCon event to be sent to the SAM. The event should not be followed by a period (.) or any other punctuation.
 * Any number of Automated Response scenarios may be defined in each Displays File.
 * The maximum line length is 72 characters. Lines cannot be continued to the following line.
 
@@ -190,7 +190,7 @@ c. The console display.
 
 :::tip Example 
 
-A WFL (JOB1) executes multiple actions and another job (JOB2) is waiting for output from one of the actions in JOB1. Instead of JOB2 waiting until JOB1 finishes completely, the key action in JOB1 can display a unique message after it completes. As a result, the message triggers the SAM-SS to start JOB2.
+A WFL (JOB1) executes multiple actions and another job (JOB2) is waiting for output from one of the actions in JOB1. Instead of JOB2 waiting until JOB1 finishes completely, the key action in JOB1 can display a unique message after it completes. As a result, the message triggers the SAM to start JOB2.
 
 :::
 
@@ -216,7 +216,7 @@ The OpCon job SampleRun is scheduled to run the MCP job WFL/TEST/JOB. During the
 
 #### Requirement
 
-The Displays File must be configured to copy the file automatically, send a message to the SAM-SS, and instruct the program to continue.
+The Displays File must be configured to copy the file automatically, send a message to the SAM, and instruct the program to continue.
 
 #### Solution
 
@@ -252,11 +252,11 @@ Complete the following steps to meet the requirements:
  
 ```
 
-Line 000100 defines the combination of tokens that must be matched in a console display. Line 000200 defines an event to be sent to the SAM-SS. Line 000300 defines the action for the file to be copied. Line 000400 instructs the job to continue.
+Line 000100 defines the combination of tokens that must be matched in a console display. Line 000200 defines an event to be sent to the SAM. Line 000300 defines the action for the file to be copied. Line 000400 instructs the job to continue.
 
 6. The job is submitted, and the mix number is 12345. When a match is found in a console display, the automatic response is:
 
-a. Automated Response sends an external event to the SAM-SS with the following information:
+a. Automated Response sends an external event to the SAM with the following information:
 
 ```
 
@@ -283,7 +283,7 @@ Use a Job-specific or Template Displays File whenever possible. The Global Displ
 It depends on the file type. The Global Displays File and the System Message Definitions File are not dynamic — after editing, you must issue a reload using the LOADDISP option in SMA/MANAGER. Job-specific and Template Displays Files are dynamic and take effect immediately without a reload.
 
 **What record types are valid in a Displays File?**
-Three: `D` (defines the token pattern to match), `A` (defines an action to send to ClearPath MCP), and `S` (defines an OpCon event to send to SAM-SS). Each scenario requires a `D` record followed by one or more `A` and/or `S` records.
+Three: `D` (defines the token pattern to match), `A` (defines an action to send to ClearPath MCP), and `S` (defines an OpCon event to send to SAM). Each scenario requires a `D` record followed by one or more `A` and/or `S` records.
 
 **What is the maximum line length for a Displays File record?**
 72 characters. Lines cannot be continued to the following line, except for S records that require two lines (`S1$<event>` and `S2<event>`), which together may comprise up to 350 characters after token substitution.
@@ -301,7 +301,7 @@ A DISPLAY message appears on the MCP console but the process continues running. 
 
 **A record**: A record type in a Displays File that defines an action to deliver directly to the ClearPath MCP operating system (for example, replying to a waiting process or copying a file).
 
-**S record**: A record type in a Displays File that defines an OpCon external event to send to the SAM-SS (for example, setting a property or adding a job).
+**S record**: A record type in a Displays File that defines an OpCon external event to send to the SAM (for example, setting a property or adding a job).
 
 **ACCEPT display**: A console message type that causes the originating process to enter the waiting mix. Automated Response can issue an automatic reply to release the process.
 

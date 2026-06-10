@@ -14,7 +14,7 @@ tags:
 
 This page provides symptom-based tables for diagnosing and resolving common MCP Agent issues, organized by problem category.
 
-- Use these tables to quickly identify the likely cause of a symptom and navigate to the relevant explanation or solution.
+- Use these tables to quickly identify the likely cause of a symptom and go to the relevant explanation or solution.
 - Categories cover AutoResponse, communication, configuration, file monitoring, file transfer, job initiation/monitoring, JORS, and agent initialization.
 
 ## Troubleshooting Categories
@@ -37,8 +37,8 @@ These troubleshooting tables, organized by problem category, present symptoms an
 
 | Communicating Symptom | Explanation |
 | --------------------- | ----------- |
-| Although a task and its subtasks are completed, the job's status in the Enterprise Manager's Operations remains "Job Running." | Jobs Stuck in "Running" State |
-| The LSAM is not communicating with SMANetCom, and/or jobs fail to start (i.e., the Enterprise Manager displays "Wait Machine"), and/or job status information is not up-to-date in the Enterprise Manager. | LSAM not Communicating |
+| Although a task and its subtasks are completed, the job's status in Enterprise Manager or Solution Manager remains "Job Running." | Jobs Stuck in "Running" State |
+| The LSAM is not communicating with SMANetCom, and/or jobs fail to start (i.e., Enterprise Manager or Solution Manager displays "Wait Machine"), and/or job status information is not up-to-date in Enterprise Manager or Solution Manager. | LSAM not Communicating |
 | The message, "Arithmetic overflow error for data type smallint, value = 32768," is observed in the OpCon log. | Arithmetic Overflow Error |
 
 ### Configuration Troubleshooting Categories

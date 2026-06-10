@@ -52,6 +52,6 @@ Place an 'X' here to submit this screen and return to the Main Menu	| In order t
 
 :::info Note
 
-All password fields on the SMAGEN screen are masked.
+All password fields on the SMAGEN screen are masked. Passwords entered on this screen are stored in an encoded format — they are not stored in plaintext.
 
 :::

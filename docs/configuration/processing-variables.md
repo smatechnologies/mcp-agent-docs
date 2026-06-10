@@ -36,7 +36,7 @@ The following table describes each field on the SMAVAR screen.
 
 ### Max number concurrent jobs
 
-This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires stopping and restarting the MCP Agent to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and are refreshed when you select this action from the Main Menu.
+This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. The default value is **10**; valid range is **10–500**. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires stopping and restarting the MCP Agent to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and are refreshed when you select this action from the Main Menu.
 
 ### Task level checking
 
