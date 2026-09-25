@@ -17,16 +17,16 @@ External Jobs Tracking enables user-submitted jobs that were not initiated by Op
 - Track the completion status of a WFL that was started outside of OpCon, such as one initiated manually by a user.
 - Monitor externally initiated jobs on the AdHoc schedule so they appear alongside OpCon-scheduled work in Solution Manager.
 
-The SMA/ANNOUNCE/xxx program allows user-submitted jobs to be tracked by OpCon. When SMA/ANNOUNCE/xxx runs, a message is sent to the MCP Agent. The agent forwards a request to SAM to track the defined job. If the request is accepted, SAM returns a job initiation message (TX1) to the agent. From this point forward, the job can be viewed in Operations in Solution Manager. The job's completion status will be sent to SAM when the job completes. For agent messages regarding external job tracking, refer to [Machine Messages](../../reference-information/machine-messages).
+The SMA/ANNOUNCE/xxx program allows user-submitted jobs to be tracked by OpCon. When SMA/ANNOUNCE/xxx runs, a message is sent to the MCP Agent. The agent forwards a request to SAM to track the defined job. If the request is accepted, SAM returns a job initiation message (TX1) to the agent. From this point forward, the job can be viewed in Operations in Solution Manager. The job's completion status will be sent to SAM when the job completes. For agent messages regarding external job tracking, refer to [Machine Messages](../../reference-information/machine-messages.md).
  
 Two items must be configured before the job tracking feature can function:
 
-* The \*SMA/CONFIG/FILE/xxx under the [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules) section must be updated. Set MixWatcher to a value of Y.
+* The \*SMA/CONFIG/FILE/xxx under the [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md) section must be updated. Set MixWatcher to a value of Y.
 * The SMA/ANNOUNCE/xxx program defaults must be verified.
 
 ## Update the Configuration File
 
-Modify the following field under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
+Modify the following field under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md):
  
 MixWatcher: Set to a value of ```Y```.
 
@@ -97,7 +97,7 @@ This password is **not** the same password used to log in to Solution Manager.
 
 :::
 
-* The UserLoginID and EventPassword can default to the values defined in the agent configuration file. For information on these configuration settings, refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration). To use the defaults, substitute a null string (i.e., "") for the UserLoginID and EventPassword values.
+* The UserLoginID and EventPassword can default to the values defined in the agent configuration file. For information on these configuration settings, refer to [MCP LSAM Configuration](../../configuration/mcp-lsam-configuration.md). To use the defaults, substitute a null string (i.e., "") for the UserLoginID and EventPassword values.
 
 
 ### Example WFL
@@ -126,7 +126,7 @@ The following example shows a variable used to populate the parameter:
 
 ## Using SMA/SURROGATE
 
-The SMA/SURROGATE program monitors each tracked job and queues the status for forwarding to SAM. This program may be executed independently of the MCP Agent to permit tracking of external jobs when the agent is not active. To accomplish this, RUN \*SMA/SURROGATE/xxx from a WFL or by using the RUN command. If this option is chosen, be aware that if sufficient time elapses such that the external job is cleared from the MCP completion table, the job will be marked failed with a status description of "JOB MISMATCH" when communication between the MCP Agent and SAM is restored, and manual investigation into the true disposition of the job will be required.
+The SMA/SURROGATE program monitors each tracked job and queues the status for forwarding to SAM. This program may be run independently of the MCP Agent to permit tracking of external jobs when the agent is not active. To accomplish this, RUN \*SMA/SURROGATE/xxx from a WFL or by using the RUN command. If this option is chosen, be aware that if sufficient time elapses such that the external job is cleared from the MCP completion table, the job will be marked failed with a status description of "JOB MISMATCH" when communication between the MCP Agent and SAM is restored, and manual investigation into the true disposition of the job will be required.
  
 To stop the \*SMA/SURROGATE/xxx, issue a HI 2 command using the mix number of \*SMA/SURROGATE/xxx (i.e., ```<mix #>``` HI 2). The \*SMA/SURROGATE/xxx program will issue a display indicating that it is monitoring jobs if any tracked jobs are active. Once the number of monitored jobs is zero, the *SMA/SURROGATE/xxx will terminate gracefully without further intervention.
  

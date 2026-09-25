@@ -25,15 +25,15 @@ The Communication Parameters screen allows you to configure the information need
 
 **MCP LSAM Configuration Settings: Communication Parameters**
 
-The following table describes each field on the SMACOMM screen.
+The following table describes each field on the SMACOMM screen. A default value is the value the MCP Agent sets when it creates a new configuration file.
 
 | Field | Description |
 | ----- | ----------- |
-| OpCon TCP/IP port number | This field defines the port number that should be used to communicate with SMANetCom. It must match the port number defined for this machine in the database. The default value is **3100**. |
-| Secure using TLS? | This field defines whether to use TLS for secure communication. If you want to use TLS to secure communications, enter a Y in this field, install a certificate using Security Center, and enter the key in the "TLS Key" field. | 
+| OpCon TCP/IP port number | This field defines the port number that should be used to communicate with SMANetCom. It must match the port number defined for this machine in the database. The default value is **3100**; valid range is **1–65535**. |
+| Secure using TLS? | This field defines whether to use TLS for secure communication. If you want to use TLS to secure communications, enter a Y in this field, install a certificate using Security Center, and enter the key in the "TLS Key" field. Valid values are **N** and **Y**. The default value is **N**. | 
 | TLS Key | This field is the key associated with the certificate used to secure scheduling communications with TLS. The certificate is stored using the Unisys Security Center. |
-| Allow self-signed certificates? | This field defines whether to allow self-signed certificates. If the TLS certificate is self-signed, enter a Y in this field. |
+| Allow self-signed certificates? | This field defines whether to allow self-signed certificates. If the TLS certificate is self-signed, enter a Y in this field. Valid values are **N** and **Y**. The default value is **N**. |
 | Idle Timer | This field is a timer that instructs the MCP Agent on how often to inquire for messages between agent components and how often to see if there are messages to send to SMANetCom. The value is in seconds. The default value is **30** seconds; valid range is **1–300**. A low value means faster throughput during idle periods but increases processor usage. A high value uses less resources but can result in slower throughput during idle periods. Job start requests are not affected by this timer; however, job status updates can be affected when there is little activity initiated by SMANetCom. |
 | Hostname alias | This field defines the value that corresponds to the machine name defined in Enterprise Manager or Solution Manager. If left blank, the system hostname will be used. When providing a value for this field, do not include an ending period (.); however, when defining the machine name in Enterprise Manager or Solution Manager, the trailing period (.) must be used in the Machine definition. | 
-| Accept messages from IP addresses | These five fields allow you to specify from which IP addresses the MCP Agent will accept a request to connect. A maximum of five unique IP addresses may be entered. Alternatively, you may enter the value of "ALL" for the first IP address to instruct the agent to accept a connection request from any IP address. | 
+| Accept messages from IP addresses | These five fields allow you to specify from which IP addresses the MCP Agent will accept a request to connect. A maximum of five unique IP addresses may be entered. Alternatively, you may enter the value of "ALL" for the first IP address to instruct the agent to accept a connection request from any IP address. The default value of the first field is **ALL**. | 
 | Place an 'X' here to submit this screen and return to the Main Menu | In order to save any changes you have made to this screen, you must place an 'X' in this field. If you do not want to save changes or you accessed this screen simply to inquire as to the current values, leave this field blank and transmit the screen to be returned to the main menu. |

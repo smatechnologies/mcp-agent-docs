@@ -24,11 +24,11 @@ The following table describes each page in this section.
 
 | Page | Description |
 | ---- | ----------- |
-| [MCP LSAM Configuration](mcp-lsam-configuration) | Introduction to the configuration file and the SMA/MANAGER-based workflow for viewing and editing configuration settings. |
-| [Configuration Settings](configuration-settings) | Step-by-step procedure for accessing and modifying configuration settings through SMA/MANAGER. |
-| [General LSAM Configuration (GEN)](general-lsam-configuration) | Reference for all General parameter group settings — agent instance identifier, port, timing, logging, and core behavior options. |
-| [Communication Parameters (COMM)](communication-parameters) | Reference for all Communication parameter group settings — SMANetCom address, port, retry intervals, and TLS options. |
-| [Processing Variables (VAR)](processing-variables) | Reference for all Processing Variable settings — job limits, prerun behavior, output handling, and MCP-specific options. |
-| [Optional Modules (OPT)](optional-modules) | Reference for optional module settings — Automated Response, JORS, MSGIN, File Monitor, Resource Monitor, and SMA File Transfer. |
-| [Update Max Concurrent Jobs](update-max-concurrent-jobs) | Procedure for changing the maximum number of jobs the MCP Agent runs concurrently. |
-| [Set Up Failure and Status Message Logic](set-up-failure-status-message) | How to configure failure status message detection so the MCP Agent correctly reports job completion states to OpCon. |
+| [MCP LSAM Configuration](mcp-lsam-configuration.md) | Introduction to the configuration file and the SMA/MANAGER-based workflow for viewing and editing configuration settings. |
+| [Configuration Settings](configuration-settings.md) | Step-by-step procedure for accessing and modifying configuration settings through SMA/MANAGER. |
+| [General LSAM Configuration (GEN)](general-lsam-configuration.md) | Reference for all General parameter group settings — agent instance identifier, port, timing, logging, and core behavior options. |
+| [Communication Parameters (COMM)](communication-parameters.md) | Reference for all Communication parameter group settings — SMANetCom address, port, retry intervals, and TLS options. |
+| [Processing Variables (VAR)](processing-variables.md) | Reference for all Processing Variable settings — job limits, prerun behavior, output handling, and MCP-specific options. |
+| [Optional Modules (OPT)](optional-modules.md) | Reference for optional module settings — Automated Response, JORS, MSGIN, File Monitor, Resource Monitor, and SMA File Transfer. |
+| [Update Max Concurrent Jobs](update-max-concurrent-jobs.md) | Procedure for changing the maximum number of jobs the MCP Agent runs concurrently. |
+| [Set Up Failure and Status Message Logic](set-up-failure-status-message.md) | How to configure failure status message detection so the MCP Agent correctly reports job completion states to OpCon. |

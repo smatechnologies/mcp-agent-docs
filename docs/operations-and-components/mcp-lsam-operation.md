@@ -21,7 +21,7 @@ This page covers the day-to-day operational procedures for managing the MCP Agen
 
 Start the agent to begin processing OpCon jobs.
 
-To view the previous procedure, refer to [Start the LSAM](../reference-information/legacy#start-the-mcp-agent) in the Legacy Information topic.
+To view the previous procedure, refer to [Start the LSAM](../reference-information/legacy.md#start-the-mcp-agent) in the Legacy Information topic.
 
 ### Initiate the Agent (INITLSAM)
 
@@ -78,4 +78,4 @@ Use this screen to stop the agent, and optionally the Resource Monitor as well. 
 
 ![SMASTOPLSAM](../../static/img/smastoplsam.png)
 
-To view the previous procedure, refer to [Stop the LSAM](../reference-information/legacy#stop-the-mcp-agent) in the Legacy Information topic.
+To view the previous procedure, refer to [Stop the LSAM](../reference-information/legacy.md#stop-the-mcp-agent) in the Legacy Information topic.

@@ -21,7 +21,7 @@ Before you install the `*SMA/INSTALL` program, you must FTP the agent container 
 
 1. Use menu path: ```Start > Run```.
 
-2. Enter ```CMD``` in the Open text box.
+2. Enter ```CMD``` in the **Open** field.
 
 3. Select the **OK** button. The Command window displays.
 

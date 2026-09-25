@@ -44,5 +44,5 @@ The following example shows a wildcard search string:
 :::
 
 * ```<Criterion Value>``` is the criterion used to determine if the prerun was successful.
-    * The value "REQUIRES" indicates the dependent job may proceed if the process is currently executing.
-    * The value "EXCLUDES" indicates the dependent job may proceed if the process is not executing.
+    * The value "REQUIRES" indicates the dependent job may proceed if the process is currently running.
+    * The value "EXCLUDES" indicates the dependent job may proceed if the process is not running.

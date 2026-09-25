@@ -19,20 +19,22 @@ This page explains how to open the SMA/MANAGER program and use its GEN, COMM, VA
 
 ## Run the Manager Program
 
+To run the Manager program, complete the following steps:
+
 1. From the home position of any MCP window, type ?ON SMAMGRxxx and transmit.
 
 2. You will be presented the Main Menu. To modify the agent configuration, use choices GEN, COMM, VAR, and OPT.
 
 :::info Note
 
-Most of the configuration fields are dynamic; however, each agent component must be notified that the configuration file has changed in order to effect the changes. The "Max number concurrent jobs" variable is never changed dynamically. To implement a new max jobs count, stop and restart the MCP Agent to apply the new max job count settings. For more information on applying changes to all other configuration values, refer to [Dynamic LSAM Configuration](../additional-features/lsam-features/dynamic-lsam-configuration).
+Most of the configuration fields are dynamic; however, each agent component must be notified that the configuration file has changed in order to effect the changes. The "Max number concurrent jobs" variable is never changed dynamically. To implement a new max jobs count, stop and restart the MCP Agent to apply the new max job count settings. For more information on applying changes to all other configuration values, refer to [Dynamic LSAM Configuration](../additional-features/lsam-features/dynamic-lsam-configuration.md).
 
 :::
 
-To view the previous procedure, refer to [Run the Configuration Program](../reference-information/legacy#run-the-configuration-program) in the Legacy Information topic.
+To view the previous procedure, refer to [Run the Configuration Program](../reference-information/legacy.md#run-the-configuration-program) in the Legacy Information topic.
 
 ## Configuration Settings
 
 The next several topics describe the fields found on the GEN, COMM, VAR, and OPT screens of the SMA/MANAGER Main Menu screen.
 
-To view the previous settings, refer to [Configuration Settings](../reference-information/legacy#configuration-settings) in the Legacy Information topic.
+To view the previous settings, refer to [Configuration Settings](../reference-information/legacy.md#configuration-settings) in the Legacy Information topic.

@@ -20,7 +20,7 @@ The SMA/CONFIG/FILE/xxx is not present under the same usercode used to start the
 
 ##### Operator Response:
 
-Copy the SMA/CONFIG/FILE/xxx under the appropriate usercode. For more information on this response, refer to \*[SMA/CONFIG](../../operations-and-components/core-programs-and-files#smaconfig).
+Copy the SMA/CONFIG/FILE/xxx under the appropriate usercode. For more information on this response, refer to \*[SMA/CONFIG](../../operations-and-components/core-programs-and-files.md#smaconfig).
  
 ## SEG ARRAY ERR @ 00081445
 
@@ -62,7 +62,7 @@ Depending on current agent activity, the ```<mix# *SMA/COMM/xxx >```HI 99 comman
 
 ##### Operator Response:
 
-Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the agent is also an alternative, although it is not recommended. For more information on this response, refer to *[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
+Issue a HI 2 to the *SMA/TCPIP/xxx module. DS'ing the agent is also an alternative, although it is not recommended. For more information on this response, refer to *[SMA/TCPIP](../../operations-and-components/core-programs-and-files.md#smatcpip-associated-files).
  
 ## SEG ARRAY ERR @ 2435000
 
@@ -80,7 +80,7 @@ This can occur if the agent has just been upgraded and one or more OpCon jobs we
 
 2. Start the agent.
 
-For more information on this response, refer to [MCP Agent Installation](../../installation/overview).
+For more information on this response, refer to [MCP Agent Installation](../../installation/overview.md).
  
 
 ## SEG ARRAY ERR @ 178600
@@ -103,7 +103,7 @@ After changing the configuration variable "max number concurrent jobs", remove t
 
 3. Be sure to check all families on the system - not just the family on which the agent runs.
 
-For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
+For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
  
 ## ASSERTION FAILURE @ 91700
 
@@ -192,7 +192,7 @@ The \*SMA/CP/LIB/= files were not removed after changing the maximum number of c
 
 ##### Operator Response:
 
-Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](../../configuration/update-max-concurrent-jobs#remove-checkpoint-and-tracking-files)
+Remove the \*SMA/CP/LIB/= files. For more information on this response, refer to [Remove Checkpoint and Tracking Files](../../configuration/update-max-concurrent-jobs.md#remove-checkpoint-and-tracking-files)
  
 ## LSAM Stops Soon after Starting
 
@@ -214,7 +214,7 @@ The agent expects all of its files to be located in the same directory as the mo
 
 ##### First Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-the-agent-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation.md#define-the-agent-to-idc).
 
 #### Second Possible Explanation:
  
@@ -222,7 +222,7 @@ During the process of upgrading the MCP operating system, the definition of the 
 
 ##### Second Operator Response:
 
-Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation#define-the-agent-to-idc).
+Ensure the \*SMA/MCP/INTERFACE/xxx ON ```<diskpack>``` is present and define this program to IDC as an MCS. For more information on this response, refer to [Define LSAM to IDC](../../installation/new-installation.md#define-the-agent-to-idc).
 
 #### Third Possible Explanation:
  

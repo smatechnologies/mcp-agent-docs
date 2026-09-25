@@ -36,18 +36,18 @@ If a single agent instance is desired, it is not necessary to use an agent insta
 
 :::
 
-Use the same procedures to install each agent instance in a multiple-agent environment as you would to install a single agent. For more information, refer to [New Installation](new-installation).
+Use the same procedures to install each agent instance in a multiple-agent environment as you would to install a single agent. For more information, refer to [New Installation](new-installation.md).
 
 ## Prerequisites
 
-The Pre-installation Worksheet contains fields for all required information for a successful MCP Agent installation, as well as fields for optional features that help implement all agent capabilities. For more information, refer to [Pre-installation Worksheet](pre-installation-worksheet).
+The Pre-installation Worksheet contains fields for all required information for a successful MCP Agent installation, as well as fields for optional features that help implement all agent capabilities. For more information, refer to [Pre-installation Worksheet](pre-installation-worksheet.md).
 
 ## In this section
 
 | Page | Description |
 | ---- | ----------- |
-| [Pre-Installation Worksheet](pre-installation-worksheet) | A checklist of values to collect before starting the installation — system name, port numbers, usercode, family names, and optional module settings. |
-| [Copy Installation Files to MCP](copy-installation-files) | Steps for transferring the MCP Agent installation files from the distribution medium to the MCP platform. |
-| [Automated Installation/Upgrade](automated-installation-upgrade) | How to use the automated installation and upgrade script to deploy or update the MCP Agent without stepping through manual prompts. |
-| [New Installation](new-installation) | Step-by-step procedure for installing the MCP Agent on an MCP system for the first time. |
-| [Upgrade Installation](upgrade-installation) | Step-by-step procedure for upgrading an existing MCP Agent installation to a newer version. |
+| [Pre-Installation Worksheet](pre-installation-worksheet.md) | A checklist of values to collect before starting the installation — system name, port numbers, usercode, family names, and optional module settings. |
+| [Copy Installation Files to MCP](copy-installation-files.md) | Steps for transferring the MCP Agent installation files from the distribution medium to the MCP platform. |
+| [Automated Installation/Upgrade](automated-installation-upgrade.md) | How to use the automated installation and upgrade script to deploy or update the MCP Agent without stepping through manual prompts. |
+| [New Installation](new-installation.md) | Step-by-step procedure for installing the MCP Agent on an MCP system for the first time. |
+| [Upgrade Installation](upgrade-installation.md) | Step-by-step procedure for upgrading an existing MCP Agent installation to a newer version. |

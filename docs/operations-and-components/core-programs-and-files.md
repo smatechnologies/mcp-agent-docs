@@ -60,7 +60,7 @@ The programs listed in this section are installed with the MCP Agent. The files 
 
 ### SMA/CONFIG
 
-To view information about this program, refer to [*SMA/CONFIG](../reference-information/legacy#smaconfig) in the Legacy Information topic.
+To view information about this program, refer to [*SMA/CONFIG](../reference-information/legacy.md#smaconfig) in the Legacy Information topic.
 
 ### *SMA/MANAGER Associated Files
 

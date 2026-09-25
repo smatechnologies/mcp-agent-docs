@@ -30,63 +30,66 @@ The Optional Modules screen allows you to configure the following:
 
 ## MCP LSAM Configuration Settings: Optional Modules
 
-The following sections describe each field on the SMAOPT screen.
+The following sections describe each field on the SMAOPT screen. A default value is the value the MCP Agent sets when it creates a new configuration file.
 
 ## General Optional Modules
 
 ### Autoresponse-Displays
 
-This field indicates whether the Auto-Response feature is active.
+This field indicates whether the Auto-Response feature is active. Valid values are **N** and **Y**. The default value is **N**.
 
 ### Mixwatcher?
 
-This field determines whether the MCP Agent tracks external jobs.
+This field determines whether the MCP Agent tracks external jobs. The default value is **N**.
 
 * If Y, the agent tracks external jobs.
-
-Note: Once detected, tracked jobs are displayed in Solution Manager.
-
 * If N, the agent does not track external jobs.
+
+:::info Note
+
+Once detected, tracked jobs are displayed in Solution Manager.
+
+:::
 
 ### File Monitor
 
-This field indicates whether File Monitor should be started by the Resource Monitor.
+This field indicates whether File Monitor should be started by the Resource Monitor. Valid values are **N** and **Y**. The default value is **N**.
 
 ### Resource Mon Freq
 
-This field sets the approximate number of seconds the Resource Monitor should wait between performance metrics samples. The default value is **1800** seconds; valid range is **30–86400**.
+This field sets the approximate number of seconds the Resource Monitor should wait between performance metrics samples. The default value is **1800** seconds. Valid values are **0** or **30–86400**. A value of **0** turns off system resource monitoring.
 
 * 3600 = one hour
 
 * 86400 = 24 hours
 
-## Job Output Retrieval System (JORS)	 
+## Job Output Retrieval System (JORS)
 
 ### JORS in use
 
-This field determines whether the MCP Agent will initiate the *SMA/JORS/xxx program.
+This field determines whether the MCP Agent will initiate the *SMA/JORS/xxx program. Valid values are **N** and **Y**. The default value is **N**.
 
 ### JORS Port Number
 
-This field specifies the port number used for communicating job output information with Solution Manager. The default value is **3110**.
+This field specifies the port number used for communicating job output information with Solution Manager. The default value is **3110**; valid range is **1–65535**.
 
 The JORS port number must also be configured on the Administration > Machines > Advanced Settings > Communication Settings > JORS Port Number in Enterprise Manager or Solution Manager.
 
-###Print Prefix	
+### Print Prefix
 
-This field defines the initial node(s) of the print file names.
+This field defines the initial node(s) of the print file names. The default value is **BD**.
 
 The MCP Agent uses this value and the mix number (and, optionally, the usercode of the job) to locate the print files by preceding the job's mix number with this prefix (e.g., *BD/00jjjjj).
 
 Although multiple nodes may be used to define the print file prefix, multiple print file prefixes are not supported.
 
-### Print Family	
+### Print Family
 
 This field specifies the diskpack on which print files are located.
 
-## SMA File Transfer (SMAFT)	 
+## SMA File Transfer (SMAFT)
 
-### SMAFT in use	
+### SMAFT in use
 
 This field indicates the permitted directions for SMA File Transfer.
 
@@ -95,9 +98,9 @@ This field indicates the permitted directions for SMA File Transfer.
 * If O, only outgoing transfers are permitted.
 * If I, only incoming transfers are permitted.
 
-### Add LF to Unix Files	
+### Add LF to Unix Files
 
-This field determines how the file contents are stored and displayed on the UNIX system.
+This field determines how the file contents are stored and displayed on the UNIX system. Valid values are **N** and **Y**. The default value is **N**.
 
 * If Y, the SMA File Transfer process will append a line feed (carriage control) to the end of each MCP record prior to sending the record to a UNIX platform.
 
@@ -109,41 +112,48 @@ This option only applies to SMA File Transfers using the ASCII, EBCDIC, or Defau
 
 :::
 
-### SMA Agent Port Number	
+### SMA Agent Port Number
 
-This field defines the port number for the agent.
+This field defines the port number for the agent. The default value is **3130**; valid range is **1–65535**.
 
-### Use TLS for SMAFT Agent	
+### Use TLS for SMAFT Agent
 
 Use this field to specify whether TLS is available to be used to secure communications between the MCP FTAgent and corresponding FTServer.
 
+The default value is **N**.
+
 * If B, the MCP FTAgent will support both TLS and non-TLS secured communications.
 * If N, the MCP FTAgent will support only non-secured connections.
-* If T, the MCP FTAgent will support only communications secured by TLS.
 
-### Nbr of FTServers on MCP	
+:::caution
 
-This field specifies the maximum permitted number of concurrent outgoing file transfers.
+The SMAOPT screen accepts **B**, **N**, or **Y** in this field. The MCP FTAgent treats **Y** the same as **N** and supports only non-secured connections. To allow TLS-secured communications, enter **B**.
+
+:::
+
+### Nbr of FTServers on MCP
+
+This field specifies the maximum permitted number of concurrent outgoing file transfers. The default value is **1**.
 
 If the File Transfer variable is set to a value other than "N," the Nbr of FTServers field must be at least 1.
 
-### FTServer nonTLS Port	
+### FTServer nonTLS Port
 
-This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when not using TLS.
-
-The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Enterprise Manager or Solution Manager.
-
-### FTServer TLS Port	
-
-This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when using TLS.
+This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when not using TLS. The default value is **3120**; valid range is **0–65535**.
 
 The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Enterprise Manager or Solution Manager.
 
-### Backup Suffix	
+### FTServer TLS Port
+
+This field specifies the port number used by *SMA/FTSERVER to communicate with the File Transfer agent when using TLS. The default value is **0**; valid range is **0–65535**.
+
+The FTServer port number must also be configured on the Administration > Machines > Advanced Settings > File Transfer Settings > File Transfer Port Number in Enterprise Manager or Solution Manager.
+
+### Backup Suffix
 
 This field specifies the suffix that should be appended to the name of the existing file prior to initiating a file transfer if backup is requested prior to the transfer.
 
-## MCP MSGIN Parameters	 
+## MCP MSGIN Parameters
 
 ### Frequency
 
@@ -152,9 +162,6 @@ This field sets the number of seconds between MSGIN file checks.
 * Setting the MSGIN/ file check frequency to a low value increases overhead, but increases the frequency of file checking.
 * Setting the MSGIN/ file check frequency to a high value minimizes overhead, but decreases the frequency of file checking.
 
-### Family	
+### Family
 
 This field specifies the family on which MSGIN/= files resides. If multiple MCP Agent instances are in use, configure each agent instance to look for MSGIN/= files on unique families.
-
-
-

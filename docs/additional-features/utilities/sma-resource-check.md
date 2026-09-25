@@ -1,6 +1,6 @@
 ---
 title: "*SMA/RESOURCE/CHECK"
-description: "A utility program that checks for the existence or absence of a file or executing process on the MCP platform and reports the result via TASKVALUE."
+description: "A utility program that checks for the existence or absence of a file or running process on the MCP platform and reports the result via TASKVALUE."
 tags:
   - Reference
   - Automation Engineer

@@ -26,7 +26,7 @@ With this feature, consider the risk of data loss versus processing performance.
 
 If User-defined Checkpoints were not defined during the installation, update the configuration file.
  
-Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md):
 
 a. Freq
 

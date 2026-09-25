@@ -16,13 +16,13 @@ MSGIN is a legacy mechanism for submitting external events to OpCon by placing e
 - Use MSGIN if upgrading from older LSAM versions that rely on it; new implementations should use the External Event Interface Library or \*SMA/EVENTGEN/xxx instead.
 - MSGIN continues to be supported for backwards compatibility.
 
-MSGIN functionality has been replaced by the External Event Interface Library that offers a dramatic increase in event throughput. Customers should use the External Event Interface Library or \*SMA/EVENTGEN/xxx. For information, refer to [External Event Interface Library](../../additional-features/lsam-features/external-event-interface-library). For backwards compatibility, MSGIN continues to be supported and is documented here.
+MSGIN functionality has been replaced by the External Event Interface Library that offers a dramatic increase in event throughput. Customers should use the External Event Interface Library or \*SMA/EVENTGEN/xxx. For information, refer to [External Event Interface Library](../../additional-features/lsam-features/external-event-interface-library.md). For backwards compatibility, MSGIN continues to be supported and is documented here.
 
 ## Update the Configuration File
 
 If MSGIN was not activated during the installation, update the configuration file.
  
-Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md):
 
 a. MSGIN: Freq
 
