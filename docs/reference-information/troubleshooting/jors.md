@@ -34,7 +34,7 @@ If the family on which print files is located is absent from the FAMILY statemen
 
 1. DS the \*SMA/JORS/xxx module.
 
-2. Initiate \*SMA/JORS/xxx using a WFL started under a usercode that has access to the print family. For more information on this response, refer to \*[SMA/JORS](../../operations-and-components/optional-programs-and-files#smajors-associated-files).
+2. Initiate \*SMA/JORS/xxx using a WFL started under a usercode that has access to the print family. For more information on this response, refer to \*[SMA/JORS](../../operations-and-components/optional-programs-and-files.md#smajors-associated-files).
  
 ## JORS not Working
 
@@ -48,4 +48,4 @@ JORS is not running.
 
 ##### Operator Response:
 
-Configure JORS in the agent's configuration file. For more information on configuring JORS, refer to [Configure JORS in the LSAM Configuration](../../additional-features/lsam-features/jors#configure-jors-in-the-agent-configuration).
+Configure JORS in the agent's configuration file. For more information on configuring JORS, refer to [Configure JORS in the LSAM Configuration](../../additional-features/lsam-features/jors.md#configure-jors-in-the-agent-configuration).

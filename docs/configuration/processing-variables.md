@@ -31,16 +31,15 @@ The Processing Variables screen allows you to configure the following:
 
 ## MCP LSAM Configuration Settings: Processing Variables
 
-The following table describes each field on the SMAVAR screen.
-
+The following sections describe each field on the SMAVAR screen. A default value is the value the MCP Agent sets when it creates a new configuration file.
 
 ### Max number concurrent jobs
 
-This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. The default value is **10**; valid range is **10–500**. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires stopping and restarting the MCP Agent to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and are refreshed when you select this action from the Main Menu.
+This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. The default value is **10**; valid range is **1–500**. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires stopping and restarting the MCP Agent to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and are refreshed when you select this action from the Main Menu.
 
 ### Task level checking
 
-This field causes a WFL job to be marked failed if any of its subordinate tasks fail. Use it at sites where WFLs are not coded to handle task failure.
+This field causes a WFL job to be marked failed if any of its subordinate tasks fail. Use it at sites where WFLs are not coded to handle task failure. Valid values are **N**, **I**, and **T**. The default value is **N**.
 
 :::info Note 
 
@@ -54,18 +53,18 @@ Regardless of this setting, a task is always tested for a FailCode/Reset match.
 
 ### Fail immediately on FailCode?
 
-This field works in conjunction with the MCP Job Details field, Fail Code.
+This field works in conjunction with the MCP Job Details field, Fail Code. Valid values are **N** and **Y**. The default value is **N**.
 
 * If N, the job will be reported as Failed when the job completes. A Fail Reset match resets the JOB TO BE FAILED flag to "N".
 * If Y, the job will be reported as Failed immediately upon the Fail Code condition being met. Further job status information will not be reported.
 
 ### Task completion message
 
-This field determines if and when the MCP Agent sends a task completion message.
+This field determines if and when the MCP Agent sends a task completion message. Valid values are **A**, **F**, and **N**. The default value is **N**.
 
 :::info Note 
 
-Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](../additional-features/lsam-features/resource-utilization-statistics).
+Task-level resource utilization statistics will be returned only if and when a task completion message is sent. For more information on resource utilization statistics, refer to [Resource Utilization Statistics](../additional-features/lsam-features/resource-utilization-statistics.md).
 
 :::
 
@@ -75,7 +74,7 @@ Task-level resource utilization statistics will be returned only if and when a t
 
 ### Send Fail/Reset message?
 
-This field enables/disables messaging during job processing to indicate Fail Code/Fail Reset matches.
+This field enables or disables messaging during job processing to indicate Fail Code/Fail Reset matches. Valid values are **A**, **F**, **N**, and **R**. The default value is **N**.
 
 * If A, any time a Fail Code or Fail Reset message alters the final status of a job, this information will be included as supplemental information in a job status message.
 * If F, any time a Fail Code message causes the final status of a job to be reported as failed, this information will be included as supplemental information in a job status message.
@@ -84,7 +83,7 @@ This field enables/disables messaging during job processing to indicate Fail Cod
 
 ### Checkpoint frequency
 
-This field determines the units of a Checkpoint Interval. Refer to [User-defined Restart/Recovery Checkpoints](../additional-features/lsam-features/user-defined-restart-checkpoints) for more information on checkpoints.
+This field determines the units of a Checkpoint Interval. Valid values are **N**, **M**, and **U**. The default value is **N**. Refer to [User-defined Restart/Recovery Checkpoints](../additional-features/lsam-features/user-defined-restart-checkpoints.md) for more information on checkpoints.
 
 At regular checkpoints, the MCP Agent saves tracking file and job array information for recovery and restart purposes. The automatic recovery/restart process falls back on the data from the last checkpoint.
 
@@ -94,19 +93,19 @@ At regular checkpoints, the MCP Agent saves tracking file and job array informat
 
 ### Checkpoint interval
 
-This field sets the number of minutes/updates between checkpoints.
+This field sets the number of minutes/updates between checkpoints. The value must be greater than 0. The default value is **100**.
 
 * If the Checkpoint Frequency is M, then the interval is the number of minutes between checkpoints.
 * If the Checkpoint Frequency is U, then the interval is the number of job array updates between checkpoints.
 
-### Enable statistics?	
+### Enable statistics?
 
-This field determines whether to return job statistics appended to job status messages.
+This field determines whether to return job statistics appended to job status messages. The default value is **N**.
 
 * If N, statistics are not returned.
 * If Y, statistics are returned.
 
-### Family name for temporary files	
+### Family name for temporary files
 
 This field determines where the temporary files created by the MCP Agent will be placed.
 

@@ -23,7 +23,7 @@ Selected job or task-level statistics can be returned with the OpCon job status 
 
 By default, this feature is disabled. To enable resource utilization statistics reporting, update the configuration file.
  
-Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md):
 
 a. **Enable Statistics**: Set to a value of **Y**.
 
@@ -32,7 +32,7 @@ b. **Task completion message**: To receive task-level statistics for all resourc
 * In order to receive statistics on all subordinate tasks, set to a value of **A**.
 * In order to receive statistics on failed tasks only, set to value of **F**.
 
-For more information on these configuration options, refer to [Processing Variables (VAR)](../../operations-and-components/sma-manager/processing-variables).
+For more information on these configuration options, refer to [Processing Variables (VAR)](../../operations-and-components/sma-manager/processing-variables.md).
 
 :::info Note
 

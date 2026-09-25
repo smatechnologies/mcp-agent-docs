@@ -12,7 +12,7 @@ tags:
 
 ## What is it?
 
-File Monitor is an MCP Agent component that monitors defined files for specific conditions and takes automated actions — such as sending external events to OpCon or executing MCP commands — when those conditions are detected.
+File Monitor is an MCP Agent component that monitors defined files for specific conditions and takes automated actions — such as sending external events to OpCon or running MCP commands — when those conditions are detected.
 
 - Use File Monitor to trigger OpCon events when a file is created, deleted, modified, or reaches a defined size threshold.
 - File Monitor runs independently of the agent scheduling process, making it suitable for task-based OpCon licensing environments.
@@ -43,7 +43,7 @@ Upon initiation, the File Monitor interrogates the status of all files defined w
 
 ## Update the Configuration Files
 
-Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules) and General [LSAM Configuration (GEN)](../../configuration/general-lsam-configuration):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md) and General [LSAM Configuration (GEN)](../../configuration/general-lsam-configuration.md):
 
 a. **File Monitor**: Set to a value of ```Y```.
 
@@ -51,11 +51,11 @@ b. **OpCon user and OpCon Event Token**: If a default user name and external tok
 
 ## Start the File Monitor
 
-The File Monitor is started by the Resource Monitor. Refer to the discussion of the [Resource Monitor](../../additional-features/lsam-features/resource-monitor) (*SMA/RESOURCE/MONITOR) for further details.
+The File Monitor is started by the Resource Monitor. Refer to the discussion of the [Resource Monitor](../../additional-features/lsam-features/resource-monitor.md) (*SMA/RESOURCE/MONITOR) for further details.
 
 ## File Monitor Data File
 
-The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages).
+The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages.md).
 
 ## Files Rules
 
@@ -73,7 +73,7 @@ To define and maintain file monitoring rules, complete the following steps:
     * %: Indicates a comment record.
 7. At least one M or S record must follow each F record.
 
-To view the previous procedure, refer to [File Rules](../../reference-information/legacy#file-rules) in the Legacy Information topic.
+To view the previous procedure, refer to [File Rules](../../reference-information/legacy.md#file-rules) in the Legacy Information topic.
 
 ### F Rules
 
@@ -219,7 +219,7 @@ The following example is a \*SMA/FILEMON/DEFS/xxx file:
 ## FAQs
 
 **How is File Monitor different from FILECHECK?**
-File Monitor runs continuously and independently of the OpCon schedule, triggering actions as soon as a file condition is detected. FILECHECK runs as an OpCon job and checks for a file condition at the moment the job executes — it does not watch continuously.
+File Monitor runs continuously and independently of the OpCon schedule, triggering actions as soon as a file condition is detected. FILECHECK runs as an OpCon job and checks for a file condition at the moment the job runs — it does not watch continuously.
 
 **Does File Monitor require a running OpCon job to operate?**
 No. File Monitor runs as a privileged process under the Resource Monitor and operates independently of the agent scheduling process. This makes it suitable for task-based OpCon licensing environments where running a continuous monitoring job would consume a task license.
@@ -241,7 +241,7 @@ Upon initiation, File Monitor checks the status of all defined files. If a monit
 
 **F2 record**: An optional record that specifies the time window (start and stop, 24-hour format) during which the file condition should be monitored.
 
-**M record**: Defines an MCP command to execute when the file condition is met (CHANGE TO, COPY AS, DISPLAY, or REMOVE).
+**M record**: Defines an MCP command to run when the file condition is met (CHANGE TO, COPY AS, DISPLAY, or REMOVE).
 
 **S record**: Defines an OpCon external event to send to SAM when the file condition is met.
 

@@ -27,6 +27,8 @@ Before proceeding, check the FAMILY statement. If it does not say ```FAMILY DISK
 
 ## Run *SMA/INSTALL
 
+To run `*SMA/INSTALL`, complete the following steps:
+
 1. Choose one of the following two options to run the ```*SMA/INSTALL/nnnnnn/LEVELn``` program:
 
     a. From CANDE, type ```RUN *SMA/INSTALL/nnnnnn/LEVELn```. Transmit.
@@ -41,7 +43,7 @@ If the ```*SMA/INSTALL/nnnnnn``` program is not correctly named, the install/upg
 
 "Invalid version number. Aborting install/upgrade." To recover from this, name the ```*SMA/INSTALL/nnnnnn``` program correctly and rerun it.
 
-For a list of files installed with the MCP Agent, refer to [MCP LSAM Components](../operations-and-components/core-programs-and-files).
+For a list of files installed with the MCP Agent, refer to [MCP LSAM Components](../operations-and-components/core-programs-and-files.md).
 
 ## Define the Agent to IDC
 
@@ -120,4 +122,4 @@ The DCPREFIX is the leading node name(s) for the DATACOMINFO file for IDC withou
 
 ## Configure the Agent
 
-Use the SMA/MANAGER program to configure the agent. To begin using the MCP Agent, refer to [MCP LSAM Configuration](../configuration/mcp-lsam-configuration).
+Use the SMA/MANAGER program to configure the agent. To begin using the MCP Agent, refer to [MCP LSAM Configuration](../configuration/mcp-lsam-configuration.md).

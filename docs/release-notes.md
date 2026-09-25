@@ -10,6 +10,11 @@ tags:
 
 # MCP Agent release notes
 
+This page lists changes for each MCP Agent release. Each entry is prefixed with one of the following indicators:
+
+- :eight_spoked_asterisk: — New feature or enhancement
+- :white_check_mark: — Bug fix
+
 ## 21
 
 ### 21.06.00

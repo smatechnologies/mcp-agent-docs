@@ -32,7 +32,7 @@ The \*SMA/RESOURCE/MONITOR/xxx program itself must be privileged.
 
 Make the \*SMA/RESOURCE/MONITOR/xxx program privileged:
 MP \*SMA/RESOURCE/MONITOR/xxx ON ```<packname>``` + PU
-For more information on this response, refer to [Resource Monitor](../../additional-features/lsam-features/resource-monitor).
+For more information on this response, refer to [Resource Monitor](../../additional-features/lsam-features/resource-monitor.md).
 
 #### Third Possible Explanation:
  
@@ -41,7 +41,7 @@ The Resource and File monitors have had insufficient time to detect/process a ch
 ##### Third Operator Response:
 
 Wait.
-For more information on this response, refer to [Run the Manager Program](../../configuration/configuration-settings#run-the-manager-program).
+For more information on this response, refer to [Run the Manager Program](../../configuration/configuration-settings.md#run-the-manager-program).
 
 #### Fourth Possible Explanation:
  
@@ -63,7 +63,7 @@ The \*SMA/FILEMON/DEFS/xxx file was modified, but the *SMA/RESOURCE/MONITOR/xxx 
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/FILEMON/DEFS/xxx file, copy it under the agent's usercode and deliver an "AX FILEMON" to the \*SMA/RESOURCE/MONITOR/xxx program. For more information on this response, refer to [File Monitor](../../additional-features/lsam-features/file-monitor).
+After making modifications to the \*SMA/FILEMON/DEFS/xxx file, copy it under the agent's usercode and deliver an "AX FILEMON" to the \*SMA/RESOURCE/MONITOR/xxx program. For more information on this response, refer to [File Monitor](../../additional-features/lsam-features/file-monitor.md).
  
 ## Files not Monitored
 

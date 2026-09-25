@@ -59,9 +59,11 @@ Please allow up to five minutes for the components to shut themselves down.
 
 3. From the Main Menu, select STOPRM, if the Resource Monitor is active.
 
-For the previous procedure, refer to [Stop the LSAM and Resource Monitor](../reference-information/legacy#stop-the-mcp-agent-and-resource-monitor) in the Legacy Information topic.
+For the previous procedure, refer to [Stop the LSAM and Resource Monitor](../reference-information/legacy.md#stop-the-mcp-agent-and-resource-monitor) in the Legacy Information topic.
 
 ## Remove Checkpoint Files and Perform Upgrade
+
+To remove the checkpoint files and perform the upgrade, complete the following steps:
 
 1. Remove ```*SMA/CP/MCS/= ON <diskpack>```.
 
@@ -81,7 +83,7 @@ If upgrading from a version earlier than 18.00.00 to version 18.00.00 or higher,
 
 :::
 
-3. Run the SMA/MANAGER program to populate the agent configuration file with the values you captured, as well as any additional fields, before starting the agent. Access all four agent configuration screens. For new fields, refer to [SMAGEN (GEN option)](../configuration/general-lsam-configuration) in the MCP LSAM Configuration.
+3. Run the SMA/MANAGER program to populate the agent configuration file with the values you captured, as well as any additional fields, before starting the agent. Access all four agent configuration screens. For new fields, refer to [SMAGEN (GEN option)](../configuration/general-lsam-configuration.md) in the MCP LSAM Configuration.
 
 :::info Note 
 

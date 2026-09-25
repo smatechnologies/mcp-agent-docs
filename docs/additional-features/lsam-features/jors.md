@@ -23,7 +23,7 @@ The Job Output Retrieval System (JORS) allows users to view job output from Ente
 
 If JORS was not activated during the installation, update the configuration file.
  
-Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules):
+Modify the following fields under [Optional Modules (OPT)](../../operations-and-components/sma-manager/optional-modules.md):
 
 a. JORS
 

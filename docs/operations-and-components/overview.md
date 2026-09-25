@@ -22,8 +22,8 @@ The Operations and Components section covers day-to-day operation of the MCP Age
 
 | Page | Description |
 | ---- | ----------- |
-| [MCP LSAM Operation](mcp-lsam-operation) | How to start, stop, and monitor the MCP Agent, including switch settings and operational commands. |
-| [SMA/MANAGER](sma-manager/sma-manager-overview) | Overview of the SMA/MANAGER utility and its menu structure for runtime management of the MCP Agent. |
-| [Core Programs and Files](core-programs-and-files) | Reference listing all core programs and files installed with the MCP Agent and their purpose. |
-| [Optional Programs and Files](optional-programs-and-files) | Reference listing optional programs and files installed with the MCP Agent for features such as File Monitor, JORS, and SMA File Transfer. |
-| [Additional Files and Impact](additional-files-and-impact) | Reference for additional files created or modified by the MCP Agent during operation. |
+| [MCP LSAM Operation](mcp-lsam-operation.md) | How to start, stop, and monitor the MCP Agent, including switch settings and operational commands. |
+| [SMA/MANAGER](sma-manager/sma-manager-overview.md) | Overview of the SMA/MANAGER utility and its menu structure for runtime management of the MCP Agent. |
+| [Core Programs and Files](core-programs-and-files.md) | Reference listing all core programs and files installed with the MCP Agent and their purpose. |
+| [Optional Programs and Files](optional-programs-and-files.md) | Reference listing optional programs and files installed with the MCP Agent for features such as File Monitor, JORS, and SMA File Transfer. |
+| [Additional Files and Impact](additional-files-and-impact.md) | Reference for additional files created or modified by the MCP Agent during operation. |

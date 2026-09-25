@@ -16,5 +16,5 @@ The SMA/INSTALL program automates most of the steps required for an MCP Agent in
 - Automate the installation of the MCP Agent to reduce manual configuration steps and the risk of errors.
 - Perform an automated upgrade of an existing MCP Agent installation.
 
-For full procedures, refer to [Automated Installation/Upgrade](../../installation/automated-installation-upgrade).
+For full procedures, refer to [Automated Installation/Upgrade](../../installation/automated-installation-upgrade.md).
 

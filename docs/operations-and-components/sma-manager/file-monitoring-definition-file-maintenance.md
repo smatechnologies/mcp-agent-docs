@@ -79,7 +79,7 @@ This is the sequence number associated with this record in the definitions file.
 
 :::info Note
 
-The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [File Monitor Data](../../additional-features/lsam-features/file-monitor#file-monitor-data-file) File topic for more information about each record type and how to construct the data in this field.
+The long field below the action, type, and sequence line is used to define the file, condition, and optional start and end times for which to monitor or the action to take or to add a comment. Refer to the detailed description in the [File Monitor Data](../../additional-features/lsam-features/file-monitor.md#file-monitor-data-file) File topic for more information about each record type and how to construct the data in this field.
 
 :::
 

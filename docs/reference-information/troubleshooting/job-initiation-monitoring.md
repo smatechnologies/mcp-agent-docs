@@ -26,7 +26,7 @@ The MIXLIMIT or TASKLIMIT attribute of the queue through which the job starts is
 
 2. Verify the job is in the queue.
 
-3. Increasing the MIXLIMIT or TASKLIMIT value, or changing the queue through which the job is run may be appropriate. For more information on this response, refer to [MCP Agent Operation](../../operations-and-components/mcp-lsam-operation).
+3. Increasing the MIXLIMIT or TASKLIMIT value, or changing the queue through which the job is run may be appropriate. For more information on this response, refer to [MCP Agent Operation](../../operations-and-components/mcp-lsam-operation.md).
  
 ## Job Stuck in "Start Attempted" State
 
@@ -40,7 +40,7 @@ Communication with the agent has been lost.
 
 ##### First Operator Response:
 
-Verify the agent modules \*SMA/COMM/xxx, \*SMA/TCPIP/xxx, and \*SMA/MCP/INTERFACE/xxx are up and running. For more information on this response, refer to \*[SMA/TCPIP](../../operations-and-components/core-programs-and-files#smatcpip-associated-files).
+Verify the agent modules \*SMA/COMM/xxx, \*SMA/TCPIP/xxx, and \*SMA/MCP/INTERFACE/xxx are up and running. For more information on this response, refer to \*[SMA/TCPIP](../../operations-and-components/core-programs-and-files.md#smatcpip-associated-files).
 
 #### Second Possible Explanation:
  
@@ -68,7 +68,7 @@ The maximum number of jobs is being run.
 
 ##### Operator Response:
 
-No action required. When the number of active jobs falls below the maximum for which the agent is configured, additional jobs are initiated by SAM. The agent may be configured for a maximum of 500 jobs. For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs).
+No action required. When the number of active jobs falls below the maximum for which the agent is configured, additional jobs are initiated by SAM. The agent may be configured for a maximum of 500 jobs. For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
  
 ## Job Status "0SNTX/SECRTY" Error
 
@@ -98,7 +98,7 @@ The queue through which the agent WFL runs has a TASKLIMIT.
 
 ##### Third Operator Response:
 
-Change the WFL CLASS attribute to a queue that does not have a TASKLIMIT value set. For more information on this response, refer to [Using *SMA/WFL/COMMAND](../../additional-features/utilities/sma-wfl-command).
+Change the WFL CLASS attribute to a queue that does not have a TASKLIMIT value set. For more information on this response, refer to [Using *SMA/WFL/COMMAND](../../additional-features/utilities/sma-wfl-command.md).
  
 ## Job Status "NOT JOB FILE" Error
 

@@ -11,7 +11,7 @@ tags:
 
 :::caution Superseded
 
-This page documents the legacy \*SMA/CONFIG configuration format. Use [Communication Parameters (COMM)](../configuration/communication-parameters) for current configuration guidance using SMA/MANAGER.
+This page documents the legacy \*SMA/CONFIG configuration format. Use [Communication Parameters (COMM)](../configuration/communication-parameters.md) for current configuration guidance using SMA/MANAGER.
 
 :::
 

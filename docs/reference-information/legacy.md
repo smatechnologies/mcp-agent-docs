@@ -17,7 +17,7 @@ This page preserves the pre-18.00.00 MCP Agent procedures for tasks such as runn
 - Use this page when working with an MCP Agent version earlier than 18.00.00 where SMA/MANAGER is not available and the legacy SMA/CONFIG program or direct AX command methods must be used instead.
 - Use this page as a reference when migrating from a pre-18.00.00 environment to understand which legacy steps map to their current SMA/MANAGER equivalents.
 
-This section contains information preserved from prior to the MCP Agent 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides an Operations interface for accomplishing many tasks that previously required direct interaction with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP Agent Administration guide. Refer to the [MCP LSAM Configuration](../configuration/mcp-lsam-configuration) and [MCP LSAM Operations and Components](../operations-and-components/mcp-lsam-operation) sections for current instructions on using SMA/MANAGER.
+This section contains information preserved from prior to the MCP Agent 18.00.00 release. Effective with the 18.00.00 release, a new user interface tool called SMA/MANAGER was introduced. This tool replaces the SMA/CONFIG program and provides an Operations interface for accomplishing many tasks that previously required direct interaction with the MCP operating system. As a result, the instructions in this section have been replaced by the instructions within the main body of the MCP Agent Administration guide. Refer to the [MCP LSAM Configuration](../configuration/mcp-lsam-configuration.md) and [MCP LSAM Operations and Components](../operations-and-components/mcp-lsam-operation.md) sections for current instructions on using SMA/MANAGER.
 
 ## Automated Installation/Upgrade
 
@@ -35,11 +35,13 @@ Please allow up to five minutes for the components to shut themselves down.
 
 3. Repeat Steps 1 and 2 for *SMA/RESOURCE/MONITOR, if active.
 
-To view the new procedure, refer to [Stop the MCP Agent and Resource Monitor](../installation/upgrade-installation#stop-the-agent-and-resource-monitor) in the Automated Installation/Upgrade topic.
+To view the new procedure, refer to [Stop the MCP Agent and Resource Monitor](../installation/upgrade-installation.md#stop-the-agent-and-resource-monitor) in the Automated Installation/Upgrade topic.
  
 ## Run the Configuration Program
 
 ### Run the Configuration Program
+
+To run the configuration program, complete the following steps:
 
 1. On the MARC main menu screen, go to the Choice line. Type RUN. Transmit the line.
 
@@ -53,7 +55,7 @@ To view the new procedure, refer to [Stop the MCP Agent and Resource Monitor](..
 
 :::info Note 
 
-Changing the "Max number concurrent jobs" setting requires additional procedures. For information on updating the "Max number concurrent jobs" setting, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs).
+Changing the "Max number concurrent jobs" setting requires additional procedures. For information on updating the "Max number concurrent jobs" setting, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs.md).
 
 :::
 
@@ -69,7 +71,7 @@ d. To Quit, type Q.
 
 7. Transmit the screen.
 
-To view the new procedure, refer to the [Run the Manager Program](../configuration/configuration-settings#run-the-manager-program) topic.
+To view the new procedure, refer to the [Run the Manager Program](../configuration/configuration-settings.md#run-the-manager-program) topic.
 
 ### Configuration Settings
 
@@ -77,22 +79,19 @@ Configuration Settings for SMA/CONFIG
  
 ![Configuration Settings for SMA LSAM](../../static/img/configuration-settings-for-sma-lsam.png)
 
-The next several topics describe the fields found on the SMA/CONFIG screen.
- 
-To view the new settings, refer to [Configuration Settings](../configuration/configuration-settings) in the Run the Manager Program topic.
+To view the new settings, refer to [Configuration Settings](../configuration/configuration-settings.md) in the Run the Manager Program topic.
 
-The next several topics describe the fields found on the SMA/CONFIG screen.
- 
-To view the new settings, refer to Configuration Settings in the Run the Manager Program topic.
- 
-White "person reading" icon on blue circular background Related Topics
-Communication Parameters (Legacy)
-Processing Variables (Legacy)
-Optional Modules (Legacy)
- 
+The following topics describe the fields on the SMA/CONFIG screen:
+
+- [Communication Parameters (Legacy)](communication-parameters-legacy.md)
+- [Processing Variables (Legacy)](processing-variables-legacy.md)
+- [Optional Modules (Legacy)](optional-modules-legacy.md)
+
 ## MCP Agent Operation
 
 ### Create a Usercode and Assign Privileges
+
+To create a usercode and assign privileges, complete the following steps:
 
 1. On the MARC main menu screen, go to the Choice line. Type USERS. Transmit the line.
 
@@ -120,6 +119,8 @@ c. Go to the Home position. Transmit the screen.
 5. On the Action line, type QUIT. Transmit the line.
 
 ### Start the MCP Agent
+
+To start the MCP Agent, complete the following steps:
 
 1. Log in to the ClearPath MCP using the usercode created in the Create a Usercode and Assign Privileges procedure.
 
@@ -159,7 +160,7 @@ To use a print prefix other than *BD, specify the BDNAME ```<value>``` task attr
 
 :::
 
-To view the new procedure, refer to [Start the MCP Agent](../operations-and-components/mcp-lsam-operation#start-the-agent) in the Agent Operation topic.
+To view the new procedure, refer to [Start the MCP Agent](../operations-and-components/mcp-lsam-operation.md#start-the-agent) in the Agent Operation topic.
 
 ### Stop the MCP Agent
 
@@ -167,17 +168,21 @@ Stop the agent using either of the two methods provided in this section. For eit
  
 #### Option One: Stop the Components
 
+To stop the components, complete the following steps:
+
 1. Set the task value of *SMA/TCPIP/xxx to 2.
 
 2. On the MARC main menu screen, go to the Action line. Type ```<mix number of *SMA/TCPIP/xxx>``` HI 2. Transmit the line.
 
 #### Option Two: Stop the Main Process
 
+To stop the main process, complete the following steps:
+
 1. Set the task value of *SMA/COMM/xxx to 99.
 
 2. On the MARC main menu screen, go to the Action line. Type ```<mix number of *SMA/COMM/xxx>``` HI 99. Transmit.
 
-To view the new procedure, refer to [Stop the MCP Agent](../operations-and-components/mcp-lsam-operation#stop-the-agent) in the Agent Operation topic.
+To view the new procedure, refer to [Stop the MCP Agent](../operations-and-components/mcp-lsam-operation.md#stop-the-agent) in the Agent Operation topic.
  
 ## MCP Agent Components
 
@@ -200,9 +205,11 @@ The agent configuration program, used to maintain the agent's configuration file
 
 Global: If you suspect that you are experiencing a delay due to high display message volume, you may determine the number of display messages waiting to be processed by issuing an AX COUNT command to the *SMA/DISPLAY/HANDLER. The display message backlog will be displayed on the system console.
  
-To view the new information, refer to [Global](../additional-features/lsam-features/automated-response#automated-response-data-file) in the Automated Response Data File topic.
+To view the new information, refer to [Global](../additional-features/lsam-features/automated-response.md#automated-response-data-file) in the Automated Response Data File topic.
 
 ### Define an Automated Response
+
+To define an automated response, complete the following steps:
 
 1. Do not modify the production copy of the Definitions File directly. SMA Technologies strongly recommends that a working copy of the production displays Definitions File be used to make changes. Modifying the production copy of the file may cause unexpected results.
 
@@ -214,7 +221,7 @@ To view the new information, refer to [Global](../additional-features/lsam-featu
 
 5. If testing is successful, copy the Definitions File to the MCP production environment.
 
-To view the new procedure, refer to [Define an Automated Response](../additional-features/lsam-features/automated-response#define-an-automated-response) in the Automated Response Data File topic.
+To view the new procedure, refer to [Define an Automated Response](../additional-features/lsam-features/automated-response.md#define-an-automated-response) in the Automated Response Data File topic.
  
 ## Dynamic Agent Configuration
 
@@ -222,7 +229,7 @@ For all agent configuration variables, except 'Max number concurrent jobs', chan
  
 If the AX CONFIG request is misspelled (e.g., AX CONVAL) the erroneous input will be displayed, followed by "request REJECTED!"
  
-To view the new information, refer to the [Dynamic LSAM Configuration](../additional-features/lsam-features/dynamic-lsam-configuration) topic.
+To view the new information, refer to the [Dynamic LSAM Configuration](../additional-features/lsam-features/dynamic-lsam-configuration.md) topic.
  
 ## File Monitor Data File
 
@@ -246,7 +253,7 @@ Do not modify the production copy of any definitions file directly. SMA Technolo
 
 6. The File Monitor Data File is dynamic. After updating and validating the \*SMA/FILEMON/DEFS/xxx file, deliver an AX FILEMON to the \*SMA/RESOURCE/MONITOR/xxx program. This causes both programs reload the \*SMA/FILEMON/DEFS/xxx file. The \*SMA/SYNTAX/CHECK/xxx program will report any errors detected. These errors must be corrected before further file monitoring can take place.
 
-To view the new procedure, refer to [File Rules](../additional-features/lsam-features/file-monitor#files-rules) in the File Monitor Data File topic.
+To view the new procedure, refer to [File Rules](../additional-features/lsam-features/file-monitor.md#files-rules) in the File Monitor Data File topic.
  
 ## Start the Resource Monitor
 
@@ -260,9 +267,11 @@ RUN *SMA/RESOURCE/MONITOR/xxx ON ```<diskpack>```;
  
 ```
 
-To view the new information, refer to the [Start the Resource Monitor](../additional-features/lsam-features/resource-monitor#start-the-resource-monitor) topic.
+To view the new information, refer to the [Start the Resource Monitor](../additional-features/lsam-features/resource-monitor.md#start-the-resource-monitor) topic.
  
 ## Maintenance of Definitions Files
+
+To maintain a definitions file, complete the following steps:
 
 1. Do not modify the production copy of any definitions file directly. SMA Technologies strongly recommends that a working copy of the production definitions file be used to make changes. Modifying the production copy of the file may cause unexpected results.
 
@@ -276,19 +285,19 @@ To view the new information, refer to the [Start the Resource Monitor](../additi
 
 6. If the file monitor definitions file, performance monitor definitions file, or system message definitions file was modified, notify the *SMA/RESOURCE/MONITOR to refresh its internal tables with the new definitions, ```<mix#>``` AX FILEMON, ```<mix#>``` AX PERFMON, and ```<mix#>``` AX SYSMSG, respectively.
 
-To view the new procedure, refer to [Maintain Definitions Files](../additional-features/lsam-features/resource-monitor#maintenance-of-definitions-files) in the Maintenance of Definitions Files topic.
+To view the new procedure, refer to [Maintain Definitions Files](../additional-features/lsam-features/resource-monitor.md#maintenance-of-definitions-files) in the Maintenance of Definitions Files topic.
  
 ## File Monitoring
 
 Each time a file close notification is received, the Resource Monitor processes it and forwards it to the File Monitor. If you update the \*SMA/FILEMON/DEFS /xxx file and want the changes to take effect immediately rather than upon the next initiation of the Resource Monitor, deliver an AX FILEMON message to the \*SMA/RESOURCE/MONITOR/xxx program. This refreshes the Resource Monitor's file list without terminating the Resource Monitor. The Resource Monitor then informs \*SMA/FILE/MONITOR/xxx of the changes to \*SMA/FILEMON/DEFS/xxx so that the pointers to the associated actions within the file are accurate.
  
-To view the new information, refer to the [File Monitoring](../additional-features/lsam-features/file-monitor) topic.
+To view the new information, refer to the [File Monitoring](../additional-features/lsam-features/file-monitor.md) topic.
 
 ### SMA/FILE/MONITOR Behavior
 
 If the file monitor definitions file has been modified and you desire to implement the changes immediately as opposed to with the next initiation of the Resource Monitor and File Monitor, you should deliver an AX FILEMON to the Resource Monitor, \*SMA/RESOURCE/MONITOR/xxx. This will cause only the File Monitor to close and reopen the definitions file so the pointers received from the Resource Monitor will coincide with the record locations within the file.
  
-To view the new information, refer to [SMA/FILE/MONITOR Behavior](../additional-features/lsam-features/file-monitor) in the File Monitoring topic.
+To view the new information, refer to [SMA/FILE/MONITOR Behavior](../additional-features/lsam-features/file-monitor.md) in the File Monitoring topic.
  
 ## Problem Resolution and Debugging
 
@@ -296,4 +305,4 @@ To view the new information, refer to [SMA/FILE/MONITOR Behavior](../additional-
 
 Deliver to the \*SMA/COMM/xxx module an AX DEBUG ```<optional timer>``` command, where ```<optional timer>``` is the number of minutes for which to capture debug information. If the timer is omitted, debugging remains active until a) an AX LOGS command is delivered to the \*SMA/COMM/xxx module, or b) the agent is brought down. This method sets debug switches for all the agent components, excluding the Resource and File Monitors. To enable debugging for the Resource and File Monitors, deliver an AX DEBUG ```<optional timer>``` to the \*SMA/RESOURCE/MONITOR/xxx module.
  
-To view the new information, refer to [Enable Debug](../debugging) in the Problem Resolution and Debugging topic.
+To view the new information, refer to [Enable Debug](../debugging.md) in the Problem Resolution and Debugging topic.

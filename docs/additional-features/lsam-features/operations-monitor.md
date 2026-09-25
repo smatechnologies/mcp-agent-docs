@@ -91,12 +91,12 @@ When \*SMA/OBJ/OPS/MONITOR is run with the cumulative reporting enabled:
 
 To enable reporting:
 * Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP Agent upgrade.
-* Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is executed with SW8 set (un-comment sequence number 15000).
+* Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is run with SW8 set (un-comment sequence number 15000).
 * Use the copied WFL in the File Title field of the Job Details.
 
 The default title of the report file is (uc)SMA/OPSMON/REPORT ON ```<pack name>```. If the site wishes to create a separate report for each unique entity monitored:
 * Copy SMA/WFL/OPS/MONITOR/xxx as a unique user job. This step is strongly recommended by SMA Technologies to prevent overwriting the changes with the next MCP Agent upgrade.
-* Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is executed with SW8 set (un-comment sequence number 15000) AND modify line 15300 to define the desired file title for the report file.
+* Modify the copied WFL such that the SMA/OBJ/OPS/MONITOR/xxx program is run with SW8 set (un-comment sequence number 15000) AND modify line 15300 to define the desired file title for the report file.
 * Use the copied WFL in the File Title field of the Job Details.
 
 Because the user report file is cumulative, SMA Technologies strongly recommends that sites perform periodic maintenance to remove user report files so the \*SMA/OBJ/OPS/MONITOR/xxx will create fresh files. This can be performed by passing SMA/WFL/COMMAND/xxx the following parameters:
