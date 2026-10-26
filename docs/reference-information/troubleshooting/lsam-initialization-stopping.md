@@ -97,13 +97,15 @@ The "max number of concurrent jobs" configuration value has been changed.
 
 After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
-1. \*SMA/TRACKING/FILE/xxxON ```<packname>```
+1. \*SMA/TRACKING/FILE/xxx ON ```<packname>```
 
 2. \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-3. Be sure to check all families on the system - not just the family on which the agent runs.
+3. \*SMA/CP/LIB/= ON ```<packname>```
 
-For more information on this response, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
+4. Be sure to check all families on the system - not just the family on which the agent runs.
+
+This is one of several errors produced by the same cause. For the full list of errors, the module that reports each one, and the complete list of files to remove, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
  
 ## ASSERTION FAILURE @ 91700
 
@@ -119,11 +121,15 @@ The "max number of concurrent jobs" configuration value has been changed.
 
 After changing the configuration variable "max number concurrent jobs", remove the following files before starting the agent:
 
-1. \*SMA/TRACKING/FILE/xxxON ```<packname>```
+1. \*SMA/TRACKING/FILE/xxx ON ```<packname>```
 
-2. \*SMA/CP/MCS/xxx /= ON ```<packname>```
+2. \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-3. Be sure to check ALL families on the system - not just the family on which the agent runs.
+3. \*SMA/CP/LIB/= ON ```<packname>```
+
+4. Be sure to check ALL families on the system - not just the family on which the agent runs.
+
+This is one of several errors produced by the same cause. For the full list of errors, the module that reports each one, and the complete list of files to remove, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
  
 ## LSAM Waiting for SMALIBRARY
 
@@ -160,8 +166,12 @@ After changing the configuration variable "max number concurrent jobs", remove t
 
 2. \*SMA/CP/MCS/xxx/= ON ```<packname>```
 
-3. Be sure to check ALL families on the system - not just the family on which the agent runs.
- 
+3. \*SMA/CP/LIB/= ON ```<packname>```
+
+4. Be sure to check ALL families on the system - not just the family on which the agent runs.
+
+This is one of several errors produced by the same cause. For the full list of errors, the module that reports each one, and the complete list of files to remove, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
+
 ## Codefile will not Run...
 
 #### Full Description
