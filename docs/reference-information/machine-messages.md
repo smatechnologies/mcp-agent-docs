@@ -34,7 +34,7 @@ Statuses for tracked (adopted) jobs are left-justified in a nine-character area 
 | `RUNNING  -ADOPT` | The tracked job is running. |
 | `COMPLETED-ADOPT` | The tracked job completed successfully. |
 | `FAILED   -ADOPT` | The tracked job failed. |
-| `P-DS     -ADOPT` | The tracked job was terminated abnormally because of a program fault. |
+| `P-DS     -ADOPT` | The tracked job terminated itself. This is a programmatic DS, not a fault. |
 | `F-DS     -ADOPT` | The tracked job experienced a fault and was terminated abnormally. |
 | `O-DS     -ADOPT` | The system operator terminated the tracked job abnormally. |
 | `DSED     -ADOPT` | The tracked job terminated abnormally. |
@@ -148,7 +148,8 @@ The mix number for this status is 00000. The agent rejects the request before st
 
 ## JJJJJ/TTTTTP DS
 
-* The task was terminated abnormally because of a program fault.
+* The task terminated itself. This is a programmatic DS, such as a DS the program issues on an error it detects.
+* This status does not indicate a fault. Check what the program does on error before looking for one. A task that faulted reports JJJJJ/TTTTTF DS.
     * JJJJJ is the job number.
     * TTTTT is the task number.
 
@@ -270,11 +271,12 @@ The system operator terminated the tracked job abnormally.
 
 ## P DS
 
-The job was terminated abnormally because of a program fault.
+* The job terminated itself. This is a programmatic DS, such as a WFL ABORT or a DS the program issues on an error it detects.
+* This status does not indicate a fault. Check what the WFL or program does on error before looking for one. A job that faulted reports F DS.
 
 ## P-DS -ADOPT
 
-The external job was terminated abnormally because of a program fault.
+The tracked job terminated itself. This is a programmatic DS, not a fault. Refer to [P DS](#p-ds).
 
 ## PARAM/ATTR ERR
 
