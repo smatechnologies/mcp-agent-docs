@@ -23,6 +23,27 @@ The 20-character status description field contains a five-character area reserve
  
 All TX messages referenced below indicate a message sent from SMANetCom to the agent.
 
+## Tracked job status texts
+
+Statuses for tracked (adopted) jobs are left-justified in a nine-character area followed by `-ADOPT`, filling the 15-character description field. Search for the text exactly as it appears below:
+
+| Exact status text | Description |
+| ----------------- | ----------- |
+| `RUNNING  -ADOPT` | The tracked job is running. |
+| `COMPLETED-ADOPT` | The tracked job completed successfully. |
+| `FAILED   -ADOPT` | The tracked job failed. |
+| `P-DS     -ADOPT` | The tracked job was terminated abnormally because of a program fault. |
+| `F-DS     -ADOPT` | The tracked job experienced a fault and was terminated abnormally. |
+| `O-DS     -ADOPT` | The system operator terminated the tracked job abnormally. |
+| `DSED     -ADOPT` | The tracked job terminated abnormally. |
+| `NO MATCH -ADOPT` | The status of the tracked job could not be verified. |
+
+:::info Note
+
+The hyphen in `-ADOPT` is a plain hyphen, and `P-DS`, `F-DS`, and `O-DS` are hyphenated. Searching for an en dash or for `P DS` does not match what the agent sends.
+
+:::
+
 ## ADOPTED
 
 This message indicates that a tracking request has been received by the agent.
@@ -42,7 +63,7 @@ An OpCon job initiation request (TX1) was received for this job and the job is r
 
 The job completed successfully.
 
-## COMPLETED–ADOPT
+## COMPLETED-ADOPT
 
 A tracked job has completed successfully.
 
@@ -57,7 +78,7 @@ A tracked job has completed successfully.
 
 The job terminated abnormally.
 
-## DSED - ADOPT
+## DSED -ADOPT
 
 The external tracked job terminated abnormally.
 
@@ -69,7 +90,7 @@ The job was DS'ed while still queued.
 
 The job experienced a fault and was terminated abnormally.
 
-## F DS - ADOPT
+## F-DS -ADOPT
 
 The externally tracked job experienced a fault and was terminated abnormally.
 
@@ -77,7 +98,7 @@ The externally tracked job experienced a fault and was terminated abnormally.
 
 The WFL displayed a message that matched one of the Fail Codes, causing the job to be reported as failed in Enterprise Manager Operation.
 
-## FAILED - ADOPT
+## FAILED -ADOPT
 
 A tracked job has failed. (The HISTORY task attribute indicates job finished in error and a specified reason has not been determined.)
 
@@ -147,8 +168,8 @@ This error is caused by placing the WFL or program parameter on the File Title i
 
 ## JOB MISMATCH
 
-* This message may be received in response to a TX1 or TX2 request.
-* It indicated that the external job was located in the tracking file, but the stack number and/or process name belonging to the mix number assigned to this job cannot be verified with certainty.
+* This message is sent in response to a TX2 request.
+* It indicates that the external job was located in the tracking file, but the stack number and/or process name belonging to the mix number assigned to this job cannot be verified with certainty.
 * The most probable cause is a delay in the TX1 reaching *SMA/SURROGATE — perhaps because the agent was not up at the time the job was adopted, or the MCP machine was marked down on the Enterprise Manager when the job was adopted, resulting in a delayed TX1 which reached *SMA/SURROGATE some time after the job completed.
 
 ## JOB NOT ACTIVE
@@ -236,7 +257,7 @@ This message is sent in response to an OpCon job status request (TX2) or to an O
 
 The system operator terminated the job abnormally.
 
-## O DS - ADOPT
+## O-DS -ADOPT
 
 The system operator terminated the tracked job abnormally.
 
@@ -244,7 +265,7 @@ The system operator terminated the tracked job abnormally.
 
 The job was terminated abnormally because of a program fault.
 
-## P DS - ADOPT
+## P-DS -ADOPT
 
 The external job was terminated abnormally because of a program fault.
 
@@ -293,7 +314,7 @@ The Prerun job is in the waiting mix.
 * This message will also be seen if a WFL has been DS'ed and is waiting for tasks to complete.
 * This message is also generated when a process resumes execution following a wait, such as that caused by a suspension awaiting an operator response.
 
-## RUNNING –ADOPT
+## RUNNING -ADOPT
 
 OpCon has received the tracking request and responded with a TX1 message. SMA/SURROGATE has received the TX1 message and the job is running.
 
