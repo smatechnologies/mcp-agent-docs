@@ -35,7 +35,8 @@ The next table shows all the factors involved in using the Fail Code/Fail Reset 
 
 | Console Match | Fail Immediately on Fail Code | Job to be Failed | Send Fail/Reset Message | Status Message <br></br> JJJJJ = Job Mix Number <br></br> TTTTT = Task Mix Number |
 | ------------- | ----------------------------- | ---------------- | ----------------------- | -------------------------------------- |
-| Fail Code | Y | N/A | N/A | JJJJJ/TTTTTFAIL MSG |
+| Fail Code | Y | N/A | A, F | JJJJJ/TTTTTFAILCODE, then JJJJJ/TTTTTFAIL MSG |
+| Fail Code | Y | N/A | R, N | JJJJJ/TTTTTFAIL MSG |
 | Fail Code | N | Set to Y | A, F | JJJJJ/TTTTTFAILCODE |
 | Fail Code | N | Set to Y | R, N | ```<NONE>``` |
 | Fail Reset | N | Set to N | A, R | JJJJJ/TTTTTRESETCODE |
@@ -53,23 +54,38 @@ The next table shows all the factors involved in task-level checking. Use the ta
 
 | Task | Task-Level Checking | Job to be Failed	| Task-Completion Message | Status Message <br></br> JJJJJ = Job Mix Number <br></br> TTTTT = Task Mix Number |
 | ---- | ------------------- | ---------------- | ----------------------- | -------------- |
-| FAIL | I | N/A | N/A | JJJJJ/TTTTTTASK FAIL | 
-| FAIL | T | Set to Y | A, F | JJJJJ/TTTTTTASK FAIL |
-| FAIL | T | Set to Y | N | ```<NONE>``` |
-| FAIL | T | Set to N | F, N | ```<NONE>``` |
+| FAIL | I | N/A | A, F | The task's own ending status, then JJJJJ/TTTTTTASK FAIL |
+| FAIL | I | N/A | N | JJJJJ/TTTTTTASK FAIL |
+| FAIL | T | Set to Y | A, F | The task's own ending status, then JJJJJ/TTTTTTASK FAIL at end of job |
+| FAIL | T | Set to Y | N | JJJJJ/TTTTTTASK FAIL at end of job |
+| FAIL | T | Reset to N by a Fail Reset | A, F | The task's own ending status, then JJJJJTASK(S) FAILED at end of job |
+| FAIL | T | Reset to N by a Fail Reset | N | JJJJJTASK(S) FAILED at end of job |
 | OK | I,T | N/A | A | JJJJJ/TTTTTCOMP OK |
-| OK | I,T | N/A | F, N | ```<NONE>``` |\
+| OK | I,T | N/A | F, N | ```<NONE>``` |
+
+A failing task's own ending status is the status the ClearPath MCP reported for that task, such as JJJJJ/TTTTTDS, JJJJJ/TTTTTF DS, or JJJJJ/TTTTTP DS. The MCP Agent sends it whenever Task-Completion Message is any value other than N.
+
+With task-level checking set to I, the agent fails the job as soon as the task fails. With T, it records the failure and sends TASK FAIL when the job ends, so the job keeps running in the meantime.
 
 ## Final Status
 
-If a job is not failed immediately, the JOB TO BE FAILED flag determines the success or failure of a job in Enterprise Manager Operation. If the flag is set to Y for multiple reasons, Enterprise Manager Operation takes the last job or task status. If the flag is N, then the job's final status is JJJJJCOMPLETED.
+If a job is not failed immediately, the JOB TO BE FAILED flag determines the success or failure of a job in Enterprise Manager Operation. If the flag is set to Y for multiple reasons, Enterprise Manager Operation takes the last job or task status.
+
+If the flag is N, the job finishes OK, but the status message depends on whether any subordinate task failed. If no task failed, the final status is JJJJJCOMPLETED. If one or more tasks failed and the flag was never left at Y, the agent sends JJJJJTASK(S) FAILED with the same Finished OK job status.
+
+:::info Note
+
+JJJJJTASK(S) FAILED is a Finished OK status, not a failure. It means the WFL itself completed and at least one task inside it did not. To have the job reported as failed instead, set task-level checking to I or T, or code the WFL to ABORT.
+
+:::
 
 ### Job To Be Failed Flag Effects
 
 
 | Job to be Failed | Final Status | Status Message <br></br> JJJJJ = Job Mix Number <br></br> TTTTT = Task Mix Number |
 | ---------------- | ------------ | --------------------------------------------------------------------------------- |
-| Set to Y | FAILED | JJJJJ/TTTTTFAIL MSG |
-| Set to Y | FAILED | JJJJJ/TTTTTTASK FAIL |
-| Set to N | FINISHED OK | JJJJJCOMPLETED |
+| Set to Y by a Fail Code match | FAILED | JJJJJ/TTTTTFAIL MSG |
+| Set to Y by a task failure | FAILED | JJJJJ/TTTTTTASK FAIL |
+| Set to N, no task failed | FINISHED OK | JJJJJCOMPLETED |
+| Set to N, one or more tasks failed | FINISHED OK | JJJJJTASK(S) FAILED |
 
