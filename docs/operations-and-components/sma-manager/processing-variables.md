@@ -36,7 +36,7 @@ The following sections describe each field on the SMAVAR screen. A default value
 
 ### Max number concurrent jobs
 
-This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. The default value is **10**; valid range is **1–500**. Tracked Jobs are not included in this number, but the same limit applies. A change to this field requires that the agent be stopped and restarted to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and reload when you select this action from the Main Menu.
+This field is a numeric value representing the maximum number of jobs initiated by OpCon that should be monitored at any given time. The default value is **10**; valid range is **1–500**. Tracked Jobs are not included in this number, and this field does not limit them. The \*SMA/SURROGATE program tracks up to 500 jobs regardless of the value set here, and refuses further tracking requests with "Already tracking max number of jobs" once that limit is reached. A change to this field requires that the agent be stopped and restarted to implement the new value. This is the only field for which this is the case; all other configuration file changes are dynamic and reload when you select this action from the Main Menu.
 
 ### Task level checking
 
