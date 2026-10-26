@@ -54,7 +54,11 @@ After changing the configuration variable "max number concurrent jobs", remove t
 
 2. ```*SMA/CP/MCS/xxx/= ON <packname>```
 
+3. ```*SMA/CP/LIB/= ON <packname>```
+
 Be sure to check ALL families on the system - not just the family on which the agent runs.
+
+This is one of several errors produced by the same cause. For the full list of errors, the module that reports each one, and the complete list of files to remove, refer to [Update the "Max Number Concurrent Jobs" Field](../../configuration/update-max-concurrent-jobs.md).
  
 ## Job Stuck in "Wait Machine" State
 
@@ -108,25 +112,45 @@ Receiving a NOT JOB FILE error.
  
 #### Possible Explanation:
  
-The WFL file's FILEKIND is neither JOBSYMBOL nor SEQDATA.
+The WFL file's FILEKIND is not JOBSYMBOL, DATA, or SEQDATA. The MCP Agent accepts all three for a job initiated with the START command.
 
 ##### Operator Response:
 
-Using CANDE or DUMPALL, change the FILEKIND attribute of the WFL file to JOBSYMBOL or SEQDATA. Contact the MCP-platform system administrator to request this action.
+Using CANDE or DUMPALL, change the FILEKIND attribute of the WFL file to JOBSYMBOL, DATA, or SEQDATA. Contact the MCP-platform system administrator to request this action.
+
+:::caution
+
+Change the FILEKIND only when the file holds WFL source. Because the agent accepts DATA, a File Title that names a genuine data file passes this check and the agent compiles the data as WFL. The job then fails with WFL SYNTAX ERR rather than NOT JOB FILE. Verify the File Title names the intended WFL before changing any file attribute.
+
+:::
  
-## Job Status "PARAM/ATTR" Error
+## Job Status "INV PARM LOC" or "PARAM/ATTR" Error
 
 #### Full Description
 
-Receiving a PARAM/ATTR ERR status.
- 
-#### Possible Explanation:
- 
-On Enterprise Manager's Job Details screen, the job's "File Title" field contains a parameter following the file title.
+Receiving an INV PARM LOC or a PARAM/ATTR ERR status. Which of the two the agent sends depends on what the File Title field contains.
 
-##### Operator Response:
+#### First Possible Explanation:
+ 
+On Enterprise Manager's Job Details screen, the job's "File Title" field contains a parameter in parentheses. Effective with MCP Agent 04.12, the agent detects the opening parenthesis and reports INV PARM LOC.
+
+##### First Operator Response:
 
 On the Enterprise Manager's Job Details screen, place the parameter in the job's "Arguments" field. For more information on this response, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help.
+
+#### Second Possible Explanation:
+ 
+The "File Title" field contains text following the file title that is not a parenthesized parameter, or a character that is not valid in a ClearPath MCP file title. The agent reports PARAM/ATTR ERR.
+
+##### Second Operator Response:
+
+Remove the extra text from the "File Title" field, leaving only the file title of the process to start, and verify the title against the rules for entity names. Place any parameter in the job's "Arguments" field.
+
+:::info Note
+
+Both statuses carry the mix number 00000, because the agent rejects the request before starting anything on the ClearPath MCP. For more information, refer to [Machine Messages](../machine-messages.md).
+
+:::
  
 ## PROCESSCHECK not Working
 

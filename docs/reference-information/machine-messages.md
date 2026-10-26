@@ -20,8 +20,37 @@ This page is a comprehensive alphabetical reference of all status messages the M
 The list presents agent status messages forwarded to the SAM and supporting services. The message descriptions are displayed in the graphical interfaces following the job status.
  
 The 20-character status description field contains a five-character area reserved for the ClearPath MCP mix number followed by a 15-character description.
+
+When the agent rejects a job initiation before anything starts on the ClearPath MCP, the mix number area is 00000 because no mix exists. INV PARM LOC, NO WFL FILE, NOT JOB FILE, and PARAM/ATTR ERR are reported this way. Do not search the mix for a compile task; none was started.
  
 All TX messages referenced below indicate a message sent from SMANetCom to the agent.
+
+## Tracked job status texts
+
+Statuses for tracked (adopted) jobs are left-justified in a nine-character area followed by `-ADOPT`, filling the 15-character description field. Search for the text exactly as it appears below:
+
+| Exact status text | Description |
+| ----------------- | ----------- |
+| `RUNNING  -ADOPT` | The tracked job is running. |
+| `COMPLETED-ADOPT` | The tracked job completed successfully. |
+| `FAILED   -ADOPT` | The tracked job failed. |
+| `P-DS     -ADOPT` | The tracked job terminated itself. This is a programmatic DS, not a fault. |
+| `F-DS     -ADOPT` | The tracked job experienced a fault and was terminated abnormally. |
+| `O-DS     -ADOPT` | The system operator terminated the tracked job abnormally. |
+| `DSED     -ADOPT` | The tracked job terminated abnormally. |
+| `NO MATCH -ADOPT` | The status of the tracked job could not be verified. |
+
+:::info Note
+
+The hyphen in `-ADOPT` is a plain hyphen, and `P-DS`, `F-DS`, and `O-DS` are hyphenated. Searching for an en dash or for `P DS` does not match what the agent sends.
+
+:::
+
+## ACCESSCODE ERR
+
+* An OpCon job initiation request (TX1) was received by the agent, but the usercode requires an accesscode and none was supplied.
+* Enter the accesscode on the MCP Job Details.
+* The job was not started on the MCP platform.
 
 ## ADOPTED
 
@@ -42,7 +71,7 @@ An OpCon job initiation request (TX1) was received for this job and the job is r
 
 The job completed successfully.
 
-## COMPLETED–ADOPT
+## COMPLETED-ADOPT
 
 A tracked job has completed successfully.
 
@@ -57,7 +86,7 @@ A tracked job has completed successfully.
 
 The job terminated abnormally.
 
-## DSED - ADOPT
+## DSED -ADOPT
 
 The external tracked job terminated abnormally.
 
@@ -69,7 +98,7 @@ The job was DS'ed while still queued.
 
 The job experienced a fault and was terminated abnormally.
 
-## F DS - ADOPT
+## F-DS -ADOPT
 
 The externally tracked job experienced a fault and was terminated abnormally.
 
@@ -77,13 +106,15 @@ The externally tracked job experienced a fault and was terminated abnormally.
 
 The WFL displayed a message that matched one of the Fail Codes, causing the job to be reported as failed in Enterprise Manager Operation.
 
-## FAILED - ADOPT
+## FAILED -ADOPT
 
 A tracked job has failed. (The HISTORY task attribute indicates job finished in error and a specified reason has not been determined.)
 
 ## INV PARM LOC
 
 This error is caused by placing the WFL or program parameter on the File Title instead of the Arguments field of the Job Details. To resolve, modify the Job Details such that the parameter is located in the Arguments field.
+
+The mix number for this status is 00000. The agent rejects the request before starting anything on the ClearPath MCP.
 
 ## JJJJJ/TTTTTCOMP OK
 
@@ -117,7 +148,8 @@ This error is caused by placing the WFL or program parameter on the File Title i
 
 ## JJJJJ/TTTTTP DS
 
-* The task was terminated abnormally because of a program fault.
+* The task terminated itself. This is a programmatic DS, such as a DS the program issues on an error it detects.
+* This status does not indicate a fault. Check what the program does on error before looking for one. A task that faulted reports JJJJJ/TTTTTF DS.
     * JJJJJ is the job number.
     * TTTTT is the task number.
 
@@ -133,7 +165,7 @@ This error is caused by placing the WFL or program parameter on the File Title i
     * JJJJJ is the job number.
     * TTTTT is the task number.
 
-## JJJJJ/TTTTTSNTX/SCRY
+## JJJJJ/TTTTTSNTX/SCRTY
 
 * An OpCon task initiation request (TX1) was received by the agent, but the initiation attempt failed because of an invalid syntax used in the construction of the file title.
     * JJJJJ is the job number.
@@ -147,8 +179,8 @@ This error is caused by placing the WFL or program parameter on the File Title i
 
 ## JOB MISMATCH
 
-* This message may be received in response to a TX1 or TX2 request.
-* It indicated that the external job was located in the tracking file, but the stack number and/or process name belonging to the mix number assigned to this job cannot be verified with certainty.
+* This message is sent in response to a TX2 request.
+* It indicates that the external job was located in the tracking file, but the stack number and/or process name belonging to the mix number assigned to this job cannot be verified with certainty.
 * The most probable cause is a delay in the TX1 reaching *SMA/SURROGATE — perhaps because the agent was not up at the time the job was adopted, or the MCP machine was marked down on the Enterprise Manager when the job was adopted, resulting in a delayed TX1 which reached *SMA/SURROGATE some time after the job completed.
 
 ## JOB NOT ACTIVE
@@ -168,7 +200,7 @@ This error is caused by placing the WFL or program parameter on the File Title i
 * The maximum number is defined in the agent configuration file.
 * OpCon attempts job initiation again.
 
-## LSAMRESTARTING
+## LSAM RESTARTING
 
 * This message is sent following a restart/recovery of the agent modules.
 * The job was present in the agent arrays before the agent terminated.
@@ -199,8 +231,10 @@ The PARAM/ATTR ERR message replaces NO JOB TITLE when the "Contemporary, XML" pr
 ## NO WFL FILE
 
 * The Details screen in the Enterprise Manager contains the START command, but the file named in the File Title is not present. Verify the usercode, family, and spelling.
-* The mix number of this status description belongs to the agent task that initiates the WFL compile. It is not the mix number for the WFL compile itself.
+* The file named in the File Title is present but is not available to the agent.
+* The file was not found on any family in the usercode's FAMILY specification. The agent follows the primary and secondary alternate families, and reports this status when the specification ends in ONLY or when no alternate family remains to search.
 * The usercode does not have a family assignment and the Job Details File Title does not include the family name of the WFL.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP. It is not the mix number of the agent task that initiates the WFL compile, and there is no compile task to find in the mix.
  
 :::info Note 
 
@@ -224,34 +258,32 @@ This message is sent in response to an OpCon job status request (TX2) or to an O
 ## NOT JOB FILE
 
 *  The Details screen in the Enterprise Manager contains the START command, but the File Title is not the name of an existing WFL file.
-* The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to JOBSYMBOL, DATA, or SEQDATA.
-
-## NOT VALID
-
-* The job could not be located and the status is unknown.
-* This message may be received following a restart/recovery of the agent modules.
-* This message usually indicates the job has completed (normally or abnormally).
+* The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to one of those three only when the file holds WFL source; a data file passes the check and then fails to compile, reporting WFL SYNTAX ERR instead.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP.
 
 ## O DS
 
 The system operator terminated the job abnormally.
 
-## O DS - ADOPT
+## O-DS -ADOPT
 
 The system operator terminated the tracked job abnormally.
 
 ## P DS
 
-The job was terminated abnormally because of a program fault.
+* The job terminated itself. This is a programmatic DS, such as a WFL ABORT or a DS the program issues on an error it detects.
+* This status does not indicate a fault. Check what the WFL or program does on error before looking for one. A job that faulted reports F DS.
 
-## P DS - ADOPT
+## P-DS -ADOPT
 
-The external job was terminated abnormally because of a program fault.
+The tracked job terminated itself. This is a programmatic DS, not a fault. Refer to [P DS](#p-ds).
 
 ## PARAM/ATTR ERR
 
 * An OpCon job initiation request (TX1) was received by the agent, but the initiation attempt failed because of a parameter mismatch or invalid attribute (job name does not conform to the rules for entity names).
-* If the START command was used, the mix number of this status description belongs to the agent task initiating the WFL compile and not to the mix number for the WFL compile itself. A possible cause for this error is that the Details screen in the Enterprise Manager contains the START or RUN command, but the file named in the File Title is not present. Verify the USERCODE, FAMILY, and spelling.
+* The File Title contains a character that is not valid in a ClearPath MCP file title. Verify the File Title against the rules for entity names.
+* A possible cause for this error is that the Details screen in the Enterprise Manager contains the START or RUN command, but the file named in the File Title is not present. Verify the USERCODE, FAMILY, and spelling.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP. It is not the mix number of the agent task that initiates the WFL compile.
 
 ## PARAMETER ERR
 
@@ -293,7 +325,7 @@ The Prerun job is in the waiting mix.
 * This message will also be seen if a WFL has been DS'ed and is waiting for tasks to complete.
 * This message is also generated when a process resumes execution following a wait, such as that caused by a suspension awaiting an operator response.
 
-## RUNNING –ADOPT
+## RUNNING -ADOPT
 
 OpCon has received the tracking request and responded with a TX1 message. SMA/SURROGATE has received the TX1 message and the job is running.
 
@@ -306,14 +338,28 @@ OpCon has received the tracking request and responded with a TX1 message. SMA/SU
 
 An OpCon job initiation request (TX1) was received by the agent, but the initiation attempt failed because of an invalid syntax used in the construction of the file title.
 
+## STATUS UNKNOWN
+
+* The job could not be located and the status is unavailable.
+* This message may be received following a restart/recovery of the agent modules.
+* This message usually indicates the job has completed (normally or abnormally).
+
 ## TASK(S) FAILED
 
 The job completed successfully, but one or more of the subordinate tasks within the WFL failed.
 
-## TASK FAILED JOB
+## TASK FAIL
 
-* The configuration option Fail Job if Task Fails has been set to Y.
 * A subordinate task of the WFL has failed and consequently the Enterprise Manager has reported the job as failed.
+* Task level checking is set to I or T. With I, the agent sends this status as soon as the task fails. With T, the agent sends it when the job ends. For more information, refer to [Task-Level Checking](../configuration/set-up-failure-status-message.md#task-level-checking).
+* If the job finished OK and a task failed, the agent sends TASK(S) FAILED instead.
+
+## UNABLE TO INQUIRE
+
+* The GETSTATUS call the agent uses to ask the ClearPath MCP for a job's status failed.
+* This message is sent during restart/recovery of the agent modules, when the agent inquires about jobs that were active before it stopped.
+* When the call returns an error number, the agent sends the first 12 characters of the description followed by the three-digit error number, in the form UNABLE TO INnnn.
+* Manually determine the completion status of the job and mark it accordingly on the Enterprise Manager.
 
 ## UNKNOWN ERROR
 
@@ -339,3 +385,10 @@ The job completed successfully, but one or more of the subordinate tasks within 
 * The File Title field on the Details screen in the Enterprise Manager may contain extraneous characters, such as CR/LF, START, or RUN.
 * The File Title field should contain only the file title of the process to be initiated; furthermore, if the job is being initiated using a RUN command, the appropriate task attributes should also be included.
 * The WFL source file contains an "INCLUDE" statement that references a file that cannot be found. The WFL compile was DS'ed.
+* The File Title names a data file rather than a WFL. The agent accepts a FILEKIND of JOBSYMBOL, DATA, or SEQDATA for a job initiated with the START command, so a data file passes the file type check and is compiled as WFL. Verify the File Title names the intended WFL.
+
+:::tip
+
+If this status appears on a WFL that nobody changed, check whether the File Title names a data file. The status reports a failed compile, not a defect in the WFL the job was meant to run.
+
+:::

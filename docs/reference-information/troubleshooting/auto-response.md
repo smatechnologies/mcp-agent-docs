@@ -18,11 +18,11 @@ AutoResponse is configured, but does not appear to be responding to displays.
  
 #### First Possible Explanation:
  
-The global displays file is missing. Effective with MCP Agent 04.14.02, this file is no longer required.
+The response is defined at the global level, but the global displays file is missing. Effective with MCP Agent 04.14.02, the global displays file is optional, so the MCP Agent starts normally and reports no error when the file is absent — it simply has no global entries to match against.
 
 *First Operator Response:*
 
-Create a \*SMA/DISPLAYS/xxx file. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor.md#files-rules).
+Create a \*SMA/DISPLAYS/xxx file under the agent's usercode, then select the LOADDISP choice on the SMA/MANAGER Main Menu and select the Global Displays file. Alternatively, define the response in a job-specific or template displays file, which takes effect without a reload. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/automated-response.md#file-rules).
 
 #### Second Possible Explanation:
  
@@ -30,7 +30,7 @@ The global displays file is under a different usercode than the agent.
 
 *Second Operator Response:*
 
-Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or copy it under the correct usercode. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor.md#files-rules).
+Change the usercode of the \*SMA/DISPLAYS/xxx file to the correct usercode, or copy it under the correct usercode. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/automated-response.md#file-rules).
 
 #### Third Possible Explanation:
  
@@ -67,7 +67,7 @@ Verify the agent is up and is communicating with the SAM. For information on ver
 External event is sent to SAM, but an error is reported in the critical log.
 
 ##### Second Operator Response:
-Verify the external token is the correct external events token and is not the Enterprise Manager password. For more information on this response, refer to [Update the Configuration File](../../additional-features/lsam-features/user-defined-restart-checkpoints.md#update-the-configuration-file).
+Verify the external token is the correct external events token and is not the Enterprise Manager password. For more information on this response, refer to [General LSAM Configuration (GEN)](../../configuration/general-lsam-configuration.md).
 
 ## Changes to Display Monitor Rules not Applied
 
@@ -81,7 +81,7 @@ The \*SMA/DISPLAYS/xxx file was modified, but the *SMA/DISPLAY/HANDLER/xxx progr
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the agent's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor.md#files-rules).
+After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the agent's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/automated-response.md#file-rules).
  
 ## Title Missing "." @41800
 
@@ -91,11 +91,11 @@ ATTRIBUTE ERROR:JOB-DISPLAYS TITLE MISSING "." @41800 is displayed by \*SMA/DISP
  
 #### Possible Explanation:
  
-The job's File Title field on the Enterprise Manager's Job Details screen contains WFL parameters.
+The job's File Title field on the Enterprise Manager's Job Details screen contains WFL parameters. The \*SMA/DISPLAY/HANDLER/xxx builds the job-specific displays file title from this field, and the parameters make the resulting title invalid.
 
 ##### Operator Response:
 
-After making modifications to the \*SMA/DISPLAYS/xxx file, copy it under the agent's usercode and deliver an "AX REFRESH" to the \*SMA/DISPLAY/HANDLER/xxx program. For more information on this response, refer to [File Rules](../../additional-features/lsam-features/file-monitor.md#files-rules).
+Remove the WFL parameters from the **File Title** field on the Job Details and supply them through the job's parameter fields instead. If the job requires parameters in the File Title field, enter a template file name on the Job Details so the \*SMA/DISPLAY/HANDLER/xxx builds the title from the template name. For more information on template displays files, refer to [Create the Necessary Displays File(s)](../../additional-features/lsam-features/automated-response.md#create-the-necessary-displays-files).
  
 ## Jobs Stuck in "Waiting" State
 
@@ -109,7 +109,7 @@ The Idle Timer is configured for a long interval.
 
 ##### Operator Response:
 
-Reduce the Idle Timer. For more information on this response, refer to [Idle Timer](../../additional-features/lsam-features/resource-monitor.md#smafilemonitor-behavior).
+Reduce the Idle Timer. For more information on this response, refer to [Communication Parameters (COMM)](../../configuration/communication-parameters.md).
 
 :::info Note 
 

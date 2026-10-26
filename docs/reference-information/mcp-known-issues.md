@@ -45,6 +45,10 @@ ASSERTION FAILURE ON RANGE TEST @ (Expression out of range 91700)
 
 The above error occurs if the "Max number concurrent jobs" configuration value is changed and the agent was restarted before removing the agent's tracking file. For information on modifying the "Max number concurrent jobs" option, refer to [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs.md).
 
+### Other Errors from the Same Cause
+
+\*SMA/MCP/INTERFACE/xxx also reports F-DS INVALID INDEX @ 02412000 and INVALID INDEX @ (04637000) for this cause, and \*SMA/ALGOLPROCS/xxx reports SEG ARRAY ERR around 924100 when the \*SMA/CP/LIB/= files are left behind. [Update the "Max Number Concurrent Jobs" Field](../configuration/update-max-concurrent-jobs.md) lists every error with the module that reports it, and SMA/MANAGER warns about the removal when the value is saved.
+
 ## JORS Limitations
 
 The Job Output Retrieval System (JORS) functionality is currently reserved for OpCon jobs initiated with the START command. Enabling this functionality for OpCon jobs initiated with the RUN command is under consideration for future implementation.
