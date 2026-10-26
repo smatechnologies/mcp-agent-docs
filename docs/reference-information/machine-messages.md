@@ -46,6 +46,12 @@ The hyphen in `-ADOPT` is a plain hyphen, and `P-DS`, `F-DS`, and `O-DS` are hyp
 
 :::
 
+## ACCESSCODE ERR
+
+* An OpCon job initiation request (TX1) was received by the agent, but the usercode requires an accesscode and none was supplied.
+* Enter the accesscode on the MCP Job Details.
+* The job was not started on the MCP platform.
+
 ## ADOPTED
 
 This message indicates that a tracking request has been received by the agent.
@@ -158,7 +164,7 @@ The mix number for this status is 00000. The agent rejects the request before st
     * JJJJJ is the job number.
     * TTTTT is the task number.
 
-## JJJJJ/TTTTTSNTX/SCRY
+## JJJJJ/TTTTTSNTX/SCRTY
 
 * An OpCon task initiation request (TX1) was received by the agent, but the initiation attempt failed because of an invalid syntax used in the construction of the file title.
     * JJJJJ is the job number.
@@ -193,7 +199,7 @@ The mix number for this status is 00000. The agent rejects the request before st
 * The maximum number is defined in the agent configuration file.
 * OpCon attempts job initiation again.
 
-## LSAMRESTARTING
+## LSAM RESTARTING
 
 * This message is sent following a restart/recovery of the agent modules.
 * The job was present in the agent arrays before the agent terminated.
@@ -253,12 +259,6 @@ This message is sent in response to an OpCon job status request (TX2) or to an O
 *  The Details screen in the Enterprise Manager contains the START command, but the File Title is not the name of an existing WFL file.
 * The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to one of those three only when the file holds WFL source; a data file passes the check and then fails to compile, reporting WFL SYNTAX ERR instead.
 * The mix number for this status is 00000, since nothing was started on the ClearPath MCP.
-
-## NOT VALID
-
-* The job could not be located and the status is unknown.
-* This message may be received following a restart/recovery of the agent modules.
-* This message usually indicates the job has completed (normally or abnormally).
 
 ## O DS
 
@@ -336,14 +336,28 @@ OpCon has received the tracking request and responded with a TX1 message. SMA/SU
 
 An OpCon job initiation request (TX1) was received by the agent, but the initiation attempt failed because of an invalid syntax used in the construction of the file title.
 
+## STATUS UNKNOWN
+
+* The job could not be located and the status is unavailable.
+* This message may be received following a restart/recovery of the agent modules.
+* This message usually indicates the job has completed (normally or abnormally).
+
 ## TASK(S) FAILED
 
 The job completed successfully, but one or more of the subordinate tasks within the WFL failed.
 
-## TASK FAILED JOB
+## TASK FAIL
 
-* The configuration option Fail Job if Task Fails has been set to Y.
 * A subordinate task of the WFL has failed and consequently the Enterprise Manager has reported the job as failed.
+* Task level checking is set to I or T. With I, the agent sends this status as soon as the task fails. With T, the agent sends it when the job ends. For more information, refer to [Task-Level Checking](../configuration/set-up-failure-status-message.md#task-level-checking).
+* If the job finished OK and a task failed, the agent sends TASK(S) FAILED instead.
+
+## UNABLE TO INQUIRE
+
+* The GETSTATUS call the agent uses to ask the ClearPath MCP for a job's status failed.
+* This message is sent during restart/recovery of the agent modules, when the agent inquires about jobs that were active before it stopped.
+* When the call returns an error number, the agent sends the first 12 characters of the description followed by the three-digit error number, in the form UNABLE TO INnnn.
+* Manually determine the completion status of the job and mark it accordingly on the Enterprise Manager.
 
 ## UNKNOWN ERROR
 
