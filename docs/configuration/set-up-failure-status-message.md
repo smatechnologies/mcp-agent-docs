@@ -29,6 +29,30 @@ During the processing of a job or a task, a match between the console display an
 
 Use of Fail Codes is an alternative solution to programming a WFL to ABORT if a program IS NOT COMPLETED OK. Use of Fail Resets provides greater flexibility in assigning job statuses. For example, a critical application's success can reset the JOB TO BE FAILED flag despite the failure of other non-critical tasks. Refer to [Failure Criteria](https://help.smatechnologies.com/opcon/core/job-types/mcp#failure-criteria) in the Concepts online help.
 
+### How the Agent Matches Fail Code and Fail Reset Text
+
+The MCP Agent compares the text in the Fail Code and Fail Reset fields against the console display using the following rules. All four fields, two Fail Codes and two Fail Resets, are compared the same way.
+
+* **Each entry must end with an asterisk (`*`).** The asterisk marks the end of the text to compare. An entry without an asterisk is never compared against any display.
+* **The comparison starts at the character immediately after the first colon (`:`) in the display.** If the display contains no colon, the comparison starts at the beginning of the display text.
+* **The comparison is case-sensitive.** `out of*` does not match the display text `OUT OF BALANCE`.
+* **Only the text before the asterisk is compared**, up to a maximum of 40 characters, so the entry matches a display that begins with that text.
+
+Because the comparison begins immediately after the colon, any space that follows the colon in the display is part of the text being compared. For the console display `POST: OUT OF BALANCE`, the compared text begins with a space:
+
+| Fail Code entry | Matches | Reason |
+| --------------- | ------- | ------ |
+| `OUT OF*` | No | The compared text starts with the space that follows the colon |
+| ` OUT OF*` (the entry begins with a space) | Yes | The leading space matches the space that follows the colon |
+| `out of*` | No | The comparison is case-sensitive |
+| `OUT OF BALANCE` | No | The entry does not end with an asterisk |
+
+:::tip
+
+Enter the Fail Code exactly as the console shows it, including capitalization, starting from the character after the first colon, and end it with an asterisk.
+
+:::
+
 The next table shows all the factors involved in using the Fail Code/Fail Reset feature. Use the table to configure the MCP Agent's behavior upon a Fail Code or Fail Reset match.
 
 ### Fail Code/Fail Reset Conditions
