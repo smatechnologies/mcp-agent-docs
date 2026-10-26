@@ -251,7 +251,7 @@ This message is sent in response to an OpCon job status request (TX2) or to an O
 ## NOT JOB FILE
 
 *  The Details screen in the Enterprise Manager contains the START command, but the File Title is not the name of an existing WFL file.
-* The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to JOBSYMBOL, DATA, or SEQDATA.
+* The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to one of those three only when the file holds WFL source; a data file passes the check and then fails to compile, reporting WFL SYNTAX ERR instead.
 * The mix number for this status is 00000, since nothing was started on the ClearPath MCP.
 
 ## NOT VALID
@@ -369,3 +369,10 @@ The job completed successfully, but one or more of the subordinate tasks within 
 * The File Title field on the Details screen in the Enterprise Manager may contain extraneous characters, such as CR/LF, START, or RUN.
 * The File Title field should contain only the file title of the process to be initiated; furthermore, if the job is being initiated using a RUN command, the appropriate task attributes should also be included.
 * The WFL source file contains an "INCLUDE" statement that references a file that cannot be found. The WFL compile was DS'ed.
+* The File Title names a data file rather than a WFL. The agent accepts a FILEKIND of JOBSYMBOL, DATA, or SEQDATA for a job initiated with the START command, so a data file passes the file type check and is compiled as WFL. Verify the File Title names the intended WFL.
+
+:::tip
+
+If this status appears on a WFL that nobody changed, check whether the File Title names a data file. The status reports a failed compile, not a defect in the WFL the job was meant to run.
+
+:::

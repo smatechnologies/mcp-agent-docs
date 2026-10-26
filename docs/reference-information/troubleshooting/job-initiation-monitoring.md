@@ -112,11 +112,17 @@ Receiving a NOT JOB FILE error.
  
 #### Possible Explanation:
  
-The WFL file's FILEKIND is neither JOBSYMBOL nor SEQDATA.
+The WFL file's FILEKIND is not JOBSYMBOL, DATA, or SEQDATA. The MCP Agent accepts all three for a job initiated with the START command.
 
 ##### Operator Response:
 
-Using CANDE or DUMPALL, change the FILEKIND attribute of the WFL file to JOBSYMBOL or SEQDATA. Contact the MCP-platform system administrator to request this action.
+Using CANDE or DUMPALL, change the FILEKIND attribute of the WFL file to JOBSYMBOL, DATA, or SEQDATA. Contact the MCP-platform system administrator to request this action.
+
+:::caution
+
+Change the FILEKIND only when the file holds WFL source. Because the agent accepts DATA, a File Title that names a genuine data file passes this check and the agent compiles the data as WFL. The job then fails with WFL SYNTAX ERR rather than NOT JOB FILE. Verify the File Title names the intended WFL before changing any file attribute.
+
+:::
  
 ## Job Status "PARAM/ATTR" Error
 
