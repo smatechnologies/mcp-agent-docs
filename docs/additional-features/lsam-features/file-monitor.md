@@ -39,7 +39,7 @@ and
 
 2) a valid \*SMA/FILEMON/DEFS file is present. The \*SMA/INSTALL program automatically applies the necessary privileges during an installation or upgrade.
  
-Upon initiation, the File Monitor interrogates the status of all files defined within the definitions file, \*SMA/FILEMON/DEFS. If the monitored condition exists and the file has been altered since the last time File Monitor was active, the actions associated with the file will be performed. This behavior will also occur of the user delivers an AX RESTART to the \*SMA/FILE/MONITOR program.
+Upon initiation, the File Monitor interrogates the status of all files defined within the definitions file, \*SMA/FILEMON/DEFS. If the monitored condition exists and the file has been altered since the last time File Monitor was active, the actions associated with the file will be performed. This behavior will also occur if you deliver an AX RESTART to the \*SMA/FILE/MONITOR program.
 
 ## Update the Configuration Files
 
@@ -55,7 +55,7 @@ The File Monitor is started by the Resource Monitor. Refer to the discussion of 
 
 ## File Monitor Data File
 
-The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/FILEMON/DEFS/xxx file is examined at the beginning of each processing cycle and upon being notified of a new \*SMA/FILEMON/DEFS file by the Resource Monitor. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages.md).
+The File Monitor Definitions File (\*SMA/FILEMON/DEFS/xxx) contains the file names and conditions to be monitored, optionally the time of day during which to monitor for the file condition, and the OpCon event(s) and/or MCP command for each file. The \*SMA/RESOURCE/MONITOR reads the \*SMA/FILEMON/DEFS/xxx file when it starts and again each time it is notified of an updated definitions file, then passes the new definitions to the \*SMA/FILE/MONITOR. An error report is produced as a printer backup file. For a list of possible File Monitor errors and their descriptions, refer to [File Monitor Messages](../../reference-information/file-monitor-messages.md).
 
 ## Files Rules
 
@@ -63,7 +63,7 @@ To define and maintain file monitoring rules, complete the following steps:
 
 1. Edit the \*SMA/FILEMON/DEFS/xxx file using the *SMA/MANAGER program (?ON SMAMGRxxx). Select the FILEMENU choice, and edit/insert/delete records as desired.
 2. Save your changes.
-3. The File Monitor Data File is dynamic. After updating the file, From the Main Menu, select the LOADFILE choice.
+3. From the Main Menu, select the LOADFILE choice. The File Monitor Definitions File is not dynamic, so the \*SMA/RESOURCE/MONITOR continues to use the definitions it holds in memory until LOADFILE instructs it to reread the file.
 4. Any number of events are allowed for each file record.
 5. Blank lines are allowed. A percent sign (%) in position one of any record also causes that record to be treated as a comment record.
 6. The first position in each record must indicate the record type:
@@ -228,7 +228,7 @@ No. File Monitor runs as a privileged process under the Resource Monitor and ope
 Two: an equals sign (`=`) wildcards an entire filename node or suffix, and a question mark (`?`) wildcards a single character. They cannot be combined in the same file definition — use only `=` or only `?` within one F record.
 
 **Do I need to reload the Definitions File after making changes?**
-No — the File Monitor Definitions File (`*SMA/FILEMON/DEFS/xxx`) is dynamic. After saving changes in SMA/MANAGER, select the LOADFILE choice from the Main Menu and the File Monitor picks up the new definitions automatically.
+Yes. The File Monitor Definitions File (`*SMA/FILEMON/DEFS/xxx`) is not dynamic — the `*SMA/RESOURCE/MONITOR` loads the definitions into memory when it starts and keeps using them until it is told otherwise. After saving changes in SMA/MANAGER, select the LOADFILE choice from the Main Menu. SMA/MANAGER delivers an AX FILEMON to the `*SMA/RESOURCE/MONITOR`, which rereads the file and passes the new definitions to the `*SMA/FILE/MONITOR`.
 
 **What happens if a monitored file condition is already met when File Monitor starts?**
 Upon initiation, File Monitor checks the status of all defined files. If a monitored condition exists and the file has been altered since the last time File Monitor was active, the associated actions will be performed immediately.

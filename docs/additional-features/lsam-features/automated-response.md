@@ -23,7 +23,7 @@ The Automated Response (AutoResponse) feature allows the MCP Agent to respond to
 The following types of messages are forwarded to the display handler for Automated Response processing:
 
 * WFL or program displays that appear on the MCP console and appear in the system log, preceded by DISPLAY (the process does not go into the waiting mix).
-* WFL or program displays that appear on the MCP console and appear in the system log, proceeded by ACCEPT (the process goes into the waiting mix).
+* WFL or program displays that appear on the MCP console and appear in the system log, preceded by ACCEPT (the process goes into the waiting mix).
 * System messages that appear on the MCP console or appear in the system log. The *SMA/RESOURCE/MONITOR, not the MCP Agent, captures system messages. Enable the Resource Monitor to use Automated Response for system messages.
 * Job completion messages for the OpCon job when this job-level feature is enabled by selecting the **EOT Notice Message** option on the Job Details. For more information on utilizing this feature, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help. Possible completion status values are "EOT", "EOJ", and "DS". Explicit reasons for job/task discontinuance are not included in the display to simplify creation of the automated response entries in the displays files. All forms of DS (e.g., I-DS, F-DS, O-DS, P-DS, etc.) are denoted as "DS".
 
@@ -41,7 +41,7 @@ b. **Resource Monitor Freq**: To capture and analyze messages emitted by process
 
 ### Create the Necessary Displays File(s)
 
-A Displays File contains the definition of the MCP tokens to compare to a console message and also contains the action to take when a match is found. An token is defined as a word (a contiguous group of one or more letters, numbers, and/or special characters) preceded and followed by a single blank space. If more than one space separates the text of a message, each additional space is counted as one token when calculating the ordinal position of the target text.
+A Displays File contains the definition of the MCP tokens to compare to a console message and also contains the action to take when a match is found. A token is defined as a word (a contiguous group of one or more letters, numbers, and/or special characters) preceded and followed by a single blank space. If more than one space separates the text of a message, each additional space is counted as one token when calculating the ordinal position of the target text.
  
 The following four kinds of Displays Files are allowed:
 
@@ -52,9 +52,7 @@ More efficient processing can be achieved by using Template or Job-specific Disp
 If you suspect that you are experiencing a delay due to high display message volume, you may determine the number of display messages waiting to be processed by selecting the MSGCOUNT choice of the SMAMGR Main Menu. The display message backlog will be returned. To view the previous information, refer to [Create the Necessary Displays File(s)](../../reference-information/legacy.md#create-the-necessary-displays-files) in the Legacy Information topic.
 
 * The Global Displays File is optional and, if used, must be named \*SMA/DISPLAYS/xxx.
-* The Global Displays File is not dynamic. After updating \*SMA/DISPLAYS/xxx, issue the AX REFRESH command to the \*SMA/DISPLAY/HANDLER/xxx to reload the Displays File.
-
-The Global Message Definitions File is not dynamic. After updating the *SMA/DISPLAYS/xxx, instruct the MCP Agent to reload the Definitions File using the LOADDISP option of SMA/MANAGER and selecting the Global Displays file.
+* The Global Displays File is not dynamic. The \*SMA/DISPLAY/HANDLER/xxx reads it into an internal table when it opens the file, so edits have no effect until the file is reloaded. After updating \*SMA/DISPLAYS/xxx, select the LOADDISP choice on the SMA/MANAGER Main Menu and select the Global Displays file. SMA/MANAGER delivers an AX REFRESH to the \*SMA/DISPLAY/HANDLER/xxx, which closes and reopens the file.
 
 * **Template**: Entries in Template Displays File are only applied to the associated jobs. The use of a Template Displays File precludes the use of a job-specific Displays File for that job. Template Displays Files are associated with specific OpCon jobs by denoting the template file name on the MCP Job Details. Template Displays Files must be named \*SMA/DISPLAYS/```<unique template file name>```. Template Displays Files are dynamic. There is no need to reload the file after updating a Job-specific or Template Displays File. For further information on the SMA/DISPLAYS template file, refer to [MCP Job Details](https://help.smatechnologies.com/opcon/core/job-types/mcp) in the Concepts online help.
 
@@ -88,7 +86,7 @@ b. If a Job-specific Displays File is required, create a SEQDATA file named \*SM
 
 9. If the Global Displays File was modified, notify the \*SMA/DISPLAY/HANDLER to refresh its internal tables with the new definitions using the LOADDISP option of the Main Menu of SMAMGRxxx, and selecting the Global Displays file.
 
-10. If the System Messages File was modified, notify the \*SMA/DISPLAY/HANDLER and \*SMA/RESOURCE/MONITOR to refresh its internal tables with the new definitions using the LOADDISP option of the Main Menu of SMAMGRxxx and selecting the System Messages file.
+10. If the System Messages File was modified, notify the \*SMA/RESOURCE/MONITOR to refresh its internal tables with the new definitions using the LOADDISP option of the Main Menu of SMAMGRxxx and selecting the System Messages file. SMA/MANAGER delivers an AX SYSMSG to the \*SMA/RESOURCE/MONITOR, which captures system messages for Automated Response.
 
 11. If a Job-specific or Template Displays File was modified, no notification is necessary.
 
@@ -268,11 +266,11 @@ b. The file on the ClearPath MCP is copied:
 
 ```
 
-COPY EOM/BUDGET/DATA AS SAVE/EOM/BUDGET/DATA
+COPY EOM/BUDGET/DATA AS EOM/BUDGET/DATA/SAVE
 
 ```
 
-c. The program is prompted to continue: ```12345 OK```
+c. The program is prompted to continue: ```12345 AX OK```
 
 ## FAQs
 

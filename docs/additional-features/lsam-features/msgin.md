@@ -32,7 +32,13 @@ b. MSGIN: Family
 
 To define an external event using MSGIN, complete the following steps:
 
-1. Create a SEQDATA file named \*SMA/MSGIN/```<user defined name>```.
+1. Create a SEQDATA file named \*MSGIN/```<user defined name>```. If the MCP Agent runs as a named instance, name the file \*SMA/MSGIN/```<instance name>```/```<user defined name>``` instead.
+
+:::info Note
+
+The \*SMA/MSGIN/DETECTOR searches the node it was configured for, not an arbitrary location. A standard MCP Agent searches \*MSGIN; an instance started with a name suffix searches \*SMA/MSGIN/```<instance name>```. If **Family** is set under [MCP MSGIN Parameters](../../configuration/optional-modules.md#family), create the file on that family.
+
+:::
 
 2. In the first record, enter a valid User Login ID and event external token.
 
@@ -43,6 +49,12 @@ To define an external event using MSGIN, complete the following steps:
 :::info Note
 
 An external event definition, including User Login ID and event external token, cannot be longer than 738 characters.
+
+:::
+
+:::info Note
+
+The \*SMA/MSGIN/DETECTOR removes each file after it forwards the event. Write a new file for each event rather than reusing one file.
 
 :::
 
