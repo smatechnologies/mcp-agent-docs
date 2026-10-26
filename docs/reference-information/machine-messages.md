@@ -20,6 +20,8 @@ This page is a comprehensive alphabetical reference of all status messages the M
 The list presents agent status messages forwarded to the SAM and supporting services. The message descriptions are displayed in the graphical interfaces following the job status.
  
 The 20-character status description field contains a five-character area reserved for the ClearPath MCP mix number followed by a 15-character description.
+
+When the agent rejects a job initiation before anything starts on the ClearPath MCP, the mix number area is 00000 because no mix exists. INV PARM LOC, NO WFL FILE, NOT JOB FILE, and PARAM/ATTR ERR are reported this way. Do not search the mix for a compile task; none was started.
  
 All TX messages referenced below indicate a message sent from SMANetCom to the agent.
 
@@ -105,6 +107,8 @@ A tracked job has failed. (The HISTORY task attribute indicates job finished in 
 ## INV PARM LOC
 
 This error is caused by placing the WFL or program parameter on the File Title instead of the Arguments field of the Job Details. To resolve, modify the Job Details such that the parameter is located in the Arguments field.
+
+The mix number for this status is 00000. The agent rejects the request before starting anything on the ClearPath MCP.
 
 ## JJJJJ/TTTTTCOMP OK
 
@@ -220,8 +224,10 @@ The PARAM/ATTR ERR message replaces NO JOB TITLE when the "Contemporary, XML" pr
 ## NO WFL FILE
 
 * The Details screen in the Enterprise Manager contains the START command, but the file named in the File Title is not present. Verify the usercode, family, and spelling.
-* The mix number of this status description belongs to the agent task that initiates the WFL compile. It is not the mix number for the WFL compile itself.
+* The file named in the File Title is present but is not available to the agent.
+* The file was not found on any family in the usercode's FAMILY specification. The agent follows the primary and secondary alternate families, and reports this status when the specification ends in ONLY or when no alternate family remains to search.
 * The usercode does not have a family assignment and the Job Details File Title does not include the family name of the WFL.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP. It is not the mix number of the agent task that initiates the WFL compile, and there is no compile task to find in the mix.
  
 :::info Note 
 
@@ -246,6 +252,7 @@ This message is sent in response to an OpCon job status request (TX2) or to an O
 
 *  The Details screen in the Enterprise Manager contains the START command, but the File Title is not the name of an existing WFL file.
 * The File Title indicates the name of a file whose file type is other than JOBSYMBOL, DATA, or SEQDATA. Change the file type to JOBSYMBOL, DATA, or SEQDATA.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP.
 
 ## NOT VALID
 
@@ -272,7 +279,9 @@ The external job was terminated abnormally because of a program fault.
 ## PARAM/ATTR ERR
 
 * An OpCon job initiation request (TX1) was received by the agent, but the initiation attempt failed because of a parameter mismatch or invalid attribute (job name does not conform to the rules for entity names).
-* If the START command was used, the mix number of this status description belongs to the agent task initiating the WFL compile and not to the mix number for the WFL compile itself. A possible cause for this error is that the Details screen in the Enterprise Manager contains the START or RUN command, but the file named in the File Title is not present. Verify the USERCODE, FAMILY, and spelling.
+* The File Title contains a character that is not valid in a ClearPath MCP file title. Verify the File Title against the rules for entity names.
+* A possible cause for this error is that the Details screen in the Enterprise Manager contains the START or RUN command, but the file named in the File Title is not present. Verify the USERCODE, FAMILY, and spelling.
+* The mix number for this status is 00000, since nothing was started on the ClearPath MCP. It is not the mix number of the agent task that initiates the WFL compile.
 
 ## PARAMETER ERR
 
